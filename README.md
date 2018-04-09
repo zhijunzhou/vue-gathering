@@ -1,4 +1,4 @@
-# vue-gathering
+# vue-gathering [![Build Status](https://travis-ci.org/zhijunzhou/vue-gathering.svg?branch=master)](https://travis-ci.org/zhijunzhou/vue-gathering)
 
 > Vue Gathering
 
