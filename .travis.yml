@@ -8,12 +8,8 @@ cache:
 
 before_script:
 
-# --user ${ftp_user} --passwd ${ftp_pwd} ${ftp_url}
 script:
   - npm run build
-  - git config git-ftp.url ${ftp_url}
-  - git config git-ftp.user ${ftp_user}
-  - git config git-ftp.password ${ftp_pwd}
   
 after_script:
   - cd ./dist
@@ -21,11 +17,8 @@ after_script:
   - git config user.name "${U_NAME}"
   - git config user.email "${U_EMAIL}"
   - git add .
-  - git ftp init
-  # - git ftp catchup
   - git commit -m "Update tools"
   - git push --force --quiet "https://${GH_TOKEN}@${GH_REF}" master:${P_BRANCH}
-  - git ftp push
 # E: Build LifeCycle
 
 branches:
