@@ -5,7 +5,13 @@ node_js: stable
 cache:
   directories:
     - node_modules
-    
+
+install:
+  - https://github.com/git-ftp/git-ftp.git
+  - cd git-ftp
+  - git checkout 1.1.0
+  - sudo make install
+
 before_script:
 
 script:
