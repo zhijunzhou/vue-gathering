@@ -7,6 +7,9 @@ cache:
     - node_modules
 
 before_script:
+  - git config git-ftp.url "ftp://120.25.86.111:23/vue-gathering"
+  - git config git-ftp.user ${FTP_USERNAME}
+  - git config git-ftp.password  ${FTP_PASSWORD}
 
 script:
   - sudo apt-get install git-ftp
@@ -25,6 +28,9 @@ after_script:
 branches:
   only:
     - master
+
+after_success:
+  - git config --list
 
 # deploy:
 #   skip_cleanup: true
