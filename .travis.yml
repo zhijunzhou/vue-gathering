@@ -7,6 +7,9 @@ cache:
     - node_modules
 
 before_script:
+  - git clone github.com/git-ftp/git-ftp.git
+  - cd git-ftp
+  - sudo make install
 
 script:
   - npm run build
@@ -27,12 +30,12 @@ branches:
   only:
     - master
 
-deploy:
-  skip_cleanup: true
-  provider: script
-  script: node deploy.js
-  on:
-    branch: master
+# deploy:
+#   skip_cleanup: true
+#   provider: script
+#   script: node deploy.js
+#   on:
+#     branch: master
 
 env:
  global:
