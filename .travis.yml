@@ -23,6 +23,8 @@ after_script:
   - git add .
   - git commit -m "Update tools"
   - git push --force --quiet "https://${GH_TOKEN}@${GH_REF}" master:${P_BRANCH}
+  - git ftp init
+  - git ftp catchup
   - git ftp push
 # E: Build LifeCycle
 
