@@ -7,11 +7,9 @@ cache:
     - node_modules
 
 before_script:
-  - git clone ${GIT_FTP}
-  - cd git-ftp
-  - sudo make install
 
 script:
+  - sudo apt-get install git-ftp
   - npm run build
   
 after_script:
