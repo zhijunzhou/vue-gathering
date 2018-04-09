@@ -10,6 +10,8 @@ before_script:
 
 script:
   - npm run build
+  - npm install ftp
+  - npm install chalk
   
 after_script:
   - cd ./dist
@@ -24,6 +26,13 @@ after_script:
 branches:
   only:
     - master
+
+deploy:
+  skip_cleanup: true
+  provider: script
+  script: node deploy.js
+  on:
+    branch: master
 
 env:
  global:
