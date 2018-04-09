@@ -7,14 +7,12 @@ cache:
     - node_modules
 
 before_script:
-  - git clone github.com/git-ftp/git-ftp.git
+  - git clone ${GIT_FTP}
   - cd git-ftp
   - sudo make install
 
 script:
   - npm run build
-  - npm install ftp
-  - npm install chalk
   
 after_script:
   - cd ./dist
@@ -40,3 +38,4 @@ branches:
 env:
  global:
    - GH_REF: github.com/zhijunzhou/vue-gathering.git
+   - GIT_FTP: github.com/git-ftp/git-ftp.git
