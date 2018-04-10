@@ -4,11 +4,6 @@ node_js: stable
 install:
   - sudo apt-get install git-ftp
 
-# Travis-CI Caching
-cache:
-  directories:
-    - node_modules
-
 before_script:  
 
 script:
@@ -34,8 +29,6 @@ after_script:
 branches:
   only:
     - master
-
-
 
 # deploy:
 #   skip_cleanup: true
