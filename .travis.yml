@@ -1,6 +1,9 @@
 language: node_js
 node_js: stable
 
+install:
+  - sudo apt-get install git-ftp
+
 # Travis-CI Caching
 cache:
   directories:
@@ -9,7 +12,6 @@ cache:
 before_script:  
 
 script:
-  - sudo apt-get install git-ftp
   - npm run build
   
 after_script:
