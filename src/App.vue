@@ -1,13 +1,24 @@
 <template>
   <div id="app">
     <img src="./assets/logo.png">
+    <mavonEdito v-model="content" />
     <router-view/>
   </div>
 </template>
 
 <script>
+import { mavonEditor } from 'mavon-editor'
+
 export default {
-  name: 'App'
+  name: 'App',
+  data () {
+    return {
+      content: ''
+    }
+  },
+  components: {
+    mavonEditor
+  },
 }
 </script>
 
