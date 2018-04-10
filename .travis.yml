@@ -8,6 +8,7 @@ cache:
 
 install:
   - sudo apt-get install git-ftp
+  - npm install mavon-editor
 
 before_script:  
 
