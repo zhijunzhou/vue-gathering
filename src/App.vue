@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <img src="./assets/logo.png">
-    <mavonEdito v-model="content" />
+    <mavonEditor v-model="content" />
     <router-view/>
   </div>
 </template>
