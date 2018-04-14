@@ -37,7 +37,7 @@ export default {
     const _this = this
     const setting = {
       selector: '#' + _this.id,
-      skin_url: '/static/skins/lightgray',
+      skin_url: 'static/skins/lightgray',
       init_instance_callback: (editor) => {
         // EDITOR = editor
         // console.log('Editor: ' + editor.id + ' is now initialized.')
