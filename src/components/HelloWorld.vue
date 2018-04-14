@@ -39,13 +39,17 @@ export default {
   methods: {
     switchMode () {
       if (this.isMarkdown) {
-        const converter = new showdown.Converter()
-        this.content = converter.makeHtml(this.mdContent)
-        console.log('md to h5: ', this.mdContent, ' =>', this.content)
+        const converter = new showdown.Converter({'tables': 'true', 'underline': true})
+        this.$nextTick(() => {
+          this.content = converter.makeHtml(this.mdContent)
+          console.log('md to h5: ', this.mdContent, ' =>', this.content)
+        })
       } else {
         const turndownService = new TurndownService()
-        this.mdContent = turndownService.turndown(this.content)
-        console.log('h5 to md: ', this.content, ' =>', this.mdContent)
+        this.$nextTick(() => {
+          this.mdContent = turndownService.turndown(this.content)
+          console.log('h5 to md: ', this.content, ' =>', this.mdContent)
+        })
       }
       this.isMarkdown = !this.isMarkdown
     }
