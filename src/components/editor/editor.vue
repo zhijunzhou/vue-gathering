@@ -36,7 +36,7 @@ export default {
   mounted () {
     const _this = this
     const baseUrl = 'static/skins/lightgray'
-    const skin_url = location.href.indexOf('github.io') !== -1 ? 'vue-gathering/' + baseUrl : baseUrl
+    const skin_url = location.href.indexOf('github.io') !== -1 ? '/vue-gathering/' + baseUrl : baseUrl
     const setting = {
       selector: '#' + _this.id,
       skin_url: skin_url,
