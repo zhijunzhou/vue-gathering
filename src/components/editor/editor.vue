@@ -40,6 +40,12 @@ export default {
     const setting = {
       selector: '#' + _this.id,
       skin_url: skinUrl,
+      height: '400',
+      // inline: true,
+      menubar: false,
+      branding: false,
+      plugins: [],
+      content_css: ['//www.tinymce.com/css/codepen.min.css'],
       init_instance_callback: (editor) => {
         // EDITOR = editor
         // console.log('Editor: ' + editor.id + ' is now initialized.')
@@ -48,8 +54,7 @@ export default {
           console.log(content)
           _this.$emit('input', content)
         })
-      },
-      plugins: []
+      }
     }
     Object.assign(setting, _this.setting)
     tinymce.init(setting)
