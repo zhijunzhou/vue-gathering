@@ -71,7 +71,7 @@ export default {
         _this.testEditor = editormd('test-editormd', {
           width: '100%',
           height: 400,
-          path: '../static/vendors/lib/',
+          path: location.href.indexOf('github.io') !== -1 ? '/vue-gathering/static/vendors/lib/' : '../static/vendors/lib/',
           theme: 'dark',
           previewTheme: 'dark',
           editorTheme: 'pastel-on-dark',
