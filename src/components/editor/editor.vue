@@ -7,6 +7,10 @@ import tinymce from 'tinymce/tinymce'
 import 'tinymce/themes/modern/theme'
 import 'tinymce/plugins/paste'
 import 'tinymce/plugins/link'
+import 'tinymce/plugins/code'
+import 'tinymce/plugins/image'
+import 'tinymce/plugins/table'
+import 'tinymce/plugins/fullscreen'
 
 const INIT = 0
 const CHANGED = 2
@@ -44,7 +48,8 @@ export default {
       // inline: true,
       menubar: false,
       branding: false,
-      plugins: [],
+      plugins: ['code', 'table', 'image', 'fullscreen'],
+      toolbar1: 'undo redo | formatselect | bold italic | image table | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | removeformat | code | fullscreen',
       content_css: ['//www.tinymce.com/css/codepen.min.css'],
       init_instance_callback: (editor) => {
         // EDITOR = editor

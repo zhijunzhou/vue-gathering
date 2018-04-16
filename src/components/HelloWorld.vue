@@ -72,16 +72,17 @@ export default {
           width: '100%',
           height: 400,
           path: location.href.indexOf('github.io') !== -1 ? '/vue-gathering/static/vendors/lib/' : '../static/vendors/lib/',
-          theme: 'dark',
-          previewTheme: 'dark',
-          editorTheme: 'pastel-on-dark',
+          // theme: 'dark',
+          // previewTheme: 'dark',
+          // editorTheme: 'pastel-on-dark',
           markdown: md,
           codeFold: true,
           // syncScrolling: false,
           saveHTMLToTextarea: true,    // 保存 HTML 到 Textarea
           searchReplace: true,
           // watch: false,                // 关闭实时预览
-          htmlDecode: 'style,script,iframe|on*',            // 开启 HTML 标签解析，为了安全性，默认不开启    
+          htmlDecode: 'style,script,iframe|on*',            // 开启 HTML 标签解析，为了安全性，默认不开启
+          toolbarIcons: ["undo", "redo", "|", "bold", "italic", "|", "image", "table", "list-ul", "list-ol", "|", "preview", "watch", "|", "fullscreen"],
           // toolbar : false,             // 关闭工具栏
           // previewCodeHighlight: false, // 关闭预览 HTML 的代码块高亮，默认开启
           emoji: true,
