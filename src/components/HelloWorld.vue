@@ -72,6 +72,7 @@ export default {
           width: '100%',
           height: 400,
           path: location.href.indexOf('github.io') !== -1 ? '/vue-gathering/static/vendors/lib/' : '../static/vendors/lib/',
+          pluginPath: location.href.indexOf('github.io') !== -1 ? '/vue-gathering/static/vendors/plugins/' : '../static/vendors/plugins/',
           // theme: 'dark',
           // previewTheme: 'dark',
           // editorTheme: 'pastel-on-dark',
@@ -82,7 +83,7 @@ export default {
           searchReplace: true,
           // watch: false,                // 关闭实时预览
           htmlDecode: 'style,script,iframe|on*',            // 开启 HTML 标签解析，为了安全性，默认不开启
-          toolbarIcons: ["undo", "redo", "|", "bold", "italic", "|", "image", "table", "list-ul", "list-ol", "|", "preview", "watch", "|", "fullscreen"],
+          // toolbarIcons: ["undo", "redo", "|", "bold", "italic", "|", "image", "table", "list-ul", "list-ol", "|", "preview", "watch", "|", "fullscreen"],
           // toolbar : false,             // 关闭工具栏
           // previewCodeHighlight: false, // 关闭预览 HTML 的代码块高亮，默认开启
           emoji: true,
@@ -98,7 +99,7 @@ export default {
           // dialogMaskBgColor: '#000', // 设置透明遮罩层的背景颜色，全局通用，默认为#fff
           imageUpload: true,
           imageFormats: ['jpg', 'jpeg', 'gif', 'png', 'bmp', 'webp'],
-          imageUploadURL: './php/upload.php',
+          imageUploadURL: 'https://jsonplaceholder.typicode.com/posts/',
           onload: function () {
             console.log('onload', this)
             // this.fullscreen();
