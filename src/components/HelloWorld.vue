@@ -4,11 +4,17 @@
       <el-button size="mini" @click="switchMode">{{isMarkdown === true ? '经典模式>>' : 'Markdown模式>>'}}</el-button>
     </div>
     <div v-if="isMarkdown">
-      <mavonEditor v-model="mdContent" />
     </div>
     <v-editor v-else :value="content" v-on:input="(val)=> content = val"></v-editor> -->
     <div id="test-editormd"></div>
+    <div name="content" id="editor">
+      <figure class="image">
+        <img src="https://via.placeholder.com/1000x300/02c7cd/fff?text=Placeholder%20image" alt="CKEditor 5 rocks!">
+      </figure>
+    </div>
+    <!-- <textarea name="content" id="balloonEditor"></textarea> -->
     <div class="th-container">
+      <el-button size="mini" @click="setData">Setting Data</el-button>
       <el-button size="mini" @click="getMarkdown">Get Markdown</el-button>
       <el-button size="mini" @click="toggleTinymce">show/hide tinymce</el-button>
     </div>
@@ -19,14 +25,23 @@
 </template>
 
 <script>
-import { mavonEditor } from 'mavon-editor'
+/* eslint-disable */
+import ClassicEditor from '@ckeditor/ckeditor5-build-classic/build/ckeditor'
+// import ClassicEditor from '@ckeditor/ckeditor5-editor-classic/src/classiceditor'
+// import Essentials from '@ckeditor/ckeditor5-essentials/src/essentials'
+// import Paragraph from '@ckeditor/ckeditor5-paragraph/src/paragraph'
+// import Bold from '@ckeditor/ckeditor5-basic-styles/src/bold'
+// import Italic from '@ckeditor/ckeditor5-basic-styles/src/italic'
+// import GFMDataProcessor from '@ckeditor/ckeditor5-markdown-gfm/src/gfmdataprocessor'
+// import Image from '@ckeditor/ckeditor5-image/src/image'
 // md to h5
 import showdown from 'showdown'
 // h5 to md
 import TurndownService from 'turndown'
 import editor from '@/components/editor/editor'
 import $ from 'jquery'
-import 'mavon-editor/dist/css/index.css'
+
+// import 'mavon-editor/dist/css/index.css'
 
 export default {
   name: 'HelloWorld',
@@ -36,16 +51,20 @@ export default {
       testEditor: null,
       showTinymce: false,
       content: '',
+      editor: null,
+      balloonEditor: null,
       mdContent: 'hello editor'
     }
   },
   components: {
-    'v-editor': editor,
-    mavonEditor
+    'v-editor': editor
   },
   mounted () {
     this.initEditor()
-    this.mdContent = this.content
+    this.initCKEditor()
+    this.checkEditorContent()
+    this.getHTMLFromSocket()
+    // this.mdContent = this.content
   },
   methods: {
     switchMode () {
@@ -114,12 +133,62 @@ export default {
         })
       })
     },
+    initCKEditor() {
+      const _this = this
+
+      ClassicEditor
+        .create(document.querySelector('#editor'), {
+          fontFamily: {
+            options: [
+              'default',
+              'Ubuntu, Arial, sans-serif',
+              'Ubuntu Mono, Courier New, Courier, monospace'
+            ]
+          },
+          // plugins: [Image],
+          toolbar: [
+            "undo", "redo", "bold", "italic", "blockQuote", "imageTextAlternative", "imageUpload", "heading", "link", "numberedList", "bulletedList"
+          ]
+        })
+        .then(editor => {
+          // console.log(Array.from(editor.ui.componentFactory.names()))
+          _this.editor = editor
+        })
+        .catch(error => {
+          console.error(error)
+        })
+
+        // BalloonEditor
+        //   .create(document.querySelector('#balloonEditor'))
+        //   .then(editor => {
+        //     _this.balloonEditor = editor
+        //   })
+        //   .catch(error => {
+        //     console.error(error)
+        //   })
+        
+    },
     getMarkdown () {
       alert(this.testEditor.getMarkdown())
     },
     toggleTinymce () {
       this.content = this.testEditor.getHTML()
       this.showTinymce = ! this.showTinymce
+    },
+    setData () {
+      this.editor.setData(this.testEditor.getMarkdown())
+    },
+    checkEditorContent () {
+      const _this = this
+      setInterval(() => {
+        socket.emit('chat message',  _this.testEditor.getHTML())
+      }, 5000);
+    },
+    getHTMLFromSocket () {
+      const _this = this
+      socket.on('chat message', (msg) => {
+        _this.editor.setData(msg)
+      })
     }
   }
 }
