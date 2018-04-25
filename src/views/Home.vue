@@ -91,12 +91,14 @@ hr {
   height: 202px;
   width: 152px;
   text-align: left;
+  box-shadow: 6px 6px 6px 1px rgba(0, 0, 255, .1);
 }
 .doc-template a {
   text-decoration: none;
 }
 .doc-description {
   margin-top: 12px;
+  color: #1b2733;
 }
 .template-wrapper {
   text-align: center;
@@ -126,5 +128,15 @@ svg {
 }
 .text-default {
   color: #0070e0;
+}
+
+.text-center {
+  text-align: center
+}
+.text-left {
+  text-align: left;
+}
+.text-right {
+  text-align: right;
 }
 </style>

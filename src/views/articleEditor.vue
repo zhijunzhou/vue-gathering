@@ -1,15 +1,29 @@
 <template>
   <div>
-    <!-- <h3>写文章</h3> -->
-    <h3>{{uid}}</h3>
-    <!-- <div id="balloonEditor">
-      <p>编辑这里的内容</p>
-    </div> -->
+    <el-row type="flex" justify="end">
+      <el-col :span="20">
+        <v-file-share></v-file-share>
+      </el-col>
+      <el-col :span="4">
+        <el-dropdown>
+          <h3>{{uid}}({{participators.length}})<i class="el-icon-arrow-down el-icon--right"></i></h3>
+          <el-dropdown-menu slot="dropdown">
+            <el-dropdown-item v-for="(ptor, index) in participators" :key="'pto_' + index">{{ptor}}</el-dropdown-item>
+          </el-dropdown-menu>
+        </el-dropdown>
+      </el-col>
+    </el-row>
+    <div class="custom-title el-input el-input--prefix">
+      <input type="text" v-model="title" autocomplete="off" maxlength="10" placeholder="标题" class="el-input__inner custom-input" />
+      <span class="el-input__prefix"><i class="el-input__icon el-icon-edit"></i></span>
+    </div>
     <div name="content" id="editor"></div>
+    <!--
     <div>
       <p>HTML源</p>
       <textarea v-model="htmlContent" style="width: 100%;min-height: 100px;"></textarea>
     </div>
+    -->
   </div>
 </template>
 
@@ -18,6 +32,7 @@
 // import ClassicEditor from '@ckeditor/ckeditor5-build-classic/build/ckeditor'
 // import ClassicEditor from '/static/vendors/ckeditor/ckeditor'
 import ServicesConfig from '@/utils/ServicesConfig'
+import fileShare from '@/components/fileShare/fileShare'
 import uid from 'uid'
 
 export default {
@@ -26,7 +41,9 @@ export default {
     return {
       uid: undefined,
       balloonEditor: null,
+      title: '',
       editor: null,
+      participators: [],
       _changeId: undefined,
       _returnId: undefined,
       imageUrl: undefined,
@@ -56,6 +73,7 @@ export default {
   mounted() {
     this.initEditor()
     this.syncArticle()
+    this.syncQueue()
   },
   beforeDestroy() {
     this.leaveEditing()
@@ -105,11 +123,12 @@ export default {
         this._changeId = uid(16)
         // 将变化内容后的内容和编辑者信息提交到server
         socket.emit(
-          'chat message',
+          'message',
           JSON.stringify({
             _id: this._changeId,
             diffs,
             editor: this.uid,
+            title: this.title,
             htmlContent: escape(editor.getData())
           })
         )
@@ -120,14 +139,13 @@ export default {
     },
     syncArticle() {
       const _this = this
-      socket.on('chat message', msg => {
-        // _this.editor.setData(msg)
+      socket.on('message', msg => {
         _this.cacheMsg = msg
         const content = JSON.parse(msg)
         const diffs = content.diffs
 
-        // console.log(_this.uid, unescape(content.htmlContent))
         this.htmlContent = unescape(content.htmlContent)
+        this.title = content.title
         _this._returnId = content._id
         if (
           Array.isArray(diffs) &&
@@ -141,12 +159,42 @@ export default {
         }
       })
     },
+    syncQueue () {
+      const _this = this
+      socket.on('queue', queueStr => {
+        let queue = JSON.parse(queueStr)
+        let queueArr = []
+        for(let pp in queue) {
+          if (pp.length === 10) {
+            queueArr.push(pp)
+          }
+        }
+        this.participators = [...queueArr]
+      })
+    },
     leaveEditing() {
       if (confirm('Are you sure you want to leave?')) {
         socket.emit('leave', this.uid)
         this.uid = undefined
       }
     }
+  },
+  components: {
+    'v-file-share': fileShare
   }
 }
 </script>
+
+<style>
+.custom-title > .custom-input {
+  border: none !important;
+}
+.ck .ck-toolbar {
+  border: none !important;
+}
+.ck.ck-editor__main>.ck-editor__editable:not(.ck-focused) {
+  border: none !important;
+  border-color: none;
+}
+</style>
+
