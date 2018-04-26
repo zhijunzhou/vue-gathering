@@ -24,7 +24,7 @@ export default {
           color: '#0070e0',
           icon: 'plus',
           description: '创建新文档',
-          to: '/article-edit'
+          to: '/article-edit2'
         },
         {
           extension: '.xls',
