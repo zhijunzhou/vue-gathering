@@ -26,15 +26,14 @@
         <i class="el-input__icon el-icon-edit"></i>
       </span>
     </div>
-    <div name="content" id="editor"></div>
+    <v-editor :message="message" v-on:sendMessage="sendMsg"></v-editor>
   </div>
 </template>
 
 <script>
 /* eslint-disable */
-import ServicesConfig from '@/utils/ServicesConfig'
 import fileShare from '@/components/fileShare/fileShare'
-import uid from 'uid'
+import editor from '@/components/editor/editor'
 
 export default {
   name: 'article-editor',
@@ -46,32 +45,15 @@ export default {
       editor: null,
       participators: [],
       imageUrl: undefined,
-      htmlContent: undefined,
-      editorSetting: {
-        cloudServices: ServicesConfig.cloudServices,
-        image: {
-          styles: ['full', 'alignLeft', 'alignRight'],
-          toolbar: [
-            'imageStyle:alignLeft',
-            'imageStyle:full',
-            'imageStyle:alignRight',
-            '|',
-            'imageTextAlternative'
-          ]
-        }
-      }
+      message: undefined,
+      cacheMsg: undefined
     }
-  },
-  beforeCreate() {
-    window.addEventListener('beforeunload', this.leaveEditing)
-    window.addEventListener('hashchange', this.leaveEditing)
   },
   created() {
     this.initEditorSession()
     socket.emit('join', this.uid)
   },
   mounted() {
-    this.initEditor()
     this.syncArticle()
     this.syncQueue()
   },
@@ -85,42 +67,9 @@ export default {
         window.sessionStorage.setItem('session_id', this.uid)
       }
     },
-    initEditor() {
-      const _this = this
-      ClassicEditor.create(
-        document.querySelector('#editor'),
-        _this.editorSetting
-      )
-        .then(editor => {
-          _this.clearEditorBorder()
-          _this.balloonEditor = editor
-          editor.model.document.on('change', (eventInfo, name) => {
-            var diffs = editor.model.document.differ.getChanges()
-            _this.sendMsg(editor, diffs)
-          })
-        })
-        .catch(error => {
-          console.error(error)
-        })
-    },
-    sendMsg(editor, diffs) {
-      if (this.htmlContent !== editor.getData()) {
-        let _changeId = uid(16)
-        // 将变化内容后的内容和编辑者信息提交到server
-        socket.emit(
-          'message',
-          JSON.stringify({
-            _id: _changeId,
-            diffs,
-            editor: this.uid,
-            title: this.title,
-            htmlContent: escape(editor.getData())
-          })
-        )
-        this.htmlContent = editor.getData()
-      } else {
-        console.log('no change')
-      }
+    sendMsg(msg) {
+      console.log('msg from editor:', msg)
+      socket.emit('message',msg)
     },
     syncArticle() {
       const _this = this
@@ -128,14 +77,12 @@ export default {
         const content = JSON.parse(msg)
         const diffs = content.diffs
 
-        this.htmlContent = unescape(content.htmlContent)
         if (
           Array.isArray(diffs) &&
           diffs.length > 0 &&
           content.queue[_this.uid] === true
         ) {
-          console.log(unescape(content.htmlContent))
-          _this.balloonEditor.setData(unescape(content.htmlContent))
+          _this.message = unescape(content.htmlContent)
         } else {
           console.log('no action need')
         }
@@ -154,17 +101,6 @@ export default {
         this.participators = [...queueArr]
       })
     },
-    leaveEditing(event) {
-      if (confirm('Are you sure you want to leave?')) {
-        socket.emit('leave', this.uid)
-        this.uid = undefined
-        event.returnValue = 'ppp'
-      }
-      return false
-    },
-    clearEditorBorder () {
-      document.querySelector('.ck.ck-editor__main > .ck-editor__editable:not(.ck-focused)').style.border = "none"
-    },
     save() {
       // do save
     },
@@ -179,6 +115,7 @@ export default {
     }
   },
   components: {
+    'v-editor': editor,
     'v-file-share': fileShare
   }
 }

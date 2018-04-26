@@ -1,71 +1,103 @@
 <template>
-  <textarea :id="id" :value="value"></textarea>
+  <div name="content" v-bind:id="'editor_' + editorId"></div>
 </template>
 
 <script>
-import tinymce from 'tinymce/tinymce'
-import 'tinymce/themes/modern/theme'
-import 'tinymce/plugins/paste'
-import 'tinymce/plugins/link'
-import 'tinymce/plugins/code'
-import 'tinymce/plugins/image'
-import 'tinymce/plugins/table'
-import 'tinymce/plugins/fullscreen'
-
-const INIT = 0
-const CHANGED = 2
+/* eslint-disable */
+import ServicesConfig from '@/utils/ServicesConfig'
+import uid from 'uid'
 
 export default {
-  props: {
-    value: {
-      type: String,
-      required: true
-    },
-    setting: {}
-  },
-  watch: {
-    value: (val) => {
-      if (this.status === INIT || tinymce.activeEditor.getContent() !== val) {
-        tinymce.activeEditor.setContent(val)
-      }
-      this.status = CHANGED
-    }
-  },
-  data () {
+  data() {
     return {
-      status: INIT,
-      id: 'editor-' + new Date().getMilliseconds()
-    }
-  },
-  mounted () {
-    const _this = this
-    const baseUrl = 'static/skins/lightgray'
-    const skinUrl = location.href.indexOf('github.io') !== -1 ? '/vue-gathering/' + baseUrl : baseUrl
-    const setting = {
-      selector: '#' + _this.id,
-      skin_url: skinUrl,
-      height: '400',
-      // inline: true,
-      menubar: false,
-      branding: false,
-      plugins: ['code', 'table', 'image', 'fullscreen'],
-      toolbar1: 'undo redo | formatselect | bold italic | image table | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | removeformat | code | fullscreen',
-      content_css: ['//www.tinymce.com/css/codepen.min.css'],
-      init_instance_callback: (editor) => {
-        // EDITOR = editor
-        // console.log('Editor: ' + editor.id + ' is now initialized.')
-        editor.on('input change undo redo', () => {
-          var content = editor.getContent()
-          console.log(content)
-          _this.$emit('input', content)
-        })
+      editorId: uid(5),
+      uid: undefined,
+      balloonEditor: null,
+      title: '',
+      editor: null,
+      participators: [],
+      imageUrl: undefined,
+      cacheMsg: undefined,
+      editorSetting: {
+        cloudServices: ServicesConfig.cloudServices,
+        image: {
+          styles: ['full', 'alignLeft', 'alignRight'],
+          toolbar: [
+            'imageStyle:alignLeft',
+            'imageStyle:full',
+            'imageStyle:alignRight',
+            '|',
+            'imageTextAlternative'
+          ]
+        }
       }
     }
-    Object.assign(setting, _this.setting)
-    tinymce.init(setting)
   },
-  beforeDestroy () {
-    tinymce.get(this.id).destroy()
+  props: [
+    'message'
+  ],
+  watch: {
+    message (newMessage, oldMessage) {
+      if (newMessage !== oldMessage) {
+        this.balloonEditor.setData(newMessage)
+      }
+    }
+  },
+  mounted() {
+    this.initEditor()
+  },
+  created () {
+    this.initEditorSession()
+  },
+  methods: {
+    initEditor() {
+      const _this = this
+      ClassicEditor.create(
+        document.querySelector('#editor_' + _this.editorId),
+        _this.editorSetting
+      )
+        .then(editor => {
+          _this.clearEditorBorder()
+          _this.balloonEditor = editor
+          editor.model.document.on('change', (eventInfo, name) => {
+            let diffs = editor.model.document.differ.getChanges()
+            _this.sendMsg(editor, diffs)
+          })
+        })
+        .catch(error => {
+          console.error(error)
+        })      
+    },
+    sendMsg(editor, diffs) {
+      if (this.message !== editor.getData()) {
+        let _changeId = uid(16)
+        this.$emit(
+          'sendMessage',
+          JSON.stringify({
+            _id: _changeId,
+            diffs,
+            editor: this.uid,
+            title: this.title,
+            htmlContent: escape(editor.getData())
+          })
+        )
+      } else {
+        console.log('no change')
+      }
+    },
+    clearEditorBorder () {
+      document.querySelector('.ck.ck-editor__main > .ck-editor__editable:not(.ck-focused)').style.border = "none"
+    },
+    initEditorSession() {
+      const session_id = window.sessionStorage.getItem('session_id')
+      if (session_id && session_id.length === 10) {
+        this.uid = session_id
+      } else {
+        this.uid = uid(10)
+        window.sessionStorage.setItem('session_id', this.uid)
+      }
+    }
   }
 }
 </script>
+
