@@ -38,7 +38,7 @@ import ClassicEditor from '@ckeditor/ckeditor5-build-classic/build/ckeditor'
 import showdown from 'showdown'
 // h5 to md
 import TurndownService from 'turndown'
-import editor from '@/components/editor/meditor'
+import editor from '@/components/editor/xeditor'
 import $ from 'jquery'
 
 // import 'mavon-editor/dist/css/index.css'
