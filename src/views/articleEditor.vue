@@ -1,7 +1,7 @@
 <template>
   <div>
     <el-row type="flex" justify="end">
-      <el-col :span="20">
+      <el-col :span="16">
         <v-file-share
           v-on:save="save"
           v-on:createDoc="createDoc"
@@ -9,7 +9,7 @@
           v-on:shareDoc="shareDoc">
         </v-file-share>
       </el-col>
-      <el-col :span="4">
+      <el-col :span="8">
         <el-dropdown>
           <h3>{{uid}}({{participators.length}})
             <i class="el-icon-arrow-down el-icon--right"></i>

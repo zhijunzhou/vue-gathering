@@ -1,15 +1,16 @@
 <template>
   <div>
     <el-row type="flex" justify="end">
-      <el-col :span="20">
+      <el-col :span="18">
         <v-file-share
+          :editingMode="editMode"
           v-on:save="save"
           v-on:createDoc="createDoc"
           v-on:switchEditor="switchEditor"
           v-on:shareDoc="shareDoc">
         </v-file-share>
       </el-col>
-      <el-col :span="4">
+      <el-col :span="6">
         <el-dropdown>
           <h3>{{uid}}({{participators.length}})
             <i class="el-icon-arrow-down el-icon--right"></i>
@@ -26,7 +27,9 @@
         <i class="el-input__icon el-icon-edit"></i>
       </span>
     </div>
-    <v-editor :message="message" v-on:sendMessage="sendMsg"></v-editor>
+    <v-meditor v-if="editMode === 'md'" v-on:toHTML="toHTML" :md="message"></v-meditor>
+    <v-xeditor v-else-if="editMode === 'tm'" :value="message" v-on:input="(val)=> message = val"></v-xeditor>
+    <v-editor v-else :message="message" v-on:sendMessage="sendMsg"></v-editor>
   </div>
 </template>
 
@@ -34,6 +37,8 @@
 /* eslint-disable */
 import fileShare from '@/components/fileShare/fileShare'
 import editor from '@/components/editor/editor'
+import xeditor from '@/components/editor/xeditor'
+import meditor from '@/components/editor/meditor'
 
 export default {
   name: 'article-editor',
@@ -42,11 +47,11 @@ export default {
       uid: undefined,
       balloonEditor: null,
       title: '',
+      message: '',
       editor: null,
       participators: [],
       imageUrl: undefined,
-      message: undefined,
-      cacheMsg: undefined
+      editMode: 'ck5'
     }
   },
   created() {
@@ -107,8 +112,21 @@ export default {
     createDoc() {
       // do create
     },
-    switchEditor() {
+    switchEditor(type) {
       // switch editor
+      switch (type) {
+        case 'md': {
+          // previous should not be markdown style
+          // should transform
+          this.editMode = 'md'
+          break
+        }
+        case 'tm': this.editMode = 'tm';break;
+        default: this.editMode = 'ck5';break;
+      }
+    },
+    toHTML (htmlContent) {
+      this.message = htmlContent
     },
     shareDoc() {
       // do share
@@ -116,6 +134,8 @@ export default {
   },
   components: {
     'v-editor': editor,
+    'v-xeditor': xeditor,
+    'v-meditor': meditor,
     'v-file-share': fileShare
   }
 }

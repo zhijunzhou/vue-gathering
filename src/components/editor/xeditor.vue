@@ -49,11 +49,11 @@ export default {
       menubar: false,
       branding: false,
       plugins: ['code', 'table', 'image', 'fullscreen'],
-      toolbar1: 'undo redo | formatselect | bold italic | image table | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | removeformat | code | fullscreen',
+      toolbar1: 'undo redo | formatselect | bold italic | image table ' +
+                '| alignleft aligncenter alignright alignjustify | bullist' +
+                ' numlist outdent indent | removeformat | code | fullscreen',
       content_css: ['//www.tinymce.com/css/codepen.min.css'],
       init_instance_callback: (editor) => {
-        // EDITOR = editor
-        // console.log('Editor: ' + editor.id + ' is now initialized.')
         editor.on('input change undo redo', () => {
           var content = editor.getContent()
           console.log(content)
