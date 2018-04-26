@@ -49,6 +49,15 @@ export default {
   created () {
     this.initEditorSession()
   },
+  destroyed () {
+    this.balloonEditor.destroy()
+      .then(() => {
+        console.log(this.uid, 'has been destroyed')
+      })
+      .catch(error => {
+        console.error(error)
+      })
+  },
   methods: {
     initEditor() {
       const _this = this

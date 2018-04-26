@@ -22,7 +22,7 @@
     </el-row>
     <div class="custom-title el-input el-input--prefix">
       <input type="text" v-model="title" autocomplete="off" maxlength="10" placeholder="标题" class="el-input__inner custom-input" />
-      <span class="el-input__prefix">
+      <span class="el-input__prefix s">
         <i class="el-input__icon el-icon-edit"></i>
       </span>
     </div>
