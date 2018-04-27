@@ -28,7 +28,7 @@
       </span>
     </div>
     <v-meditor v-if="editMode === 'md'" v-on:toHTML="toHTML" :md="message"></v-meditor>
-    <v-xeditor v-else-if="editMode === 'tm'" :value="message" v-on:input="(val)=> message = val"></v-xeditor>
+    <v-xeditor v-else-if="editMode === 'tm'" :imgBaseUrl="imgBaseUrl" :uploadUrl="uploadUrl" :value="message" v-on:input="(val)=> message = val"></v-xeditor>
     <v-editor v-else :message="message" v-on:sendMessage="sendMsg"></v-editor>
   </div>
 </template>
@@ -39,6 +39,8 @@ import fileShare from '@/components/fileShare/fileShare'
 import editor from '@/components/editor/editor'
 import xeditor from '@/components/editor/xeditor'
 import meditor from '@/components/editor/meditor'
+import uid from 'uid'
+import api from '@/utils/api'
 
 export default {
   name: 'article-editor',
@@ -51,7 +53,9 @@ export default {
       editor: null,
       participators: [],
       imageUrl: undefined,
-      editMode: 'ck5'
+      editMode: 'tm',
+      imgBaseUrl: api.baseURL,
+      uploadUrl: api.baseURL + '/api/upload'
     }
   },
   created() {
