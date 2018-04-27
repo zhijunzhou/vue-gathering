@@ -64,9 +64,12 @@ export default {
       branding: false,
       paste_data_images: true,
       plugins: ['code', 'table', 'fullscreen', 'paste'],
-      toolbar1: 'undo redo | formatselect | paste bold italic | attachment table ' +
+      external_plugins: {
+        codesample: 'static/vendors/plugins/codesample/plugin.min.js'
+      },
+      toolbar: 'undo redo | formatselect | paste bold italic | attachment table ' +
                 '| alignleft aligncenter alignright alignjustify | bullist' +
-                ' numlist outdent indent | removeformat | code | fullscreen',
+                ' numlist outdent indent | removeformat | code codesample | fullscreen',
       content_css: [
         '//www.tinymce.com/css/codepen.min.css',
         '//use.fontawesome.com/releases/v5.0.10/css/all.css',

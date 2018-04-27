@@ -7,20 +7,18 @@
     </div>
     <v-editor v-else :value="content" v-on:input="(val)=> content = val"></v-editor> -->
     <div id="test-editormd"></div>
-    <div name="content" id="editor">
+    <!-- <div name="content" id="editor">
       <figure class="image">
         <img src="https://via.placeholder.com/1000x300/02c7cd/fff?text=Placeholder%20image" alt="CKEditor 5 rocks!">
       </figure>
-    </div>
+    </div> -->
     <!-- <textarea name="content" id="balloonEditor"></textarea> -->
     <div class="th-container">
       <el-button size="mini" @click="setData">Setting Data</el-button>
       <el-button size="mini" @click="getMarkdown">Get Markdown</el-button>
       <el-button size="mini" @click="toggleTinymce">show/hide tinymce</el-button>
     </div>
-    <div v-if="showTinymce">
-      <v-editor :value="content" v-on:input="(val)=> content = val"></v-editor>
-    </div>
+    <div v-if="showTinymce" v-html="testEditor.getHTML()"></div>
   </div>
 </template>
 
@@ -40,6 +38,7 @@ import showdown from 'showdown'
 import TurndownService from 'turndown'
 import editor from '@/components/editor/xeditor'
 import $ from 'jquery'
+import api from '@/utils/api'
 
 // import 'mavon-editor/dist/css/index.css'
 
@@ -53,7 +52,9 @@ export default {
       content: '',
       editor: null,
       balloonEditor: null,
-      mdContent: 'hello editor'
+      mdContent: 'hello editor',
+      imgBaseUrl: api.baseURL,
+      uploadUrl: api.baseURL + '/api/upload'
     }
   },
   components: {
@@ -61,9 +62,9 @@ export default {
   },
   mounted () {
     this.initEditor()
-    this.initCKEditor()
-    this.checkEditorContent()
-    this.getHTMLFromSocket()
+    // this.initCKEditor()
+    // this.checkEditorContent()
+    // this.getHTMLFromSocket()
     // this.mdContent = this.content
   },
   methods: {
