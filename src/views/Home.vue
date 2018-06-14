@@ -5,7 +5,14 @@
     <hr />
     <v-doc-templates :templates="templates" :templateInfo="templateInfo"></v-doc-templates>
     <v-line-break></v-line-break>
-    <v-doc-quick-start></v-doc-quick-start>
+    <el-row :gutter="10">
+      <el-col :span="16">
+        <v-doc-quick-start></v-doc-quick-start>
+      </el-col>
+      <el-col :span="8">
+        <v-tools-example></v-tools-example>
+      </el-col>
+    </el-row>
   </div>
 </template>
 
@@ -13,6 +20,7 @@
 import lineBreak from '@/components/lineBreak/lineBreak'
 import docTemplates from '@/components/docTemplates/docTemplates'
 import docQuickStart from '@/components/docQuickStart/docQuickStart'
+import toolsExample from '@/components/toolsExample/toolsExample'
 
 export default {
   data () {
@@ -66,7 +74,8 @@ export default {
   components: {
     'v-line-break': lineBreak,
     'v-doc-templates': docTemplates,
-    'v-doc-quick-start': docQuickStart
+    'v-doc-quick-start': docQuickStart,
+    'v-tools-example': toolsExample
   }
 }
 </script>

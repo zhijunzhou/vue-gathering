@@ -6,6 +6,8 @@ import Draggable from '@/components/draggable/draggable'
 import ArticleEditor from '@/views/articleEditor'
 import ArticleEditor2 from '@/views/articleEditor2'
 import Uploader from '@/components/fileUploader/fileUploader'
+import ToolsExample from '@/components/toolsExample/toolsExample'
+import CropperExample from '@/components/toolsExample/cropperExample'
 import Quill from '@/views/Quill'
 
 Vue.use(Router)
@@ -46,6 +48,18 @@ export default new Router({
       path: '/quill',
       name: 'quill',
       component: Quill
+    },
+    {
+      path: '/example',
+      name: 'example',
+      component: ToolsExample,
+      children: [
+        {
+          path: 'cropperExample',
+          name: 'cropperExample',
+          component: CropperExample
+        }
+      ]
     }
   ]
 })
