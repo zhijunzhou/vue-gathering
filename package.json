@@ -29,9 +29,10 @@
     "axios": "^0.18.0",
     "editor.md": "^1.5.0",
     "element-ui": "^2.3.4",
+    "firebase": "^4.13.1",
     "jquery": "^1.11.1",
     "lib-flexible": "^0.3.2",
-    "lodash": "^4.17.5",
+    "lodash": "^4.17.10",
     "mavon-editor": "^2.5.2",
     "mockjs": "^1.0.1-beta3",
     "px2rem-loader": "^0.1.9",
@@ -41,8 +42,10 @@
     "turndown-plugin-gfm": "^1.0.1",
     "uid": "0.0.2",
     "vue": "^2.5.2",
+    "vue-quill": "^1.4.0",
     "vue-router": "^3.0.1",
-    "vuedraggable": "^2.16.0"
+    "vuedraggable": "^2.16.0",
+    "vuefire": "^1.4.5"
   },
   "devDependencies": {
     "@ckeditor/ckeditor5-dev-webpack-plugin": "^4.0.0",

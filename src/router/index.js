@@ -6,6 +6,7 @@ import Draggable from '@/components/draggable/draggable'
 import ArticleEditor from '@/views/articleEditor'
 import ArticleEditor2 from '@/views/articleEditor2'
 import Uploader from '@/components/fileUploader/fileUploader'
+import Quill from '@/views/Quill'
 
 Vue.use(Router)
 
@@ -40,6 +41,11 @@ export default new Router({
       path: '/upload',
       name: 'upload',
       component: Uploader
+    },
+    {
+      path: '/quill',
+      name: 'quill',
+      component: Quill
     }
   ]
 })
