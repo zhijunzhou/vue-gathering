@@ -7,7 +7,7 @@ import Firebase from 'firebase'
 import _ from 'lodash'
 
 const config = {
-  apiKey: 'AIzaSyCPyLvrxA3fwNuN_faYRs0Z5LBk6luQJpY',
+  apiKey: '',
   authDomain: 'sunlands-code-doc.firebaseapp.com',
   databaseURL: 'https://sunlands-code-doc.firebaseio.com',
   projectId: 'sunlands-code-doc',
