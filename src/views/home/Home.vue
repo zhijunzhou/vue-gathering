@@ -3,18 +3,21 @@
     <div class="blank-area"></div>
     <v-person-info />
     <v-season-activity />
+    <v-learning-materials />
   </div>
 </template>
 
 <script>
 import personInfo from '@/components/personInfo'
 import seasonActivity from '@/components/seasonActivity'
+import learningMaterials from '@/components/learningMaterials'
 
 export default {
   name: 'home',
   components: {
     'v-person-info': personInfo,
-    'v-season-activity': seasonActivity
+    'v-season-activity': seasonActivity,
+    'v-learning-materials': learningMaterials
   },
   data() {
     return {}
