@@ -1,9 +1,5 @@
 <template>
   <div class='main'>
-    <div class='head'>
-      <img :src="logo" alt="尚德机构">
-      <h2>{{title}}</h2>
-    </div>
     <div class="body">
       <router-view></router-view>
     </div>
