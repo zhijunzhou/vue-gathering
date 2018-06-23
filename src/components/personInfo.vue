@@ -4,7 +4,7 @@
       <img class="middle-cup" src="../asset/materials/报名成功.png" />
     </div>
     <div class="student-info text-center">
-      <span class="student-name">周智君</span>
+      <span class="student-name">{{student.stu_name}}</span>
       <span class="student-chengwei">同学</span>
       <div class="guliyu">
         人生没有失败，自信创造精彩。
@@ -14,19 +14,19 @@
       <div class="zixun-item">
         <div class="float-left">
           <span class="zixun-item-label">到访分校</span>
-          <span class="zixun-item-content">尚德国贸分校</span>
+          <span class="zixun-item-content">{{student.orgName4}}</span>
         </div>
         <div class="float-right">
-          <i class="fas fa-phone fa-sm zixun-icon-phone"></i>
+          <a :href="'tel://' + student.phone" class="advisor-phone"><i class="fas fa-phone fa-sm zixun-icon-phone"></i></a>
         </div>
       </div>
       <div class="zixun-item">
         <span class="zixun-item-label">咨询课顾</span>
-        <span class="zixun-item-content">赵悦</span>
+        <span class="zixun-item-content">{{student.name}}</span>
       </div>
       <div class="zixun-item">
         <span class="zixun-item-label">到访时间</span>
-        <span class="zixun-item-content">2018-06-22 16:30</span>
+        <span class="zixun-item-content">{{getTime(student.start_time)}}</span>
       </div>
     </div>
     <div class="class-recommand">
@@ -41,6 +41,24 @@
     </div>
   </div>
 </template>
+
+<script>
+import moment from 'moment'
+
+export default {
+  props: {
+    student: {
+      required: true
+    }
+  },
+  methods: {
+    getTime(date) {
+      return moment(1529751234405).format('YYYY-MM-DD HH:mm')
+    }
+  }
+}
+</script>
+
 
 <style>
 .personal-info-area {
@@ -115,6 +133,10 @@
   width: 100px;
   padding-left: 20px;
   border-left: 2px dotted #eee;
+}
+.advisor-phone {
+  color: #888;
+  text-decoration: none;
 }
 </style>
 

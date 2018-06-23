@@ -1,7 +1,7 @@
 <template>
   <div class="table">
     <div class="blank-area"></div>
-    <v-person-info />
+    <v-person-info v-if="gotStudent" :student="student" />
     <v-season-activity />
     <v-learning-materials />
     <v-wx-public />
@@ -31,14 +31,37 @@ export default {
   },
   data() {
     return {
-      consu_id: undefined
+      consu_id: undefined,
+      gotStudent: undefined,
+      student: {
+        id: undefined,
+        stu_name: undefined,
+        start_time: undefined,
+        select_major: undefined,
+        select_class: undefined,
+        adviser_263: undefined,
+        orgName4: undefined,
+        name: undefined,
+        school_id: undefined,
+        phone: undefined
+      }
     }
   },
   methods: {
     getStudent() {
       getStudentInfo(this.consu_id).then(res => {
-        console.log(res)
+        if (res.data) {
+          this.gotStudent = true
+          this.assignStudentInfo(res.data)
+        }
       })
+    },
+    assignStudentInfo(data) {
+      for (var p in this.student) {
+        if (data.hasOwnProperty(p)) {
+          this.student[p] = data[p]
+        }
+      }
     }
   }
 }
