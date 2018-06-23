@@ -1,16 +1,19 @@
 <template>
   <div class="table">
     <v-person-info />
+    <v-season-activity />
   </div>
 </template>
 
 <script>
 import personInfo from '@/components/personInfo'
+import seasonActivity from '@/components/seasonActivity'
 
 export default {
   name: 'home',
   components: {
-    'v-person-info': personInfo
+    'v-person-info': personInfo,
+    'v-season-activity': seasonActivity
   },
   data() {
     return {}
@@ -46,6 +49,14 @@ html, body {
 }
 .float-right {
   float: right;
+}
+.common-title {
+  font-size: 15px;
+  font-weight: bold;
+  color: #222;
+  border-left: 5px solid #f28;
+  padding-left: 12px;
+  margin-bottom: 10px;
 }
 </style>
 

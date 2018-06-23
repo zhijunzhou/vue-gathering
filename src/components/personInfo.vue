@@ -45,11 +45,11 @@
 <style>
 .personal-info-area {
   position: relative;
-  min-height: 428px;
+  min-height: 400px;
   width: 100%;
   border: 1px solid #eee;
   background: #fff;
-  border-radius: 10px;
+  border-radius: 8px;
 }
 .middle-cup-container {
   text-align: center;
