@@ -16,7 +16,7 @@ export const constantRouterMap = [{
     name: 'Home',
     component: Home,
     meta: {
-      title: '中端学员对接页面'
+      title: '咨询卡'
     }
   }]
 }]

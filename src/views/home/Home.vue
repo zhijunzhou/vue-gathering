@@ -13,6 +13,7 @@ import personInfo from '@/components/personInfo'
 import seasonActivity from '@/components/seasonActivity'
 import learningMaterials from '@/components/learningMaterials'
 import wxPublic from '@/components/wxPublic'
+import { getStudentInfo } from '@/api'
 
 export default {
   name: 'home',
@@ -22,8 +23,23 @@ export default {
     'v-learning-materials': learningMaterials,
     'v-wx-public': wxPublic
   },
+  created() {
+    if (this.$route.query.consu_id) {
+      this.consu_id = this.$route.query.consu_id
+      this.getStudent()
+    }
+  },
   data() {
-    return {}
+    return {
+      consu_id: undefined
+    }
+  },
+  methods: {
+    getStudent() {
+      getStudentInfo(this.consu_id).then(res => {
+        console.log(res)
+      })
+    }
   }
 }
 </script>
