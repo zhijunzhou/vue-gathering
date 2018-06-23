@@ -4,6 +4,7 @@
     <v-person-info />
     <v-season-activity />
     <v-learning-materials />
+    <v-wx-public />
   </div>
 </template>
 
@@ -11,13 +12,15 @@
 import personInfo from '@/components/personInfo'
 import seasonActivity from '@/components/seasonActivity'
 import learningMaterials from '@/components/learningMaterials'
+import wxPublic from '@/components/wxPublic'
 
 export default {
   name: 'home',
   components: {
     'v-person-info': personInfo,
     'v-season-activity': seasonActivity,
-    'v-learning-materials': learningMaterials
+    'v-learning-materials': learningMaterials,
+    'v-wx-public': wxPublic
   },
   data() {
     return {}
