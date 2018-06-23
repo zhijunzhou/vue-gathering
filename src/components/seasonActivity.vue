@@ -19,7 +19,7 @@
 }
 .activity-swipe {
   background: #fff;
-  height: 120px;
+  height: 140px;
   border-radius: 8px;
 }
 </style>

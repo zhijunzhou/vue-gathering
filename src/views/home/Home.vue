@@ -1,5 +1,6 @@
 <template>
   <div class="table">
+    <div class="blank-area"></div>
     <v-person-info />
     <v-season-activity />
   </div>
@@ -22,21 +23,21 @@ export default {
 </script>
 
 <style>
-html, body {
-  margin: 0;
-  padding: 0;
-  height: 100%;
-  width: 100%;
-  color: #989A9C;
+html, body, #app {
+  height: auto;
 }
 #app {
   background: #eee;
   padding: 20px 16px;
 }
 .table {
-  padding-top: 80px;
   height: 100%;
   width: 100%;
+}
+.blank-area {
+  height: 80px;
+  width: 100%;
+  background: transparent;
 }
 .text-center {
   text-align: center;
