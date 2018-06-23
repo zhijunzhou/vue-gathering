@@ -27,7 +27,7 @@ service.interceptors.response.use(
   },
   error => {
     Toast({
-      message: error,
+      message: error.message,
       duration: 5 * 1000
     })
     return Promise.reject(error)
