@@ -43,7 +43,8 @@ export default {
         orgName4: undefined,
         name: undefined,
         school_id: undefined,
-        phone: undefined
+        phone: undefined,
+        result: undefined
       }
     }
   },

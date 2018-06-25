@@ -1,7 +1,8 @@
 <template>
   <div class="personal-info-area">
     <div class="middle-cup-container text-center">
-      <img class="middle-cup" src="../asset/materials/报名成功.png" />
+      <img class="middle-cup" v-if="student.result === 'signUp'" src="../asset/materials/报名成功.png" />
+      <img class="middle-cup" v-else src="../asset/materials/咨询成功.png" />
     </div>
     <div class="student-info text-center">
       <span class="student-name">{{student.stu_name}}</span>
@@ -31,7 +32,7 @@
     </div>
     <div class="class-recommand">
       <div class="float-left">
-        <div class="class-top">面试精英班（全国19年）</div>
+        <div class="class-top">{{student.select_class}}</div>
         <div class="class-item">全真模拟面试</div>
         <div class="class-item">班主任跟踪服务</div>
       </div>
@@ -53,7 +54,7 @@ export default {
   },
   methods: {
     getTime(date) {
-      return moment(1529751234405).format('YYYY-MM-DD HH:mm')
+      return moment(date).format('YYYY-MM-DD HH:mm')
     }
   }
 }

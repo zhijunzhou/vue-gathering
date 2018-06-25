@@ -11,7 +11,7 @@
           </div>
         </div>
         <div class="find-material float-right">
-          <i class="fas fa-chevron-right fa-sm"></i>
+          <a :href="mt.url"><i class="fas fa-chevron-right fa-sm"></i></a>
         </div>
       </div>
     </div>
@@ -19,22 +19,28 @@
 </template>
 
 <script>
+import { getOS } from '@/utils/weixin'
+
 export default {
   data() {
     return {
       materials: [
         {
           title: '尚德机构',
-          description: '尚德课程学习APP下载'
+          description: '尚德课程学习APP下载',
+          url: getOS() === 'iOS'
+            ? 'https://itunes.apple.com/cn/app/%E5%B0%9A%E5%BE%B7%E6%9C%BA%E6%9E%84/id1056448970?mt=8'
+            : 'http://www.wandoujia.com/apps-com.sunland.app'
         },
         {
           title: '东直门分校',
-          description: '尚德课程学习APP下载'
-        },
-        {
-          title: '中关村分校',
-          description: '尚德课程学习APP下载'
+          description: '尚德课程学习APP下载',
+          url: 'https://mp.weixin.qq.com/mp/getmasssendmsg?__biz=MzIzNzExOTU1Ng==#wechat_webview_type=1&wechat_redirect'
         }
+        // {
+        //   title: '中关村分校',
+        //   description: '尚德课程学习APP下载'
+        // }
       ]
     }
   }
@@ -61,7 +67,10 @@ export default {
 }
 .find-material {
   line-height: 50px;
+}
+.find-material a {
   color: #888;
+  text-decoration: none;
 }
 .material-img {
   height: 55px;
