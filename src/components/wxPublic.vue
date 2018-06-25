@@ -15,7 +15,7 @@
           <div class="articel-title">{{at.title}}</div>
           <div class="articel-created">{{at.created}}</div>
         </div>
-        <div>
+        <div class="articel-img-container">
           <div class="articel-img">&nbsp;</div>
         </div>
       </div>
@@ -99,8 +99,11 @@ export default {
   color: #888;
   font-weight: bold;
 }
-.articel-img {
+.articel-img-container {
   flex: 1;
+}
+.articel-img {
+  float: right;
   height: 70px;
   width: 100px;
   border: 1px solid #eee;
