@@ -3,8 +3,15 @@ import Mint from 'mint-ui'
 import App from './App'
 import router from './router'
 // import 'lib-flexible/flexible.js'
+import { Rate, Radio, Button, Input } from 'element-ui'
 import 'mint-ui/lib/style.css'
+import 'element-ui/lib/theme-chalk/index.css'
 import '@/style/index.less'
+
+Vue.component(Rate.name, Rate)
+Vue.component(Radio.name, Radio)
+Vue.component(Button.name, Button)
+Vue.component(Input.name, Input)
 
 import '@/components/VeeValidate'
 
