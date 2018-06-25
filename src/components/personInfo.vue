@@ -30,6 +30,10 @@
         <span class="zixun-item-content">{{getTime(student.start_time)}}</span>
       </div>
     </div>
+    <div class="semi-circle">
+      <div class="left-semi-circle"></div>
+      <div class="right-semi-circle"></div>
+    </div>
     <div class="class-recommand">
       <div class="float-left">
         <div class="class-top">{{student.select_class}}</div>
@@ -96,7 +100,22 @@ export default {
 }
 .zixun-info,
 .class-recommand {
-  padding: 20px 20px;
+  padding: 10px 20px;
+}
+.semi-circle {
+  height: 10px;
+  display: flex;
+  justify-content: space-between;
+}
+.left-semi-circle, .right-semi-circle {
+  width: 5px;
+  background: #eee;
+}
+.left-semi-circle {
+  border-radius: 0 10px 10px 0;
+}
+.right-semi-circle {
+  border-radius: 10px 0 0 10px;
 }
 .zixun-item {
   display: block;
