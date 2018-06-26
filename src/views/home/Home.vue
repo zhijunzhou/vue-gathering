@@ -73,9 +73,9 @@ export default {
 </script>
 
 <style>
-html, body, #app {
+/* html, body, #app {
   height: auto;
-}
+} */
 #app {
   background: #eee;
   padding: 20px 16px;

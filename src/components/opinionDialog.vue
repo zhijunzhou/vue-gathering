@@ -34,7 +34,7 @@ export default {
 
 <style>
 .mint-popup {
-  width: 320px;
+  width: 320px !important;
   height: 200px;
   border-radius: 8px;
   padding: 20px;
