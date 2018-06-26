@@ -5,6 +5,7 @@
     <v-season-activity />
     <v-learning-materials />
     <v-wx-public />
+    <v-opinion-dialog v-if="gotStudent" :student="student" />
   </div>
 </template>
 
@@ -13,6 +14,7 @@ import personInfo from '@/components/personInfo'
 import seasonActivity from '@/components/seasonActivity'
 import learningMaterials from '@/components/learningMaterials'
 import wxPublic from '@/components/wxPublic'
+import opinionDialog from '@/components/opinionDialog'
 import { getStudentInfo } from '@/api'
 
 export default {
@@ -21,7 +23,8 @@ export default {
     'v-person-info': personInfo,
     'v-season-activity': seasonActivity,
     'v-learning-materials': learningMaterials,
-    'v-wx-public': wxPublic
+    'v-wx-public': wxPublic,
+    'v-opinion-dialog': opinionDialog
   },
   created() {
     if (this.$route.query.consu_id) {

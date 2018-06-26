@@ -1,8 +1,8 @@
 <template>
   <div class="personal-info-area">
     <div class="middle-cup-container text-center">
-      <img class="middle-cup" v-if="student.result === 'signUp'" src="../asset/materials/报名成功.png" />
-      <img class="middle-cup" v-else src="../asset/materials/咨询成功.png" />
+      <img class="middle-cup" v-if="student.result === 'signUp'" src="../asset/materials/报名成功@3x.png" />
+      <img class="middle-cup" v-else src="../asset/materials/咨询成功@3x.png" />
     </div>
     <div class="student-info text-center">
       <span class="student-name">{{student.stu_name}}</span>
@@ -40,7 +40,7 @@
         <div class="class-item" v-for="(sp, index) in specialList(student.special)" :key="index">{{sp}}</div>
       </div>
       <div class="float-right text-center qrcode">
-        <img width="62" height="62" src="../asset/materials/二维码.jpg" />
+        <img class="qrcode-img" src="../asset/materials/二维码.jpg" />
       </div>
     </div>
   </div>
@@ -83,6 +83,7 @@ export default {
 }
 .middle-cup {
   margin-top: -30px;
+  height: 100px;
 }
 .student-info {
   padding-bottom: 20px;
@@ -105,6 +106,9 @@ export default {
 .zixun-info,
 .class-recommand {
   padding: 10px 20px;
+}
+.qrcode-img {
+  height: 62px;
 }
 .semi-circle {
   height: 10px;
