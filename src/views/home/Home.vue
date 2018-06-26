@@ -44,7 +44,8 @@ export default {
         name: undefined,
         school_id: undefined,
         phone: undefined,
-        result: undefined
+        result: undefined,
+        special: undefined
       }
     }
   },

@@ -37,8 +37,7 @@
     <div class="class-recommand">
       <div class="float-left">
         <div class="class-top">{{student.select_class}}</div>
-        <div class="class-item">全真模拟面试</div>
-        <div class="class-item">班主任跟踪服务</div>
+        <div class="class-item" v-for="(sp, index) in specialList(student.special)" :key="index">{{sp}}</div>
       </div>
       <div class="float-right text-center qrcode">
         <img width="62" height="62" src="../asset/materials/二维码.jpg" />
@@ -59,6 +58,11 @@ export default {
   methods: {
     getTime(date) {
       return moment(date).format('YYYY-MM-DD HH:mm')
+    },
+    specialList(special) {
+      const regex = new RegExp(/(，)|(\,)/, 'g')
+      special = special.replace(regex, '、')
+      return special.split('、')
     }
   }
 }
