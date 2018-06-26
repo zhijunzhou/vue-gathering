@@ -46,3 +46,27 @@ export const getStudentInfo = (consu_id) => {
     data: formData
   })
 }
+
+export const getCampusTags = () => {
+  return service({
+    url: '/frontend/consultation/tag'
+  })
+}
+
+export const evaluate = (data) => {
+  const formData = new FormData()
+  formData.append('consu_id', data.consu_id)
+  formData.append('teacher_level', data.teacher_level)
+  formData.append('school_level', data.school_level)
+  formData.append('tag_id', data.tag_id)
+  formData.append('content', data.content)
+
+  return service({
+    url: '/frontend/consultation/evaluate',
+    method: 'post',
+    headers: {
+      'Content-Type': 'multipart/form-data'
+    },
+    data: formData
+  })
+}

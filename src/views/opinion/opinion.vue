@@ -3,7 +3,7 @@
     <div class="option-title">
       {{student.orgName4}}
       <div class="radio-container">
-        <el-radio v-model="value" label="isAnonymous">匿名评价</el-radio>
+        <el-radio v-model="value" label="1">匿名评价</el-radio>
       </div>
     </div>
     <div class="option-form-container">
@@ -11,7 +11,7 @@
         <div class="option-item-label">课顾评分</div>
         <div class="option-item-rate">
           <el-rate
-            v-model="kgRate">
+            v-model="opinionForm.teacher_level">
           </el-rate>
         </div>
       </div>
@@ -19,40 +19,48 @@
         <div class="option-item-label">校区评分</div>
         <div class="option-item-rate">
           <el-rate
-            v-model="xqRate">
+            v-model="opinionForm.school_level">
           </el-rate>
         </div>
       </div>
       <div class="option-btn-container">
-        <el-button size="small" round>环境整洁</el-button>
-        <el-button size="small" round>行政</el-button>
-        <el-button size="small" round>IT互联网通信</el-button>
-        <el-button size="small" round>高级管理</el-button>
+        <el-button size="small" v-for="(tag, index) in tags" :key="index" :type="opinionForm.tag_id === tag.id ? 'danger' : 'default'" @click="ensureTag(tag)" round>{{tag.name}}</el-button>
       </div>
       <div>
         <el-input 
           type="textarea" 
           :autosize="{ minRows: 4, maxRows: 6}"
           placeholder="亲，这次的服务如何，快来说两句~"  
-          v-model="textarea3" />
+          v-model="opinionForm.content" />
       </div>
     </div>
     <div class="option-submit-btn">
-      <el-button type="danger" size="small" round :style="{width: '100%'}">提交</el-button>
+      <el-button type="danger" size="small" round :style="{width: '100%'}" @click="submitOpinion">提交</el-button>
     </div>
+    <v-opinion-success-dialog :showSuccessDialog="showSuccessDialog" v-if="showSuccessDialog"  v-on:showDialog="showDialog" />
   </div>
 </template>
 
 <script>
-import { getStudentInfo } from '@/api'
+import { getStudentInfo, getCampusTags, evaluate } from '@/api'
+import opinionSuccessDialog from '@/components/opinionSuccessDialog'
 
 export default {
   data() {
     return {
       consu_id: undefined,
-      value: undefined,
+      value: '1',
       kgRate: undefined,
       xqRate: undefined,
+      showSuccessDialog: false,
+      tags: [],
+      opinionForm: {
+        consu_id: undefined,
+        content: undefined,
+        teacher_level: undefined,
+        school_level: undefined,
+        tag_id: undefined
+      },
       student: {
         id: undefined,
         stu_name: undefined,
@@ -69,15 +77,19 @@ export default {
       }
     }
   },
+  components: {
+    'v-opinion-success-dialog': opinionSuccessDialog
+  },
   created() {
     if (this.$route.query.consu_id) {
-      this.consu_id = this.$route.query.consu_id
+      this.opinionForm.consu_id = this.$route.query.consu_id
       this.getStudent()
+      this.getTags()
     }
   },
   methods: {
     getStudent() {
-      getStudentInfo(this.consu_id).then(res => {
+      getStudentInfo(this.opinionForm.consu_id).then(res => {
         if (res.data) {
           this.assignStudentInfo(res.data)
         }
@@ -89,6 +101,24 @@ export default {
           this.student[p] = data[p]
         }
       }
+    },
+    getTags() {
+      getCampusTags().then(res => {
+        this.tags = [...res.data]
+      })
+    },
+    ensureTag(tag) {
+      this.opinionForm.tag_id = tag.id
+    },
+    showDialog(flag) {
+      this.showSuccessDialog = false
+    },
+    submitOpinion() {
+      this.$nextTick(() => {
+        evaluate(this.opinionForm).then(res => {
+          this.showSuccessDialog = true
+        })
+      })
     }
   }
 }
