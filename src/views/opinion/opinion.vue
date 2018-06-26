@@ -177,20 +177,20 @@ body,
   width: 100%;
 }
 .el-radio__label {
-  padding-left: 2px;
-  color: #888;
+  padding-left: 2px !important;
+  color: #888 !important;
 }
 .el-radio__input.is-checked .el-radio__inner {
-  border-color: #a00;
-  background: none;
+  border-color: #a00 !important;
+  background: none !important;
 }
 .el-radio__input.is-checked+.el-radio__label {
-  color: #888;
+  color: #888 !important;
 }
 .el-radio__inner::after {
-  width: 8px;
-  height: 8px;
-  background-color: #a00;
+  width: 8px !important;
+  height: 8px !important;
+  background-color: #a00 !important;
 }
 </style>
 
