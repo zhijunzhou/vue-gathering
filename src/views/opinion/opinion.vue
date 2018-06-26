@@ -1,7 +1,7 @@
 <template>
   <div class="opinion-container">
     <div class="option-title">
-      尚德国贸校区
+      {{student.orgName4}}
       <div class="radio-container">
         <el-radio v-model="value" label="isAnonymous">匿名评价</el-radio>
       </div>
@@ -44,12 +44,51 @@
 </template>
 
 <script>
+import { getStudentInfo } from '@/api'
+
 export default {
   data() {
     return {
+      consu_id: undefined,
       value: undefined,
       kgRate: undefined,
-      xqRate: undefined
+      xqRate: undefined,
+      student: {
+        id: undefined,
+        stu_name: undefined,
+        start_time: undefined,
+        select_major: undefined,
+        select_class: undefined,
+        adviser_263: undefined,
+        orgName4: undefined,
+        name: undefined,
+        school_id: undefined,
+        phone: undefined,
+        result: undefined,
+        special: undefined
+      }
+    }
+  },
+  created() {
+    if (this.$route.query.consu_id) {
+      this.consu_id = this.$route.query.consu_id
+      this.getStudent()
+    }
+  },
+  methods: {
+    getStudent() {
+      getStudentInfo(this.consu_id).then(res => {
+        if (res.data) {
+          this.assignStudentInfo(res.data)
+        }
+      })
+    },
+    assignStudentInfo(data) {
+      for (var p in this.student) {
+        if (data.hasOwnProperty(p)) {
+          this.student[p] = data[p]
+        }
+      }
     }
   }
 }

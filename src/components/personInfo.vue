@@ -68,7 +68,6 @@ export default {
 }
 </script>
 
-
 <style>
 .personal-info-area {
   position: relative;

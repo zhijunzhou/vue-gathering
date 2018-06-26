@@ -7,7 +7,7 @@
     <div class="popup-advisor-name">{{student.name}}老师</div>
     <div class="popup-advisor-tips">为您的课程顾问打个分吧~</div>
     <div class="popup-btn-redirect">
-      <el-button type="danger" round>开始评价</el-button>
+      <router-link :to="{path: '/opinion?consu_id=' + student.id}"><el-button type="danger" round>开始评价</el-button></router-link>
     </div>
     <div class="popup-btn-close">
       <div class="btn-wrapper">
