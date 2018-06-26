@@ -11,7 +11,7 @@
     </div>
     <div class="popup-btn-close">
       <div class="btn-wrapper">
-        <img src="../asset/materials/关闭@3x.png" @click="popupVisible = false" height="30" />
+        <img src="../asset/materials/close.png" @click="popupVisible = false" height="30" />
       </div>
     </div>
   </mt-popup>

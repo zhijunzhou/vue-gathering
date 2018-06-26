@@ -1,8 +1,8 @@
 <template>
   <div class="personal-info-area">
     <div class="middle-cup-container text-center">
-      <img class="middle-cup" v-if="student.result === 'signUp'" src="../asset/materials/报名成功@3x.png" />
-      <img class="middle-cup" v-else src="../asset/materials/咨询成功@3x.png" />
+      <img class="middle-cup" v-if="student.result === 'signUp'" src="../asset/materials/success.png" />
+      <img class="middle-cup" v-else src="../asset/materials/fail.png" />
     </div>
     <div class="student-info text-center">
       <span class="student-name">{{student.stu_name}}</span>
@@ -40,7 +40,7 @@
         <div class="class-item" v-for="(sp, index) in specialList(student.special)" :key="index">{{sp}}</div>
       </div>
       <div class="float-right text-center qrcode">
-        <img class="qrcode-img" src="../asset/materials/二维码.jpg" />
+        <img class="qrcode-img" src="../asset/materials/qrcode.jpg" />
       </div>
     </div>
   </div>
