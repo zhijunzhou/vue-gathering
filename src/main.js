@@ -13,8 +13,6 @@ Vue.component(Radio.name, Radio)
 Vue.component(Button.name, Button)
 Vue.component(Input.name, Input)
 
-import '@/components/VeeValidate'
-
 Vue.use(Mint)
 
 Vue.config.productionTip = false
