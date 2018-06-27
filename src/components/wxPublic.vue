@@ -1,8 +1,8 @@
 <template>
   <div class="weixin-public-area">
     <div class="weixin-public-info text-center">
-      <img src="../asset/materials/gzh.png" />
-      <div class="wx-public-name">{{publicName}}</div>
+      <img src="../asset/materials/sunlands-app.png" @click="toUrl(publicHistoryLink)" class="weixin-public-icon" />
+      <div class="wx-public-name"  @click="toUrl(publicHistoryLink)">{{publicName}}</div>
       <div class="wx-public-intro">{{publicIntro}}</div>
       <div class="text-center">
         <a :href="publicHistoryLink" class="wx-public-link"><div class="wx-care-btn">关注</div></a>
@@ -10,13 +10,13 @@
     </div>
     <div class="weixin-articels">
       <div class="related-articels">相关文章</div>
-      <div class="articel-item" v-for="(at, index) in articels" :key="index">
+      <div class="articel-item" v-for="(at, index) in articels" :key="index" @click="toUrl(publicHistoryLink)">
         <div class="articel-left">
           <div class="articel-title">{{at.title}}</div>
           <div class="articel-created">{{at.created}}</div>
         </div>
         <div class="articel-img-container">
-          <div class="articel-img">&nbsp;</div>
+          <div class="articel-img"><img :src="'/static/img/' + at.img" /></div>
         </div>
       </div>
     </div>
@@ -24,26 +24,41 @@
 </template>
 
 <script>
+import { getOS } from '@/utils/weixin'
+
 export default {
   data() {
     return {
-      publicName: '公众号名字',
-      publicIntro: '这个时代一定会犒赏默默努力的人，即使他出生卑微、贫贱...',
-      publicHistoryLink: 'https://mp.weixin.qq.com/mp/getmasssendmsg?__biz=MzIzNzExOTU1Ng==#wechat_webview_type=1&wechat_redirect',
+      publicName: '尚德自考直通车',
+      publicIntro: '2018年最新政策，招生简章等一手信息发布平台',
+      publicHistoryLink: 'https://mp.weixin.qq.com/mp/getmasssendmsg?__biz=MzUxNzU1ODM2MQ==#wechat_webview_type=1&wechat_redirect',
       articels: [
         {
-          title: '越来越固话的社会阶层，你该如何向上打破？',
-          created: '2018年4月20日'
+          title: '成考和自考哪个好？他们有什么区别？',
+          created: '原创',
+          img: 'article1.png'
         },
         {
-          title: '越来越固话的社会阶层，你该如何向上打破？',
-          created: '2018年4月20日'
+          title: '我已经在很努力的加班了，为什么被提拔的总不是我？',
+          created: '原创',
+          img: 'article2.png'
         },
         {
-          title: '越来越固话的社会阶层，你该如何向上打破？',
-          created: '2018年4月20日'
+          title: '听说你想辞职，做一个自由工作者？',
+          created: '原创',
+          img: 'article3.png'
         }
       ]
+    }
+  },
+  methods: {
+    toUrl(url) {
+      console.log(url)
+      if (getOS() === 'iOS') {
+        window.location = url
+      } else {
+        window.location.href = url
+      }
     }
   }
 }
@@ -56,12 +71,15 @@ export default {
   border-radius: 8px;
   min-height: 50px;
   height: 100%;
-  padding-top: 30px;
+  padding-top: 10px;
   padding-bottom: 20px;
 }
 .weixin-public-info {
   padding-bottom: 12px;
   border-bottom: 1px solid #eee;
+}
+.weixin-public-icon {
+  width: 80px;
 }
 .wx-public-name {
   font-size: 16px;
@@ -110,8 +128,10 @@ export default {
   float: right;
   height: 70px;
   width: 100px;
-  border: 1px solid #eee;
-  border-radius: 5px;
+}
+.articel-img img {
+  height: 70px;
+  width: 100px;
 }
 .articel-title {
   font-size: 13px;

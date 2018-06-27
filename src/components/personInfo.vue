@@ -38,7 +38,7 @@
     <div class="class-recommand">
       <div class="float-left">
         <div class="class-top">{{student.select_class}}</div>
-        <div class="class-item" v-for="(sp, index) in specialList(student.special)" :key="index">{{sp}}</div>
+        <div class="class-item" v-for="(sp, index) in specialList(student.special)" v-if="index < 3" :key="index">{{sp}}</div>
       </div>
       <div class="float-right text-center qrcode">
         <img class="qrcode-img" src="../asset/materials/qrcode.jpg" />
