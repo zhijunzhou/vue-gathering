@@ -188,5 +188,8 @@ export default {
   height: 8px !important;
   background-color: #F67261 !important;
 }
+.el-rate__icon.hover {
+  transform: scale(1) !important;
+}
 </style>
 
