@@ -2,7 +2,7 @@
   <div class="learning-materials">
     <div class="common-title">学习资料</div>
     <div class="materials-container">
-      <div class="material-item" v-for="(mt, index) in materials" :key="index">
+      <div class="material-item" v-for="(mt, index) in materials" :key="index" @click="toUrl(mt.url)">
         <div class="float-left">
           <div class="float-left material-img">&nbsp;</div>
           <div class="float-right">
@@ -42,6 +42,16 @@ export default {
         //   description: '尚德课程学习APP下载'
         // }
       ]
+    }
+  },
+  methods: {
+    toUrl(url) {
+      console.log(url)
+      if (getOS() === 'iOS') {
+        window.location = url
+      } else {
+        window.location.href = url
+      }
     }
   }
 }
