@@ -138,8 +138,11 @@ export default {
 }
 .radio-container {
   position: absolute;
-  right: 10px;
+  right: 20px;
   top: 20px;
+}
+.radio-container .el-radio__label {
+  font-size: 13px;
 }
 .option-form-container {
   min-height: 400px;
