@@ -35,12 +35,12 @@
       <div class="left-semi-circle"></div>
       <div class="right-semi-circle"></div>
     </div>
-    <div class="class-recommand">
-      <div class="float-left">
+    <div class="class-special-area">
+      <div class="left">
         <div class="class-top">{{student.select_class}}</div>
-        <div class="class-item" v-for="(sp, index) in specialList(student.special)" v-if="index < 3" :key="index">{{sp}}</div>
+        <div class="class-item">{{student.special}}</div>
       </div>
-      <div class="float-right text-center qrcode">
+      <div class="right">
         <img class="qrcode-img" src="../asset/materials/qrcode.jpg" />
       </div>
     </div>
@@ -112,6 +112,9 @@ export default {
 .class-recommand {
   padding: 10px 20px;
 }
+.class-special-area {
+  padding: 10px 20px;
+}
 .qrcode-img {
   height: 62px;
 }
@@ -170,6 +173,24 @@ export default {
 .advisor-phone {
   color: #888;
   text-decoration: none;
+}
+.class-special-area {
+  display: flex;
+}
+.class-special-area .left {
+  width: auto;
+  flex-grow: 1;
+  height: auto;
+  padding-right: 5px;
+}
+.class-special-area .right {
+  width: 80px;
+  min-width: 80px;
+  max-width: 80px;
+  height: auto;
+  flex-grow: 0;
+  text-align: right;
+  border-left: 2px dotted #eee;
 }
 </style>
 
