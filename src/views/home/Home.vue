@@ -2,7 +2,7 @@
   <div class="table">
     <div class="blank-area" v-if="gotStudent"></div>
     <v-person-info v-if="gotStudent" :student="student" />
-    <v-season-activity />
+    <!-- <v-season-activity /> -->
     <v-learning-materials />
     <v-wx-public />
     <v-opinion-dialog v-if="gotStudent && !evaluated" :student="student" />
