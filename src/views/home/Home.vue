@@ -5,7 +5,7 @@
     <v-season-activity />
     <v-learning-materials />
     <v-wx-public />
-    <v-opinion-dialog v-if="gotStudent" :student="student" />
+    <v-opinion-dialog v-if="gotStudent && !evaluated" :student="student" />
   </div>
 </template>
 
@@ -15,7 +15,7 @@ import seasonActivity from '@/components/seasonActivity'
 import learningMaterials from '@/components/learningMaterials'
 import wxPublic from '@/components/wxPublic'
 import opinionDialog from '@/components/opinionDialog'
-import { getStudentInfo } from '@/api'
+import { getStudentInfo, isEvaluated } from '@/api'
 
 export default {
   name: 'home',
@@ -36,6 +36,7 @@ export default {
     return {
       consu_id: undefined,
       gotStudent: undefined,
+      evaluated: isEvaluated(),
       student: {
         id: undefined,
         stu_name: undefined,

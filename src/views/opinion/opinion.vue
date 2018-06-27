@@ -44,7 +44,7 @@
 </template>
 
 <script>
-import { getStudentInfo, getCampusTags, evaluate } from '@/api'
+import { getStudentInfo, getCampusTags, evaluate, cacheEvaluation } from '@/api'
 import opinionSuccessDialog from '@/components/opinionSuccessDialog'
 
 export default {
@@ -114,6 +114,8 @@ export default {
     },
     showDialog(flag) {
       this.showSuccessDialog = false
+      cacheEvaluation()
+      this.$router.push('/home?consu_id=' + this.$route.query.consu_id)
     },
     submitOpinion() {
       this.$nextTick(() => {

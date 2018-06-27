@@ -1,5 +1,6 @@
 import axios from 'axios'
 import { Toast } from 'mint-ui'
+import moment from 'moment'
 
 const service = axios.create({
   baseURL: 'http://fenxiao.cronus.manager.sunlands/wifi/v1'
@@ -70,4 +71,18 @@ export const evaluate = (data) => {
     },
     data: formData
   })
+}
+
+export const cacheEvaluation = () => {
+  const evaluation = moment().format('YYYY-MM-DD')
+  window.localStorage.setItem('evaluation', evaluation)
+}
+
+export const isEvaluated = () => {
+  const evaluation = window.localStorage.getItem('evaluation')
+  const today = moment().format('YYYY-MM-DD')
+  if (evaluation === today) {
+    return true
+  }
+  return false
 }
