@@ -106,8 +106,8 @@ export default {
   font-size: 15px;
   font-weight: bold;
   color: #222;
-  border-left: 5px solid #f28;
-  padding-left: 12px;
+  border-left: 5px solid #F67261;
+  padding-left: 10px;
   margin-bottom: 10px;
 }
 </style>
