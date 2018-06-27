@@ -37,6 +37,7 @@ export default {
   width: 320px !important;
   border-radius: 8px;
   padding: 20px;
+  padding-top: 40px;
 }
 .popup-org-name, .popup-advisor-name {
   text-align: center;
