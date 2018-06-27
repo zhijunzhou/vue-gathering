@@ -172,6 +172,9 @@ export default {
   padding: 10px 20px;
   width: 100%;
 }
+.option-submit-btn button {
+  height: 40px;
+}
 .el-radio__label {
   padding-left: 2px !important;
   color: #888 !important;
