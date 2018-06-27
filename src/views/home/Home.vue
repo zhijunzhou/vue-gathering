@@ -1,6 +1,6 @@
 <template>
   <div class="table">
-    <div class="blank-area"></div>
+    <div class="blank-area" v-if="gotStudent"></div>
     <v-person-info v-if="gotStudent" :student="student" />
     <v-season-activity />
     <v-learning-materials />
@@ -85,7 +85,7 @@ export default {
   width: 100%;
 }
 .blank-area {
-  height: 80px;
+  height: 20px;
   width: 100%;
   background: transparent;
 }
