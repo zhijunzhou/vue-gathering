@@ -11,7 +11,7 @@
         <div class="option-item-label">课顾评分</div>
         <div class="option-item-rate">
           <el-rate
-            :colors="['#99A9BF', '#F67261', '#F67261']"
+            :colors="['#F67261', '#F67261', '#F67261']"
             v-model="opinionForm.teacher_level">
           </el-rate>
         </div>
@@ -20,7 +20,7 @@
         <div class="option-item-label">校区评分</div>
         <div class="option-item-rate">
           <el-rate
-            :colors="['#99A9BF', '#F67261', '#F67261']"
+            :colors="['#F67261', '#F67261', '#F67261']"
             v-model="opinionForm.school_level">
           </el-rate>
         </div>

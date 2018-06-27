@@ -11,6 +11,7 @@
         人生没有失败，自信创造精彩。
       </div>
     </div>
+    <div class="dotted-spaced"></div>
     <div class="zixun-info">
       <div class="zixun-item">
         <div class="float-left">
@@ -86,7 +87,12 @@ export default {
 }
 .student-info {
   padding-bottom: 20px;
-  border-bottom: 3px dotted #eee;
+}
+.dotted-spaced {
+  background: url('../asset/materials/dotted.png');
+  height: 10px;
+  background-repeat: repeat-x;
+  background-size: 80% 60%;
 }
 .student-name {
   font-size: 16px;
