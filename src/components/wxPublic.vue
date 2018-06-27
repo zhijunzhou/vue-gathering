@@ -5,7 +5,7 @@
       <div class="wx-public-name">{{publicName}}</div>
       <div class="wx-public-intro">{{publicIntro}}</div>
       <div class="text-center">
-        <div class="wx-care-btn">关注</div>
+        <a :href="publicHistoryLink" class="wx-public-link"><div class="wx-care-btn">关注</div></a>
       </div>
     </div>
     <div class="weixin-articels">
@@ -29,6 +29,7 @@ export default {
     return {
       publicName: '公众号名字',
       publicIntro: '这个时代一定会犒赏默默努力的人，即使他出生卑微、贫贱...',
+      publicHistoryLink: 'https://mp.weixin.qq.com/mp/getmasssendmsg?__biz=MzIzNzExOTU1Ng==#wechat_webview_type=1&wechat_redirect',
       articels: [
         {
           title: '越来越固话的社会阶层，你该如何向上打破？',
@@ -85,6 +86,9 @@ export default {
   border: 1px solid #67C23A;
   margin: 10px auto;
   cursor: pointer;
+}
+.wx-public-link {
+  text-decoration: none;
 }
 .weixin-articels {
   padding: 20px;
