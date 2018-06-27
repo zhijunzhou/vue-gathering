@@ -16,7 +16,7 @@
           <div class="articel-created">{{at.created}}</div>
         </div>
         <div class="articel-img-container">
-          <div class="articel-img"><img :src="'/static/img/' + at.img" /></div>
+          <div class="articel-img"><img :src="'static/img/' + at.img" /></div>
         </div>
       </div>
     </div>
