@@ -79,6 +79,14 @@ export default {
       }
     }
   },
+  watch: {
+    $route(to, from) {
+      if (this.$route.query.consu_id) {
+        this.consu_id = this.$route.query.consu_id
+        this.getStudent()
+      }
+    }
+  },
   components: {
     'v-opinion-success-dialog': opinionSuccessDialog
   },
