@@ -18,7 +18,7 @@
           <span class="zixun-item-content">{{student.orgName4}}</span>
         </div>
         <div class="float-right">
-          <a :href="'tel://' + student.phone" class="advisor-phone"><i class="fas fa-phone fa-sm zixun-icon-phone"></i></a>
+          <a v-if="student.phone" :href="'tel://' + student.phone" class="advisor-phone"><i class="fas fa-phone fa-sm zixun-icon-phone"></i></a>
         </div>
       </div>
       <div class="zixun-item">
