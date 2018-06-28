@@ -6,7 +6,6 @@
     </div>
     <div class="student-info text-center">
       <span class="student-name">{{student.stu_name}}</span>
-      <span class="student-chengwei">同学</span>
       <div class="guliyu">
         人生没有失败，自信创造精彩。
       </div>

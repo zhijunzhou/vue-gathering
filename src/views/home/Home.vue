@@ -65,6 +65,13 @@ export default {
     assignStudentInfo(data) {
       for (var p in this.student) {
         if (data.hasOwnProperty(p)) {
+          if (p === 'stu_name') {
+            if (data[p] === '无') {
+              data[p] = 'Dear. 尚德学员'
+            } else {
+              data[p] = 'Dear. ' + data[p]
+            }
+          }
           this.student[p] = data[p]
         }
       }
