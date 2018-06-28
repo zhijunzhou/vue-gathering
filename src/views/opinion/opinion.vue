@@ -26,7 +26,7 @@
         </div>
       </div>
       <div class="option-btn-container">
-        <el-button size="small" v-for="(tag, index) in tags" :key="index" :type="opinionForm.tag_id === tag.id ? 'danger' : 'default'" @click="ensureTag(tag)" round>{{tag.name}}</el-button>
+        <el-button size="small" class="custom-tag-btn" v-for="(tag, index) in tags" :key="index" :type="opinionForm.tag_id === tag.id ? 'danger' : 'default'" @click="ensureTag(tag)" round>{{tag.name}}</el-button>
       </div>
       <div>
         <el-input 
@@ -106,7 +106,11 @@ export default {
     },
     getTags() {
       getCampusTags().then(res => {
-        this.tags = [...res.data]
+        if (Array.isArray(res.data)) {
+          this.tags = res.data.filter((tag, index) => {
+            return tag.name.trim().length > 0
+          })
+        }
       })
     },
     ensureTag(tag) {
@@ -198,6 +202,18 @@ export default {
 }
 .el-rate__icon.hover {
   transform: scale(1) !important;
+}
+.option-btn-container .custom-tag-btn {
+  border: 0;
+  margin: 5px 10px;
+}
+.option-btn-container .custom-tag-btn.el-button--default {
+  border: 0;
+  background: #F5F5F5;
+  color: #666;
+}
+.option-btn-container .custom-tag-btn+.custom-tag-btn {
+  margin-left: 0;
 }
 </style>
 
