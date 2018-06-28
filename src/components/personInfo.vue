@@ -93,6 +93,10 @@ export default {
   background-repeat: repeat-x;
   background-size: 80% 40%;
   background-position-x: center;
+  /* padding: 1em;
+  border-bottom: 1px dotted transparent;
+  background: linear-gradient(white,white) padding-box,
+  repeating-linear-gradient(-45deg,#ccc 0, #ccc 0.25em,white 0,white 0.75em); */
 }
 .student-name {
   font-size: 16px;
