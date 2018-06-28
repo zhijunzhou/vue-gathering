@@ -123,15 +123,17 @@ export default {
 }
 .articel-img-container {
   flex: 1;
+  padding-top: 10px;
 }
 .articel-img {
   float: right;
-  height: 70px;
+  height: 65px;
   width: 100px;
 }
 .articel-img img {
-  height: 70px;
+  height: 65px;
   width: 100px;
+  border-radius: 5px;
 }
 .articel-title {
   font-size: 13px;
