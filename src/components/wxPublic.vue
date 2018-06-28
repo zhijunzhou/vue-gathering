@@ -104,6 +104,7 @@ export default {
   border: 1px solid #67C23A;
   margin: 10px auto;
   cursor: pointer;
+  font-size: 12px;
 }
 .wx-public-link {
   text-decoration: none;
