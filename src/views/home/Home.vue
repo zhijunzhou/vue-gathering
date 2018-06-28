@@ -71,6 +71,10 @@ export default {
       })
     },
     assignStudentInfo(data) {
+      if (data && data['result'] !== 'signUp') {
+        data['select_class'] = '体验尚德线下体验中心小程序'
+        data['special'] = '课程优惠实时递送、自考信息一手获达'
+      }
       for (var p in this.student) {
         if (data.hasOwnProperty(p)) {
           if (p === 'stu_name') {
@@ -80,6 +84,7 @@ export default {
               data[p] = 'Dear. ' + data[p]
             }
           }
+          console.log(data)
           this.student[p] = data[p]
         }
       }

@@ -37,7 +37,7 @@
     <div class="class-special-area">
       <div class="left">
         <div class="class-top">{{student.select_class}}</div>
-        <div class="class-item">{{student.special}}</div>
+        <div class="class-item" v-for="(sp, index) in specialList(student.special)" :key="index">{{sp}}</div>
       </div>
       <div class="right">
         <img class="qrcode-img" src="../asset/materials/qrcode.jpg" />
@@ -60,8 +60,8 @@ export default {
       return moment(date).format('YYYY-MM-DD HH:mm')
     },
     specialList(special) {
-      const regex = new RegExp(/(，)|(\,)/, 'g')
-      special = special.replace(regex, '、')
+      // const regex = new RegExp(/(，)|(\,)/, 'g')
+      // special = special.replace(regex, '、')
       return special.split('、')
     }
   }
@@ -88,15 +88,15 @@ export default {
   padding-bottom: 20px;
 }
 .dotted-spaced {
-  background: url('../asset/materials/dotted.png');
+  /* background: url('../asset/materials/dotted.png');
   height: 10px;  
   background-repeat: repeat-x;
   background-size: 80% 40%;
-  background-position-x: center;
-  /* padding: 1em;
+  background-position-x: center; */
+  padding: 1em;
   border-bottom: 1px dotted transparent;
   background: linear-gradient(white,white) padding-box,
-  repeating-linear-gradient(-45deg,#ccc 0, #ccc 0.25em,white 0,white 0.75em); */
+  repeating-linear-gradient(-45deg,#ccc 0, #ccc 0.25em,white 0,white 0.75em);
 }
 .student-name {
   font-size: 16px;
