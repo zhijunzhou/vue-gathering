@@ -89,9 +89,10 @@ export default {
 }
 .dotted-spaced {
   background: url('../asset/materials/dotted.png');
-  height: 10px;
+  height: 10px;  
   background-repeat: repeat-x;
-  background-size: 80% 60%;
+  background-size: 80% 40%;
+  background-position-x: center;
 }
 .student-name {
   font-size: 16px;
