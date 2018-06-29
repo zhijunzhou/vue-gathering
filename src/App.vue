@@ -6,6 +6,12 @@
 
 <script>
 export default {
-  name: 'app'
+  name: 'app',
+  mounted() {
+    const btn = document.querySelector('.el-button')
+    btn.addEventListener('contextmenu', function(e) {
+      e.preventDefault()
+    })
+  }
 }
 </script>

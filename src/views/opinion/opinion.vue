@@ -214,6 +214,8 @@ export default {
 .option-btn-container .custom-tag-btn {
   border: 0;
   margin: 5px 10px;
+  -webkit-user-select: none;
+  user-select: none;
 }
 .option-btn-container .custom-tag-btn.el-button--default {
   border: 0;

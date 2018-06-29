@@ -51,6 +51,12 @@ export default {
       ]
     }
   },
+  mounted() {
+    const btn = document.querySelector('.wx-care-btn')
+    btn.addEventListener('contextmenu', function(e) {
+      e.preventDefault()
+    })
+  },
   methods: {
     toUrl(url) {
       console.log(url)
@@ -105,6 +111,8 @@ export default {
   margin: 10px auto;
   cursor: pointer;
   font-size: 12px;
+  -webkit-user-select: none;
+  user-select: none;
 }
 .wx-public-link {
   text-decoration: none;
