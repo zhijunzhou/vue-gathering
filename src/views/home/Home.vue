@@ -84,7 +84,6 @@ export default {
               data[p] = 'Dear. ' + data[p]
             }
           }
-          console.log(data)
           this.student[p] = data[p]
         }
       }

@@ -15,7 +15,7 @@
       <div class="zixun-item">
         <div class="float-left">
           <span class="zixun-item-label">到访分校</span>
-          <span class="zixun-item-content">{{student.orgName4}}</span>
+          <span class="zixun-item-content" v-if="student.orgName4 && student.orgName4 !== ''">{{student.orgName4}}</span>
         </div>
         <div class="float-right">
           <a v-if="student.phone" :href="'tel://' + student.phone" class="advisor-phone"><i class="fas fa-phone fa-sm zixun-icon-phone"></i></a>
