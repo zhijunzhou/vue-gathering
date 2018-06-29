@@ -118,11 +118,22 @@ export default {
           this.tags = res.data.filter((tag, index) => {
             return tag.name.trim().length > 0
           })
+          this.disableTagContext()
         }
       })
     },
     ensureTag(tag) {
       this.opinionForm.tag_id = tag.id
+    },
+    disableTagContext() {
+      setTimeout(() => {
+        const buttons = document.querySelectorAll('.custom-tag-btn')
+        buttons.forEach(btn => {
+          btn.addEventListener('contextmenu', function(event) {
+            event.preventDefault()
+          })
+        })
+      }, 1000)
     },
     showDialog(flag) {
       this.showSuccessDialog = false
