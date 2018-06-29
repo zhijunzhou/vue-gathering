@@ -84,19 +84,19 @@ export default {
   margin-top: -30px;
   height: 100px;
 }
-.student-info {
+/* .student-info {
   padding-bottom: 20px;
-}
+} */
 .dotted-spaced {
   /* background: url('../asset/materials/dotted.png');
   height: 10px;  
   background-repeat: repeat-x;
   background-size: 80% 40%;
   background-position-x: center; */
-  padding: 1em;
+  padding: 10px;
   border-bottom: 1px dotted transparent;
   background: linear-gradient(white,white) padding-box,
-  repeating-linear-gradient(-45deg,#ccc 0, #ccc 0.25em,white 0,white 0.75em);
+  repeating-linear-gradient(-45deg,#eee 0, #eee 0.25em,white 0,white 0.75em);
 }
 .student-name {
   font-size: 16px;
