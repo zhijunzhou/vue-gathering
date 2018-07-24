@@ -158,7 +158,7 @@ export default {
 }
 .class-top,
 .class-item {
-  height: 20px;
+  min-height: 20px;
   line-height: 20px;
 }
 .class-top {
