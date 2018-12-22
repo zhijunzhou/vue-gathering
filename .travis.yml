@@ -13,11 +13,11 @@ install:
 before_script:  
 
 script:
-  - npm run build
+  # - npm run build
   
 after_script:
   # - cd ./dist
-  
+
 # gh-pages deploy
   - git init
   - git config user.name "${U_NAME}"
