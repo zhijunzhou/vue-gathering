@@ -195,7 +195,7 @@ ul {
 /*.bjyy {background: url(../images/bjyy.png) no-repeat 0 0; background-size:100% 100%; }*/
 /*.container .page h1{padding-top:120px; line-height:50px; display:block}*/
 .page_box {
-  background: #fff;
+  /* background: #fff; */
 }
 .container .page0 {
   top: 7%;
