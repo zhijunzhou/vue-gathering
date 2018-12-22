@@ -6,13 +6,22 @@ Vue.use(Router)
 import Layout from '../views/layout/Layout'
 import Home from '../views/home/Home'
 import Opinion from '../views/opinion/opinion'
+import Letter from '../views/letter/letter'
 
 export const constantRouterMap = [{
   path: '/',
   name: '/',
   component: Layout,
-  redirect: '/home',
+  redirect: '/letter',
   children: [
+    {
+      path: '/letter',
+      name: 'Letter',
+      component: Letter,
+      meta: {
+        title: '致尚德兄弟告白信'
+      }
+    },
     {
       path: '/home',
       name: 'Home',
