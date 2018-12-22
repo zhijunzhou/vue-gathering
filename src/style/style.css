@@ -657,7 +657,6 @@ ul {
   }
   .sk_bottom {
     position: absolute;
-    /* top: 7.2rem !important; */
     left: 0;
     z-index: 99;
   }
@@ -695,7 +694,6 @@ ul {
 @media only screen and (max-width: 360px) {
   .sk_bottom {
     position: absolute;
-    /* top: 6.26rem !important; */
     left: 0;
     z-index: 99;
   }
@@ -756,7 +754,6 @@ ul {
 }
 .sk_bottom {
   position: absolute;
-  /* top: 6.58rem; */
   left: 0;
   z-index: 99;
 }
@@ -1268,7 +1265,6 @@ ul {
   }
   .sk_bottom {
     position: absolute;
-    /* top: 6.32rem; */
     left: 0;
     z-index: 99;
     height: 90%;
