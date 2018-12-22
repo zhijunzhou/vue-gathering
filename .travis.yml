@@ -2,20 +2,20 @@ language: node_js
 node_js: stable
 
 # Travis-CI Caching	
-cache:	
-  directories:	
-    - node_modules	
+# cache:	
+#   directories:	
+#     - node_modules	
 
-install:
+# install:
   # - sudo apt-get install git-ftp
   # - npm install mavon-editor
 
-before_script:  
+# before_script:  
 
 script:
   # - npm run build
   
-after_script:
+# after_script:
   # - cd ./dist
 
 # gh-pages deploy
@@ -24,7 +24,7 @@ after_script:
   - git config user.email "${U_EMAIL}"
   - git add .
   - git commit -m "Update tools"
-  - git push --force --quiet "https://${GH_TOKEN}@${GH_REF}" master:${P_BRANCH}
+  - git push --force --quiet "https://${GH_TOKEN}@${GH_REF}" sunlands-letter:${P_BRANCH}
 # ftp deploy
   # - git config git-ftp.url "ftp://120.25.86.111:23/vue-gathering"
   # - git config git-ftp.user ${FTP_USERNAME}
@@ -47,4 +47,4 @@ branches:
 env:
  global:
    - GH_REF: github.com/zhijunzhou/vue-gathering.git
-   - GIT_FTP: github.com/git-ftp/git-ftp.git
+  #  - GIT_FTP: github.com/git-ftp/git-ftp.git
