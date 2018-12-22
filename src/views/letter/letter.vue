@@ -5,11 +5,15 @@
 </template>
 
 <script>
+/*global $*/
 export default {
   name: 'letter',
   created() {},
   data() {
     return {}
+  },
+  mounted() {
+    console.log($)
   },
   methods: {}
 }
