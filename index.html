@@ -1,26 +1,644 @@
 <!DOCTYPE html>
-<html>
+<!-- saved from url=(0107)http://www.stg-smartlearning.com/download/linshi/wudi/double/index.html?from=singlemessage&isappinstalled=0 -->
+<html lang="en">
   <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1.0">
-    <title>vue-gathering</title>
-    <link href="https://cdn.quilljs.com/1.2.6/quill.snow.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.10/css/all.css" integrity="sha384-+d0P83n9kaQMCwj8F4RJB66tzIwOKmrdb46+porD/OvrJ+37WqIM7UoBtwHO6Nlg" crossorigin="anonymous">
-    <link rel="stylesheet" href="./static/vendors/editormd.css" />
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <script src="./assets/hm.js"></script>
+    <script async="" src="./assets/wxJsonp"></script>
+
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="renderer" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
+    <title>致百度老校友的一封信</title>
+    <link rel="stylesheet" href="./assets/style.css" />
+    <script src="./assets/jquery-1.11.1.min.js"></script>
+    <script src="./assets/jquery.touchSwipe.min.js"></script>
+    <script>
+      $(function() {
+        var tc_g = $(window).height();
+        $(".box").css("height", tc_g);
+        $("body").on(
+          "touchmove",
+          function(event) {
+            event.preventDefault;
+          },
+          false
+        );
+      });
+      function swap_music() {
+        var oAudio = document.getElementById("myaudio");
+        if (oAudio.paused) {
+          oAudio.play();
+          $(".open").css("display", "block");
+          $(".close").css("display", "none");
+        } else {
+          oAudio.pause();
+          $(".close").css("display", "block");
+          $(".open").css("display", "none");
+        }
+      }
+      document.addEventListener("DOMContentLoaded", function() {
+        function audioAutoPlay() {
+          var audio = document.getElementById("myaudio");
+
+          audio.play();
+
+          document.addEventListener(
+            "WeixinJSBridgeReady",
+            function() {
+              audio.play();
+            },
+            false
+          );
+        }
+
+        audioAutoPlay();
+      });
+    </script>
+    <script>
+      $(document).ready(function() {
+        var nowpage = 0;
+        //给最大的盒子增加事件监听
+        $(".container").swipe({
+          swipe: function(event, direction, distance, duration, fingerCount) {
+            if (direction == "up") {
+              nowpage = nowpage + 1;
+            } else if (direction == "down") {
+              nowpage = nowpage - 1;
+            }
+            if (nowpage == 0) {
+              $(".top_img_box img").removeClass("fangda");
+              $(".foot p").removeClass("wztx");
+              $(".foot h2").removeClass("bttx");
+              $(".top_img_box0 img").addClass("tptx fangda");
+              // $(".page0 img").addClass("");
+              $(".foot0 p").addClass("wztx");
+              $(".foot0 h2").addClass("bttx");
+            } else if (nowpage == 1) {
+              $(".top_img_box img").removeClass("fangda");
+              $(".foot p").removeClass("wztx");
+              $(".foot h2").removeClass("bttx");
+              $(".top_img_box1 img").addClass("fangda");
+              $(".foot1 p").addClass("wztx");
+              $(".foot1 h2").addClass("bttx");
+            } else if (nowpage == 2) {
+              $(".top_img_box img").removeClass("fangda");
+              $(".foot p").removeClass("wztx");
+              $(".foot h2").removeClass("bttx");
+              $(".top_img_box2 img").addClass("fangda");
+              $(".foot2 p").addClass("wztx");
+              $(".foot2 h2").addClass("bttx");
+              $(".jiantou").css("display", "block");
+            } else if (nowpage == 3) {
+              $(".top_img_box img").removeClass("fangda");
+              $(".foot p").removeClass("wztx");
+              $(".foot h2").removeClass("bttx");
+              $(".foot3 p").addClass("wztx");
+              $(".jiyi").addClass("wztx");
+              $(".logo").addClass("logo_yd");
+              $(".jiantou").css("display", "none");
+            }
+
+            if (nowpage > 3) {
+              nowpage = 3;
+            }
+
+            if (nowpage < 0) {
+              nowpage = 0;
+            }
+
+            $(".container").animate({ top: nowpage * -100 + "%" }, 400);
+
+            $(".page")
+              .eq(nowpage)
+              .addClass("cur")
+              .siblings()
+              .removeClass("cur");
+          }
+        });
+      });
+      function qifeng() {
+        $(".sk_bottom").addClass("sikai");
+        $(".sk_top").addClass("sikai_top");
+        $(".qifeng").css("display", "none");
+        $(".top_img_box0 img").addClass("tptx fangda");
+        // $(".page0 img").addClass("");
+        $(".foot0 p").addClass("wztx");
+        $(".foot0 h2").addClass("bttx");
+        setTimeout(function() {
+          $(".box_nr1").css("display", "none");
+          $(".jiantou").css("display", "block");
+
+          // $(".container").css("display","block");
+        }, 1000);
+        // $(".box_nr1").css("display","none");
+      }
+    </script>
   </head>
-  <body>
-    <div id="app"></div>
-    <!-- built files will be auto injected -->
-    <script src="./static/vendors/jquery.min.js"></script>
-    <script src="./static/vendors/editormd.js"></script>
-    <script src="https://cdn.socket.io/socket.io-1.2.0.js"></script>
-    <!-- <script type="text/javascript">
-      const socket = io.connect('http://localhost:5000');
-      socket.emit('init', new Date().getMilliseconds());
-    </script> -->
-    <!-- <script src="https://ckeditor.com/assets/libs/letters/letters.js"></script> -->
-    <script src="https://cdn.ckeditor.com/ckeditor5/1.0.0-beta.2/balloon/ckeditor.js"></script>
-    <script src="https://cdn.ckeditor.com/ckeditor5/1.0.0-beta.2/classic/ckeditor.js"></script>
-    <script src="https://cdn.ckeditor.com/ckeditor5/1.0.0-beta.2/decoupled-document/ckeditor.js"></script> 
+  <body onmousewheel="return false;">
+    <div class="htmleaf-container" style="display: none;">
+      <div
+        data-to-value="100"
+        data-items-count="31"
+        id="p1_barPie"
+        class="barPie barPie--radio"
+        style="color: #fff;"
+      >
+        <span class="barPie__value">100</span>
+        <div class="barPie__ring" style="opacity: 0;">
+          <input
+            type="radio"
+            name="barPieRadioGroup"
+            id="p1_barPieItem31"
+            value="100"
+            hidden="hidden"
+          />
+          <label for="p1_barPieItem31" class="barPie__ring__item"></label>
+          <input
+            type="radio"
+            name="barPieRadioGroup"
+            id="p1_barPieItem30"
+            value="96.875"
+            hidden="hidden"
+          />
+          <label for="p1_barPieItem30" class="barPie__ring__item"></label>
+          <input
+            type="radio"
+            name="barPieRadioGroup"
+            id="p1_barPieItem29"
+            value="93.75"
+            hidden="hidden"
+          />
+          <label for="p1_barPieItem29" class="barPie__ring__item"></label>
+          <input
+            type="radio"
+            name="barPieRadioGroup"
+            id="p1_barPieItem28"
+            value="90.625"
+            hidden="hidden"
+          />
+          <label for="p1_barPieItem28" class="barPie__ring__item"></label>
+          <input
+            type="radio"
+            name="barPieRadioGroup"
+            id="p1_barPieItem27"
+            value="87.5"
+            hidden="hidden"
+          />
+          <label for="p1_barPieItem27" class="barPie__ring__item"></label>
+          <input
+            type="radio"
+            name="barPieRadioGroup"
+            id="p1_barPieItem26"
+            value="84.375"
+            hidden="hidden"
+          />
+          <label for="p1_barPieItem26" class="barPie__ring__item"></label>
+          <input
+            type="radio"
+            name="barPieRadioGroup"
+            id="p1_barPieItem25"
+            value="81.25"
+            hidden="hidden"
+          />
+          <label for="p1_barPieItem25" class="barPie__ring__item"></label>
+          <input
+            type="radio"
+            name="barPieRadioGroup"
+            id="p1_barPieItem24"
+            value="78.125"
+            hidden="hidden"
+          />
+          <label for="p1_barPieItem24" class="barPie__ring__item"></label>
+          <input
+            type="radio"
+            name="barPieRadioGroup"
+            id="p1_barPieItem23"
+            value="75"
+            hidden="hidden"
+          />
+          <label for="p1_barPieItem23" class="barPie__ring__item"></label>
+          <input
+            type="radio"
+            name="barPieRadioGroup"
+            id="p1_barPieItem22"
+            value="71.875"
+            hidden="hidden"
+          />
+          <label for="p1_barPieItem22" class="barPie__ring__item"></label>
+          <input
+            type="radio"
+            name="barPieRadioGroup"
+            id="p1_barPieItem21"
+            value="68.75"
+            hidden="hidden"
+          />
+          <label for="p1_barPieItem21" class="barPie__ring__item"></label>
+          <input
+            type="radio"
+            name="barPieRadioGroup"
+            id="p1_barPieItem20"
+            value="65.625"
+            hidden="hidden"
+          />
+          <label for="p1_barPieItem20" class="barPie__ring__item"></label>
+          <input
+            type="radio"
+            name="barPieRadioGroup"
+            id="p1_barPieItem19"
+            value="62.5"
+            hidden="hidden"
+          />
+          <label for="p1_barPieItem19" class="barPie__ring__item"></label>
+          <input
+            type="radio"
+            name="barPieRadioGroup"
+            id="p1_barPieItem18"
+            value="59.375"
+            hidden="hidden"
+          />
+          <label for="p1_barPieItem18" class="barPie__ring__item"></label>
+          <input
+            type="radio"
+            name="barPieRadioGroup"
+            id="p1_barPieItem17"
+            value="56.25"
+            hidden="hidden"
+          />
+          <label for="p1_barPieItem17" class="barPie__ring__item"></label>
+          <input
+            type="radio"
+            name="barPieRadioGroup"
+            id="p1_barPieItem16"
+            value="53.125"
+            hidden="hidden"
+          />
+          <label for="p1_barPieItem16" class="barPie__ring__item"></label>
+          <input
+            type="radio"
+            name="barPieRadioGroup"
+            id="p1_barPieItem15"
+            value="50"
+            hidden="hidden"
+          />
+          <label for="p1_barPieItem15" class="barPie__ring__item"></label>
+          <input
+            type="radio"
+            name="barPieRadioGroup"
+            id="p1_barPieItem14"
+            value="46.875"
+            hidden="hidden"
+          />
+          <label for="p1_barPieItem14" class="barPie__ring__item"></label>
+          <input
+            type="radio"
+            name="barPieRadioGroup"
+            id="p1_barPieItem13"
+            value="43.75"
+            hidden="hidden"
+          />
+          <label for="p1_barPieItem13" class="barPie__ring__item"></label>
+          <input
+            type="radio"
+            name="barPieRadioGroup"
+            id="p1_barPieItem12"
+            value="40.625"
+            hidden="hidden"
+          />
+          <label for="p1_barPieItem12" class="barPie__ring__item"></label>
+          <input
+            type="radio"
+            name="barPieRadioGroup"
+            id="p1_barPieItem11"
+            value="37.5"
+            hidden="hidden"
+          />
+          <label for="p1_barPieItem11" class="barPie__ring__item"></label>
+          <input
+            type="radio"
+            name="barPieRadioGroup"
+            id="p1_barPieItem10"
+            value="34.375"
+            hidden="hidden"
+          />
+          <label for="p1_barPieItem10" class="barPie__ring__item"></label>
+          <input
+            type="radio"
+            name="barPieRadioGroup"
+            id="p1_barPieItem9"
+            value="31.25"
+            hidden="hidden"
+          />
+          <label for="p1_barPieItem9" class="barPie__ring__item"></label>
+          <input
+            type="radio"
+            name="barPieRadioGroup"
+            id="p1_barPieItem8"
+            value="28.125"
+            hidden="hidden"
+          />
+          <label for="p1_barPieItem8" class="barPie__ring__item"></label>
+          <input
+            type="radio"
+            name="barPieRadioGroup"
+            id="p1_barPieItem7"
+            value="25"
+            hidden="hidden"
+          />
+          <label for="p1_barPieItem7" class="barPie__ring__item"></label>
+          <input
+            type="radio"
+            name="barPieRadioGroup"
+            id="p1_barPieItem6"
+            value="21.875"
+            hidden="hidden"
+          />
+          <label for="p1_barPieItem6" class="barPie__ring__item"></label>
+          <input
+            type="radio"
+            name="barPieRadioGroup"
+            id="p1_barPieItem5"
+            value="18.75"
+            hidden="hidden"
+          />
+          <label for="p1_barPieItem5" class="barPie__ring__item"></label>
+          <input
+            type="radio"
+            name="barPieRadioGroup"
+            id="p1_barPieItem4"
+            value="15.625"
+            hidden="hidden"
+          />
+          <label for="p1_barPieItem4" class="barPie__ring__item"></label>
+          <input
+            type="radio"
+            name="barPieRadioGroup"
+            id="p1_barPieItem3"
+            value="12.5"
+            hidden="hidden"
+          />
+          <label for="p1_barPieItem3" class="barPie__ring__item"></label>
+          <input
+            type="radio"
+            name="barPieRadioGroup"
+            id="p1_barPieItem2"
+            value="9.375"
+            hidden="hidden"
+          />
+          <label for="p1_barPieItem2" class="barPie__ring__item"></label>
+          <input
+            type="radio"
+            name="barPieRadioGroup"
+            id="p1_barPieItem1"
+            value="6.25"
+            hidden="hidden"
+          />
+          <label for="p1_barPieItem1" class="barPie__ring__item"></label>
+          <input
+            type="radio"
+            name="barPieRadioGroup"
+            id="p1_barPieItem0"
+            value="3.125"
+            hidden="hidden"
+          />
+          <label for="p1_barPieItem0" class="barPie__ring__item"></label>
+        </div>
+      </div>
+    </div>
+    <div class="box" style="height: 736px;">
+      <div class="box_nr1" style="display: none;">
+        <!-- <img src="assets/images/shouye_03.png" alt="" width="35%"> -->
+        <div class="sk_box">
+          <img
+            src="./assets/sh_top_03.png"
+            alt=""
+            width="100%"
+            class="sk_top sikai_top"
+          />
+          <img
+            src="./assets/xia_bottom_03.png"
+            alt=""
+            width="100%"
+            class="sk_bottom sikai"
+          />
+        </div>
+        <a class="qifeng" onclick="qifeng()" style="display: none;"
+          ><img src="./assets/qifeng_03.png" alt="" width="15%"
+        /></a>
+      </div>
+      <div class="container" style="top: -300%;">
+        <div class="page page0">
+          <div class="page_box">
+            <div class="foot foot0">
+              <h2 class="tu1_vt">
+                <img src="./assets/tu1_03.png" alt="" width="70%" />
+              </h2>
+              <p class="" style="margin-top: 0.55rem;">
+                <img src="./assets/tu1_07.png" alt="" width="83%" style="" />
+              </p>
+              <!-- <p class="wztx">在Baidu奋斗的日子从你我相遇算起。</p> -->
+            </div>
+            <div
+              class="top_img_box top_img_box0"
+              style="overflow: hidden;padding-top:.5rem;"
+            >
+              <img src="./assets/tp1_07.png" alt="" class="tptx" />
+            </div>
+          </div>
+        </div>
+        <div class="page page1">
+          <div class="page_box">
+            <div class="foot foot1 foot1_top">
+              <h2 class="tu1_vt tu2_bt">
+                <img src="./assets/tu2_03.png" alt="" width="70%" />
+              </h2>
+            </div>
+            <div class="top_img_box top_img_box1">
+              <img src="./assets/tu2_06.png" alt="" class="" />
+            </div>
+            <div class="foot foot1">
+              <p class=""><img src="./assets/tu2_10.png" alt="" width="83%" /></p>
+              <!-- <p>工体年会上，闪烁的每只荧光棒，都属于那个有光环有志向的你。</p> -->
+            </div>
+          </div>
+        </div>
+        <div class="page page2">
+          <div class="page_box">
+            <div class="foot foot2 foot1_top">
+              <h2 class="tu1_vt tu2_bt tu1_vt_san">
+                <img src="./assets/tu3_03.png" alt="" width="70%" />
+              </h2>
+            </div>
+            <div class="top_img_box top_img_box2" style="margin-top:.5rem;">
+              <img src="./assets/tu3_07.png" alt="" class="" />
+            </div>
+            <div class="foot foot2" style="padding-bottom:1rem;">
+              <p class=""><img src="./assets/tu3_11.png" alt="" width="83%" /></p>
+            </div>
+          </div>
+        </div>
+        <div class="page page3 cur">
+          <img src="./assets/tu6_03.jpg" alt="" width="100%" height="86%" />
+          <img
+            src="./assets/baidu_03.png"
+            alt=""
+            class="logo logo_yd"
+            width="20%"
+          />
+          <div class="foot foot3">
+            <p class="wztx">
+              <img
+                src="./assets/tu4_03.png"
+                alt=""
+                width="97%"
+                style="margin-top:1rem;"
+              />
+            </p>
+          </div>
+          <a
+            href="./sign.html"
+            class="jiyi wztx"
+            ><img src="./assets/kaiqi_07.png" alt="" width="70%"
+          /></a>
+        </div>
+      </div>
+      <a onclick="swap_music()" class="yinyue">
+        <img src="./assets/yinfu.png" alt="" width="70%" />
+        <img src="./assets/open.png" alt="" class="open" width="100%" />
+        <img src="./assets/close.png" alt="" class="close" width="30%" />
+      </a>
+      <audio
+        id="myaudio"
+        controls="controls"
+        height="100"
+        width="100"
+        hidden="hidden"
+        autoplay="autoplay"
+        loop="loop"
+      >
+        <source src="assets/images/2.mp3" type="audio/mp3" />
+        <source src="assets/images/2.mp3" type="audio/ogg" />
+        <embed height="100" width="100" src="assets/images/2.mp3" />
+      </audio>
+      <img
+        src="./assets/jiantou_03.png"
+        alt=""
+        class="jiantou"
+        width="5%"
+        style="display: none;"
+      />
+    </div>
+    <script src="./assets/weixinjs.js"></script>
+    <script>
+      var _hmt = _hmt || [];
+      (function() {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?873aa18bce8fb5d691bab080fef69aa3";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+      })();
+    </script>
+    <script src="./assets/stopExecutionOnTimeout.js"></script>
+    <script src="./assets/do-in.js"></script>
+    <script>
+      (function(ELEMENT) {
+        ELEMENT.matches =
+          ELEMENT.matches ||
+          ELEMENT.mozMatchesSelector ||
+          ELEMENT.msMatchesSelector ||
+          ELEMENT.oMatchesSelector ||
+          ELEMENT.webkitMatchesSelector;
+        ELEMENT.closest =
+          ELEMENT.closest ||
+          function closest(selector) {
+            var element = this;
+            while (element) {
+              if (window.CP.shouldStopExecution(1)) {
+                break;
+              }
+              if (element.matches(selector)) break;
+              element = element.parentElement;
+            }
+            window.CP.exitedLoop(1);
+            return element;
+          };
+      })(Element.prototype);
+      var barPie = {
+        onChnage: function(e) {
+          if (e.target.name != "barPieRadioGroup") return;
+          var scopeElm = e.target.closest(".barPie--radio");
+          barPie.update(scopeElm, +e.target.value);
+          if (!scopeElm.active)
+            scopeElm
+              .querySelector(".barPie__ring")
+              .lastElementChild.addEventListener("click", barPie.clickToNull);
+          scopeElm.active = 1;
+        },
+        clickToNull: function() {
+          var that = this;
+          if (this.previousElementSibling.checked)
+            setTimeout(function() {
+              that.previousElementSibling.checked = false;
+              that
+                .closest(".barPie--radio")
+                .querySelector(".barPie__value").innerHTML = "100";
+            }, 0);
+        },
+        update: function(scopeElm, value, speed, extraStep) {
+          if (!scopeElm) return;
+          var valueElm = scopeElm.querySelector(".barPie__value"),
+            inital = +valueElm.innerHTML,
+            delta = value - inital,
+            doin;
+          function step(t, elapsed) {
+            t = 1 - Math.exp(-t * 10);
+            var value = delta * t + inital,
+              remainder = value % 1;
+            if (t > 0.99 && (remainder > 0.9 || remainder < 0.01)) {
+              value = Math.round(value);
+              doin.step = function() {};
+              $(".htmleaf-container").css("display", "none");
+            } else value = value.toFixed(remainder ? 1 : 0);
+            valueElm.innerHTML = value;
+            if (extraStep) extraStep(t);
+          }
+          if (!valueElm.doin) {
+            doin = new Doin(step, speed || 0.33);
+            valueElm.doin = doin;
+          } else doin = valueElm.doin;
+          doin.step = step;
+          doin.run();
+        }
+      };
+      document.addEventListener("change", barPie.onChnage);
+      var barPies = document.querySelectorAll(".barPie");
+      setTimeout(lazyCount, 1500);
+      function lazyCount() {
+        var currentBarPie, toValue, itemsCount;
+        function step(t) {
+          var itemIdx = Math.round(itemsCount * (toValue / 100) * t);
+          document.getElementById(
+            currentBarPie.id + "Item" + itemIdx
+          ).checked = true;
+        }
+        for (var i = barPies.length; i--; ) {
+          if (window.CP.shouldStopExecution(2)) {
+            break;
+          }
+          currentBarPie = barPies[i];
+          toValue = currentBarPie.dataset.toValue;
+          if (toValue) {
+            itemsCount = currentBarPie.dataset.itemsCount;
+            barPie.update(currentBarPie, toValue, 1.5, step);
+          }
+        }
+        window.CP.exitedLoop(2);
+      }
+    </script>
   </body>
 </html>

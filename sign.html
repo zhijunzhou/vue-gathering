@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<!-- saved from url=(0071)http://www.stg-smartlearning.com/download/linshi/wudi/double/shuru.html -->
+<html lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="renderer" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
+    <title>致百度老校友的一封信</title>
+    <link rel="stylesheet" href="./assets/style.css" />
+    <link rel="stylesheet" href="./assets/touxiang.css" />
+    <script src="./assets/jquery-1.11.1.min.js"></script>
+    <script src="./assets/json.js"></script>
+    <script>
+      $(function() {
+        var tc_g = $(window).height();
+        $(".box").css("height", tc_g);
+        $(".tanchu").css("height", tc_g);
+        // $("body").on("touchmove",function(event){
+        // 	event.preventDefault;
+        // }, false)
+      });
+      function dianji() {
+        $("#clipArea").css("display", "none");
+      }
+      function swap_music() {
+        var oAudio = document.getElementById("myaudio");
+        if (oAudio.paused) {
+          oAudio.play();
+          $(".open").css("display", "block");
+          $(".close").css("display", "none");
+        } else {
+          oAudio.pause();
+          $(".close").css("display", "block");
+          $(".open").css("display", "none");
+        }
+      }
+      document.addEventListener("DOMContentLoaded", function() {
+        function audioAutoPlay() {
+          var audio = document.getElementById("myaudio");
+
+          audio.play();
+
+          document.addEventListener(
+            "WeixinJSBridgeReady",
+            function() {
+              audio.play();
+            },
+            false
+          );
+        }
+
+        audioAutoPlay();
+      });
+    </script>
+  </head>
+  <body>
+    <div class="box" style="height: 736px;">
+      <div class="box_nr" style="border-bottom: 0px !important; width: 80%;">
+        <div class="sr_top">
+          <img src="./assets/tu7_03.png" alt="" width="100%;" />
+        </div>
+        <div class="sctx">
+          <div class="sbct_bt">
+            <img src="./assets/tu7_07.png" alt="" width="40%" />
+          </div>
+          <section class="logo-license">
+            <div class="half">
+              <div class="logo_box">
+                <img
+                  id="bgl"
+                  src="./assets/double7_07.png"
+                  style="width: 5.5rem; height: 5.5rem;"
+                />
+              </div>
+              <a
+                class="logo"
+                id="logox"
+                onclick="document.getElementById(&#39;file&#39;).click();"
+                ><img src="./assets/tu7_10.png" alt="" width="70%" />
+                <div style=" height:0px; overflow:hidden; position:absolute;">
+                  <input type="file" id="file" accept="image/*" />
+                </div>
+              </a>
+            </div>
+            <div class="clear"></div>
+          </section>
+          <article class="htmleaf-container" style="display: none;">
+            <div
+              id="clipArea"
+              style="user-select: none; overflow: hidden; position: relative;"
+            >
+              <div
+                class="photo-clip-view"
+                style="position: absolute; left: 50%; top: 50%; width: 350px; height: 350px; margin-left: -175px; margin-top: -175px;"
+              >
+                <div
+                  class="photo-clip-moveLayer"
+                  style="transform-origin: 0px 0px 0px; transition-timing-function: cubic-bezier(0.1, 0.57, 0.1, 1); transition-duration: 0ms; transform: translate(0px, 0px) scale(1) translateZ(0px); touch-action: none; user-select: none; -webkit-user-drag: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0);"
+                >
+                  <div class="photo-clip-rotateLayer"></div>
+                </div>
+              </div>
+              <div
+                class="photo-clip-mask"
+                style="position: absolute; left: 0px; top: 0px; width: 100%; height: 100%; pointer-events: none;"
+              >
+                <div
+                  class="photo-clip-mask-left"
+                  style="position: absolute; left: 0px; right: 50%; top: 50%; bottom: 50%; width: auto; height: 350px; margin-right: 175px; margin-top: -175px; margin-bottom: -175px; background-color: rgba(0, 0, 0, 0.5);"
+                ></div>
+                <div
+                  class="photo-clip-mask-right"
+                  style="position: absolute; left: 50%; right: 0px; top: 50%; bottom: 50%; margin-left: 175px; margin-top: -175px; margin-bottom: -175px; background-color: rgba(0, 0, 0, 0.5);"
+                ></div>
+                <div
+                  class="photo-clip-mask-top"
+                  style="position: absolute; left: 0px; right: 0px; top: 0px; bottom: 50%; margin-bottom: 175px; background-color: rgba(0, 0, 0, 0.5);"
+                ></div>
+                <div
+                  class="photo-clip-mask-bottom"
+                  style="position: absolute; left: 0px; right: 0px; top: 50%; bottom: 0px; margin-top: 175px; background-color: rgba(0, 0, 0, 0.5);"
+                ></div>
+                <div
+                  class="photo-clip-area"
+                  style="border: 1px dashed rgb(221, 221, 221); position: absolute; left: 50%; top: 50%; width: 350px; height: 350px; margin-left: -176px; margin-top: -176px;"
+                ></div>
+              </div>
+            </div>
+            <div class="foot-use">
+              <div class="uploader1 blue">
+                <input type="button" class="button" id="quxiao" value="取消" />
+                <!-- <input id="file" type="file" onChange="javascript:setImagePreview();" accept="image/*" multiple  /> -->
+              </div>
+              <button id="clipBtn">截取</button>
+            </div>
+            <div
+              id="view"
+              style="background-color: rgb(102, 102, 102); background-repeat: no-repeat; background-position: center center; background-size: contain;"
+            ></div>
+          </article>
+        </div>
+        <div class="canvasDiv">
+          <div class="qianm_bt">
+            <img src="./assets/tu7_14.png" alt="" width="85%" />
+          </div>
+          <div id="editing_area">
+            <canvas width="350" height="100" id="canvasEdit"></canvas>
+          </div>
+        </div>
+
+        <div class="imgDiv"><span id="sign_show"></span></div>
+
+        <div class="btnDiv">
+          <button id="sign_clear" class="qingchu">
+            <img src="./assets/tu7_18.png" alt="" width="70%" />
+          </button>
+          <button id="sign_ok" class="tijiao">
+            <img src="./assets/tu7_22.png" alt="" width="90%" />
+          </button>
+        </div>
+      </div>
+      <a onclick="swap_music()" class="yinyue">
+        <img src="./assets/yinfu.png" alt="" width="70%" />
+        <img src="./assets/open.png" alt="" class="open" width="100%" />
+        <img src="./assets/close.png" alt="" class="close" width="30%" />
+      </a>
+      <audio
+        id="myaudio"
+        controls="controls"
+        height="100"
+        width="100"
+        hidden="hidden"
+        autoplay="autoplay"
+        loop="loop"
+      >
+        <source src="assets/images/2.mp3" type="audio/mp3" />
+        <source src="assets/images/2.mp3" type="audio/ogg" />
+        <embed height="100" width="100" src="assets/images/2.mp3" />
+      </audio>
+    </div>
+    <script type="text/javascript" src="./assets/esign.js"></script>
+    <script type="text/javascript">
+      $(function() {
+        //初始化动作，根据DOM的ID不同进行自定义，如果不写则内部默认取这四个
+        $().esign("canvasEdit", "sign_show", "sign_clear", "sign_ok");
+      });
+    </script>
+    <script src="./assets/iscroll-zoom.js"></script>
+    <script src="./assets/hammer.js"></script>
+    <script src="./assets/jquery.photoClip.js"></script>
+    <script>
+      var obUrl = "";
+      //document.addEventListener('touchmove', function (e) { e.preventDefault(); }, false);
+      $("#clipArea").photoClip({
+        width: 350,
+        height: 350,
+        file: "#file",
+        view: "#view",
+        ok: "#clipBtn",
+        loadStart: function() {
+          console.log("照片读取中");
+        },
+        loadComplete: function() {
+          console.log("照片读取完成");
+          $(".htmleaf-container").show();
+          $("#sign_ok").attr("onclick", "baocun()");
+        },
+        clipFinish: function(dataURL) {
+          console.log(dataURL);
+        }
+      });
+    </script>
+    <script>
+      $(function() {
+        // $("#logox").click(function(){
+
+        // })
+        $("#quxiao").click(function() {
+          $(".htmleaf-container").hide();
+          $(".photo-clip-rotateLayer").empty();
+        });
+        $("#clipBtn").click(function() {
+          $(".logo_box").empty();
+          $(".logo_box").append(
+            '<img src="' +
+              imgsource +
+              '" align="absmiddle" id="jietu" style=" width: 5.5rem;height: 5.5rem;">'
+          );
+          $(".htmleaf-container").hide();
+          $("#bgl").hide();
+        });
+      });
+    </script>
+    <script type="text/javascript">
+      $(function() {
+        jQuery.divselect = function(divselectid, inputselectid) {
+          var inputselect = $(inputselectid);
+          $(divselectid + " small").click(function() {
+            $("#divselect ul").toggle();
+            $(".mask").show();
+          });
+          $(divselectid + " ul li a").click(function() {
+            var txt = $(this).text();
+            $(divselectid + " small").html(txt);
+            var value = $(this).attr("selectid");
+            inputselect.val(value);
+            $(divselectid + " ul").hide();
+            $(".mask").hide();
+            $("#divselect small").css("color", "#333");
+          });
+        };
+        $.divselect("#divselect", "#inputselect");
+      });
+    </script>
+    <script type="text/javascript">
+      $(function() {
+        jQuery.divselectx = function(divselectxid, inputselectxid) {
+          var inputselectx = $(inputselectxid);
+          $(divselectxid + " small").click(function() {
+            $("#divselectx ul").toggle();
+            $(".mask").show();
+          });
+          $(divselectxid + " ul li a").click(function() {
+            var txt = $(this).text();
+            $(divselectxid + " small").html(txt);
+            var value = $(this).attr("selectidx");
+            inputselectx.val(value);
+            $(divselectxid + " ul").hide();
+            $(".mask").hide();
+            $("#divselectx small").css("color", "#333");
+          });
+        };
+        $.divselectx("#divselectx", "#inputselectx");
+      });
+    </script>
+    <script type="text/javascript">
+      $(function() {
+        jQuery.divselecty = function(divselectyid, inputselectyid) {
+          var inputselecty = $(inputselectyid);
+          $(divselectyid + " small").click(function() {
+            $("#divselecty ul").toggle();
+            $(".mask").show();
+          });
+          $(divselectyid + " ul li a").click(function() {
+            var txt = $(this).text();
+            $(divselectyid + " small").html(txt);
+            var value = $(this).attr("selectyid");
+            inputselecty.val(value);
+            $(divselectyid + " ul").hide();
+            $(".mask").hide();
+            $("#divselecty small").css("color", "#333");
+          });
+        };
+        $.divselecty("#divselecty", "#inputselecty");
+      });
+    </script>
+    <script type="text/javascript">
+      $(function() {
+        $(".mask").click(function() {
+          $(".mask").hide();
+          $(".all").hide();
+        });
+        $(".right input").blur(function() {
+          if ($.trim($(this).val()) == "") {
+            $(this)
+              .addClass("place")
+              .html();
+          } else {
+            $(this).removeClass("place");
+          }
+        });
+      });
+    </script>
+    <script>
+      $("#file0").change(function() {
+        var objUrl = getObjectURL(this.files[0]);
+        obUrl = objUrl;
+        console.log("objUrl = " + objUrl);
+        if (objUrl) {
+          $("#img0")
+            .attr("src", objUrl)
+            .show();
+        } else {
+          $("#img0").hide();
+        }
+      });
+      function qd() {
+        var objUrl = getObjectURL(this.files[0]);
+        obUrl = objUrl;
+        console.log("objUrl = " + objUrl);
+        if (objUrl) {
+          $("#img0")
+            .attr("src", objUrl)
+            .show();
+        } else {
+          $("#img0").hide();
+        }
+      }
+      function getObjectURL(file) {
+        var url = null;
+        if (window.createObjectURL != undefined) {
+          // basic
+          url = window.createObjectURL(file);
+        } else if (window.URL != undefined) {
+          // mozilla(firefox)
+          url = window.URL.createObjectURL(file);
+        } else if (window.webkitURL != undefined) {
+          // webkit or chrome
+          url = window.webkitURL.createObjectURL(file);
+        }
+        return url;
+      }
+    </script>
+    <script type="text/javascript">
+      function setImagePreview() {
+        var preview,
+          img_txt,
+          localImag,
+          file_head = document.getElementById("file_head"),
+          picture = file_head.value;
+        if (!picture.match(/.jpg|.gif|.png|.bmp/i))
+          return alert("您上传的图片格式不正确，请重新选择！"), !1;
+        if (
+          ((preview = document.getElementById("preview")),
+          file_head.files && file_head.files[0])
+        )
+          (preview.style.display = "block"),
+            (preview.style.width = "63px"),
+            (preview.style.height = "63px"),
+            (preview.src =
+              window.navigator.userAgent.indexOf("Chrome") >= 1 ||
+              window.navigator.userAgent.indexOf("Safari") >= 1
+                ? window.webkitURL.createObjectURL(file_head.files[0])
+                : window.URL.createObjectURL(file_head.files[0]));
+        else {
+          file_head.select(),
+            file_head.blur(),
+            (img_txt = document.selection.createRange().text),
+            (localImag = document.getElementById("localImag")),
+            (localImag.style.width = "63px"),
+            (localImag.style.height = "63px");
+          try {
+            (localImag.style.filter =
+              "progid:DXImageTransform.Microsoft.AlphaImageLoader(sizingMethod=scale)"),
+              (localImag.filters.item(
+                "DXImageTransform.Microsoft.AlphaImageLoader"
+              ).src = img_txt);
+          } catch (f) {
+            return alert("您上传的图片格式不正确，请重新选择！"), !1;
+          }
+          (preview.style.display = "none"), document.selection.empty();
+        }
+        return (document.getElementById("DivUp").style.display = "block"), !0;
+      }
+    </script>
+  </body>
+</html>

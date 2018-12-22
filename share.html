@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<!-- saved from url=(0082)http://www.stg-smartlearning.com/download/linshi/wudi/double/fenxiang.html?id=2411 -->
+<html lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <script async="" src="./assets/wxJsonp"></script>
+
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="renderer" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
+    <title>致百度老校友的一封信</title>
+    <link rel="stylesheet" href="./assets/style.css" />
+    <script src="./assets/jquery-1.11.1.min.js"></script>
+    <style>
+      .box_box {
+        width: 85%;
+        margin: 2.2rem auto;
+        text-align: center;
+      }
+    </style>
+    <script>
+      function GetQueryString(name) {
+        var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
+        var r = window.location.search.substr(1).match(reg);
+        if (r != null) return unescape(r[2]);
+        return null;
+      }
+      var ymid = GetQueryString("id");
+      $(function() {
+        fenxiang();
+        var tc_g = $(window).height();
+        $(".img_bj").css("height", tc_g);
+        $(".yahei").css("height", tc_g);
+        $(".zhidao").click(function() {
+          $(".yahei").css("display", "none");
+        });
+      });
+      function swap_music() {
+        var oAudio = document.getElementById("myaudio");
+        if (oAudio.paused) {
+          oAudio.play();
+          $(".open").css("display", "block");
+          $(".close").css("display", "none");
+        } else {
+          oAudio.pause();
+          $(".close").css("display", "block");
+          $(".open").css("display", "none");
+        }
+      }
+      document.addEventListener("DOMContentLoaded", function() {
+        function audioAutoPlay() {
+          var audio = document.getElementById("myaudio");
+
+          audio.play();
+
+          document.addEventListener(
+            "WeixinJSBridgeReady",
+            function() {
+              audio.play();
+            },
+            false
+          );
+        }
+
+        audioAutoPlay();
+      });
+      function fenxiang() {
+        $.ajax({
+          type: "post",
+          url:
+            "http://h5designer.com/apps/web/index.php?s=BaiduLetter/getWorkById",
+          data: { id: ymid },
+          dataType: "json",
+          success: function(data) {
+            $(".img_bj").attr("src", data.data.picUrl);
+            $(".img_bj").attr("id", data.data.id);
+          },
+          error: function(msg) {
+            alert("出错啦");
+          }
+        });
+      }
+    </script>
+  </head>
+  <body style="position:relative;">
+    <!-- <div class="box"> -->
+    <!-- <div class="box_box"> -->
+    <div class="yahei" style="height: 736px;">
+      <img src="./assets/line.png" alt="" width="35%" class="fx_zx" />
+      <img src="./assets/fx.png" alt="" width="70%" class="fx_wz" />
+      <img src="./assets/zhid.png" alt="" class="zhidao" />
+    </div>
+    <img
+      src="./assets/300475018.jpg"
+      alt=""
+      class="img_bj"
+      id="2411"
+      style="height: 736px;"
+    />
+    <div class="changan">
+      <img src="./assets/can_03.png" alt="" width="50%" />
+    </div>
+    <!-- </div> -->
+    <a onclick="swap_music()" class="yinyue">
+      <img src="./assets/yinfu.png" alt="" width="70%" />
+      <img src="./assets/open.png" alt="" class="open" width="100%" />
+      <img src="./assets/close.png" alt="" class="close" width="30%" />
+    </a>
+    <audio
+      id="myaudio"
+      controls="controls"
+      height="100"
+      width="100"
+      hidden="hidden"
+      autoplay="autoplay"
+      loop="loop"
+    >
+      <source src="assets/images/2.mp3" type="audio/mp3" />
+      <source src="assets/images/2.mp3" type="audio/ogg" />
+      <embed height="100" width="100" src="assets/images/2.mp3" />
+      <!-- </div> -->
+      <script src="./assets/weixinjs.js"></script>
+      <script>
+        function wxfx() {
+          var url = location.href;
+          var targetUrl = encodeURIComponent(url);
+          var shareUrl =
+            "http://www.stg-smartlearning.com/download/linshi/wudi/double/fx_jg.html?id=" +
+            ymid;
+
+          $.ajax({
+            type: "GET",
+            dataType: "jsonp",
+            callback: "callback",
+            url: "http://ctrek.hbsm.cc/weixin/wxJsonp?url=" + targetUrl,
+            success: function(msg) {
+              wx.config({
+                debug: false,
+                appId: msg.appId,
+                timestamp: msg.timestamp,
+                nonceStr: msg.nonceStr,
+                signature: msg.signature,
+                jsApiList: [
+                  "onMenuShareTimeline",
+                  "onMenuShareAppMessage",
+                  "onMenuShareQQ"
+                ]
+              });
+            },
+            error: function(err) {
+              console.log(err);
+            }
+          });
+
+          wx.ready(function() {
+            var shareData = {
+              title: "致我厂老校友的一封信",
+              desc: "一声同学 一生校友 百度校友会邀请您的加入",
+              link: shareUrl,
+              imgUrl:
+                "http://www.stg-smartlearning.com/download/linshi/wudi/double/assets/images/400_400.jpg"
+            };
+            wx.onMenuShareAppMessage(shareData);
+            wx.onMenuShareTimeline(shareData);
+          });
+        }
+        wxfx();
+      </script>
+    </audio>
+  </body>
+</html>
