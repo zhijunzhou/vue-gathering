@@ -61,7 +61,7 @@ $(document).ready(function() {
         $(".foot2 p").addClass("wztx");
         $(".foot2 h2").addClass("bttx");
         $(".jiantou").css("display", "block");
-      } else if (nowpage == 3) {
+      } else if (nowpage == 7) {
         $(".top_img_box img").removeClass("fangda");
         $(".foot p").removeClass("wztx");
         $(".foot h2").removeClass("bttx");
@@ -71,8 +71,8 @@ $(document).ready(function() {
         $(".jiantou").css("display", "none");
       }
 
-      if (nowpage > 3) {
-        nowpage = 3;
+      if (nowpage > 7) {
+        nowpage = 7;
       }
 
       if (nowpage < 0) {
