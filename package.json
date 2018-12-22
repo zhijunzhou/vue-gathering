@@ -1,0 +1,19 @@
+{
+  "name": "vue-gathering",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zhijunzhou/vue-gathering.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/zhijunzhou/vue-gathering/issues"
+  },
+  "homepage": "https://github.com/zhijunzhou/vue-gathering#readme"
+}
