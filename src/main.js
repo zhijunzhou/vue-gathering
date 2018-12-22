@@ -7,7 +7,7 @@ import { Rate, Radio, Button, Input } from 'element-ui'
 import 'mint-ui/lib/style.css'
 import 'element-ui/lib/theme-chalk/index.css'
 import '@/style/index.less'
-// import '@/style/style.css'
+import '@/style/style.css'
 // import '@/style/touxiang.css'
 
 Vue.component(Rate.name, Rate)
