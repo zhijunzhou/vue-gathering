@@ -1,11 +1,12 @@
 <template>
   <div class="table">
-    
   </div>
 </template>
 
 <script>
-/*global $*/
+import $ from 'jquery'
+import 'jquery-touchswipe'
+
 export default {
   name: 'letter',
   created() {},
@@ -22,7 +23,12 @@ export default {
 <style>
 #app {
   background: #eee;
-  padding: 20px 16px;
+  background: url("../../asset/letter/bj1.png") no-repeat center center;
+  background-size: 100% 100%;
 }
+html, body, #app {
+  height: 100%;
+}
+
 </style>
 
