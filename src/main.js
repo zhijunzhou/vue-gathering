@@ -8,6 +8,7 @@ import 'lib-flexible/flexible.js'
 // import 'element-ui/lib/theme-chalk/index.css'
 import '@/style/index.less'
 import '@/style/style.css'
+// import '@/style/style.bak.css'
 // import '@/style/touxiang.css'
 
 // Vue.component(Rate.name, Rate)
