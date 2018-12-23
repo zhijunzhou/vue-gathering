@@ -5,7 +5,7 @@
       <div class="sk1_box">
         <img src="../../asset/letter/up.png" alt="" width="100%" class="sk1_top">
         <img src="../../asset/letter/down.png" alt="" width="100%" class="sk1_bottom">
-        <div class="open-btn-wrapper">
+        <div class="open-btn-wrapper" v-if="!opened">
           <div class="open-letter" @click="qifeng"><img src="../../asset/letter/qifeng_03.png" alt=""></div>
         </div>
       </div>
@@ -200,16 +200,11 @@ export default {
   },
   methods: {
     qifeng() {
-      $('.sk_bottom').addClass('sikai')
-      $('.sk_top').addClass('sikai_top')
-      $('.qifeng').css('display', 'none')
-      $('.top_img_box0 img').addClass('tptx fangda')
-      $('.foot0 p').addClass('wztx')
-      $('.foot0 h2').addClass('bttx')
-      setTimeout(function() {
-        $('.box_nr1').css('display', 'none')
-        $('.jiantou').css('display', 'block')
-      }, 1000)
+      $('.sk1_bottom').addClass('sikai')
+      $('.sk1_top').addClass('sikai_top')
+      setTimeout(() => {
+        this.opened = true
+      }, 400)
     },
     swapMusic() {
       var oAudio = document.getElementById('myaudio')
