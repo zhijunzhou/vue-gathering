@@ -119,7 +119,9 @@
             </div>
           </div>
           <div class="top_img_box top_img_box0">
-            <a href="./sign.html" class="jiyi wztx"><img src="../../asset/letter/start2019.png" alt="" width="70%" /></a>
+            <router-link :to="{path: '/sign'}">
+              <div class="jiyi wztx"><img src="../../asset/letter/start2019.png" alt="" width="70%" /></div>            
+            </router-link>
           </div>
         </div>
       </div>
