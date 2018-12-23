@@ -2,11 +2,11 @@
   <div class="box">
     <div class="box_nr">
       <div class="sr_top">
-        <img src="../../asset/letter/your2019.png" alt="" width="90%" />
+        <img src="../../asset/letter/your2019.png" alt="" width="65%" />
       </div>
       <div class="sctx">
         <div class="sbct_bt">
-          <img src="../../asset/letter/tu7_07.png" alt="" width="40%" />
+          <img src="../../asset/letter/tu7_07.png" alt="" width="30%" />
         </div>
         <section class="logo-license">
           <div class="half">
@@ -22,7 +22,7 @@
       </div>
       <div class="canvasDiv">
         <div class="qianm_bt">
-          <img src="../../asset/letter/tu7_14.png" alt="" width="85%" />
+          <img src="../../asset/letter/tu7_14.png" alt="" width="60%" />
         </div>
         <div id="editing_area">
           <canvas id="canvasEdit"></canvas>
@@ -33,7 +33,7 @@
 
       <div class="btnDiv">
         <div id="sign_clear" class="qingchu">
-          <img src="../../asset/letter/tu7_18.png" alt="" width="70%" />
+          <img src="../../asset/letter/tu7_18.png" alt="" width="60%" />
         </div>
         <div id="sign_ok" class="tijiao">
           <img class="red-btn" src="../../asset/letter/complete-upload.png" height="40" alt="" />
@@ -104,10 +104,11 @@ html, body, #app {
   justify-content: center;
   align-items: center;
   height: auto;
+  margin: 8px;
 }
 .logo_box img {
-  height: 88px;
-  width: 88px;
+  height: 68px;
+  width: 68px;
   text-align: center;
 }
 .qianm_bt {
@@ -115,9 +116,6 @@ html, body, #app {
   justify-content: center;
   align-items: center;
   height: auto;
-}
-.qianm_bt img {
-  height: 20px;
 }
 #editing_area {
   width: 100%;
@@ -128,11 +126,10 @@ html, body, #app {
 }
 #canvasEdit {
   width: 350px;
-  height: 100px;
+  height: 80px;
 }
 .red-button {
-  /* width: 188px; */
-  height: 48px;
+  height: 30px;
 }
 .btnDiv {
   display: flex;

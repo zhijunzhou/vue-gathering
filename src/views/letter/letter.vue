@@ -119,9 +119,7 @@
             </div>
           </div>
           <div class="top_img_box top_img_box0">
-            <router-link :to="{path: '/sign'}">
-              <div class="jiyi wztx"><img src="../../asset/letter/start2019.png" alt="" width="70%" /></div>            
-            </router-link>
+            <div class="jiyi wztx" @click="toSign"><img src="../../asset/letter/start2019.png" alt="" width="70%" /></div>            
           </div>
         </div>
       </div>
@@ -207,6 +205,14 @@ export default {
       setTimeout(() => {
         this.opened = true
       }, 400)
+    },
+    toSign() {
+      const des = location.origin + '/#/sign'
+      if (location.href) {
+        window.location.href = des
+      } else {
+        window.location = des
+      }
     },
     swapMusic() {
       var oAudio = document.getElementById('myaudio')
