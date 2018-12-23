@@ -122,6 +122,14 @@
         </div>
       </div>
     </div>
+    <!-- 底部箭头 -->
+    <img
+      v-show="nowpage > 0 && nowpage < 6"
+      src="../../asset/letter/jiantou_03.png"
+      alt=""
+      class="jiantou"
+      width="5%"
+    />
 
     <!-- 音符位置 -->
     <a class="yinyue" @click="swapMusic">
@@ -139,9 +147,9 @@
         autoplay
         loop="loop"
       >
-        <source src="../../asset/letter/2.mp3" type="audio/mp3" />
-        <embed height="100" width="100" src="../../asset/letter/2.mp3" />
-      </audio>
+      <source src="../../asset/letter/2.mp3" type="audio/mp3" />
+      <embed height="100" width="100" src="../../asset/letter/2.mp3" />
+    </audio>
   </div>
 </template>
 
@@ -255,6 +263,15 @@ html, body, #app {
 .more-text {
   margin-top: 40px;
   text-align: center;
+}
+.jiantou {
+  position: fixed;
+  bottom: 10px;
+  right: 50%;
+  height: 10px;
+  display: block;
+  z-index: 65535;
+  opacity: 0.6;
 }
 </style>
 
