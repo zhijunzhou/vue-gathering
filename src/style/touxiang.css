@@ -49,8 +49,8 @@ header span {
   position: relative;
   display: inline-block;
   /*background: #989898;*/
-  left: 7%;
-  padding: 0.6rem 2rem;
+  /* left: 7%; */
+  /* padding: 0.6rem 2rem; */
   /*border-radius: 50px;*/
   /*color: #fff;*/
 }

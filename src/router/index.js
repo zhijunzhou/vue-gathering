@@ -7,6 +7,7 @@ import Layout from '../views/layout/Layout'
 // import Home from '../views/home/Home'
 // import Opinion from '../views/opinion/opinion'
 import Letter from '../views/letter/letter'
+import Sign from '../views/sign/sign'
 
 export const constantRouterMap = [{
   path: '/',
@@ -17,10 +18,12 @@ export const constantRouterMap = [{
     {
       path: '/letter',
       name: 'Letter',
-      component: Letter,
-      meta: {
-        title: '致尚德兄弟告白信'
-      }
+      component: Letter
+    },
+    {
+      path: '/sign',
+      name: 'Sign',
+      component: Sign
     }
   ]
 }]
