@@ -1,13 +1,13 @@
 <template>
   <div class="table">
     <!-- 第一屏 -->
-    <div class="box_nr1" style="">
+    <!-- <div class="box_nr1">
       <div class="sk_box">
         <img src="../../asset/letter/up.png" alt="" width="100%" class="sk_top">
         <img src="../../asset/letter/down.png" alt="" width="100%" class="sk_bottom">
       </div>
       <a class="qifeng" @click="qifeng"><img src="../../asset/letter/qifeng_03.png" alt="" width="15%"></a>
-    </div>
+    </div> -->
 
     <!-- 每一屏页面 -->
     <div class="container">
@@ -17,12 +17,102 @@
             <h2 class="tu1_vt">
               <img src="../../asset/letter/tu1_03.png" alt="" width="70%" />
             </h2>
-            <p style="margin-top: 20px;">
+            <p>
               <img src="../../asset/letter/tu1_07.png" alt="" width="83%" style="" />
             </p>
           </div>
-          <div class="top_img_box top_img_box0" style="margin-top: 20px;">
+          <div class="top_img_box top_img_box0">
             <img src="../../asset/letter/tp1_07.png" alt="" class="tptx" />
+          </div>
+        </div>
+      </div>
+      <div class="page page1">
+        <div class="page_box">
+          <div class="foot foot0">
+            <h2 class="tu1_vt">
+              <img src="../../asset/letter/tu2_03.png" alt="" width="70%" />
+            </h2>
+            <p>
+              <img src="../../asset/letter/tu2_06.png" alt="" width="83%" style="" />
+            </p>
+          </div>
+          <div class="top_img_box top_img_box0">
+            <img src="../../asset/letter/tu2_10.png" alt="" class="tptx" />
+          </div>
+        </div>
+      </div>
+      <div class="page page2">
+        <div class="page_box">
+          <div class="foot foot0">
+            <h2 class="tu1_vt">
+              <img src="../../asset/letter/tu2_03.png" alt="" width="70%" />
+            </h2>
+            <p>
+              <img src="../../asset/letter/tu2_07.png" alt="" width="83%" style="" />
+            </p>
+          </div>
+          <div class="top_img_box top_img_box0">
+            <img src="../../asset/letter/tu3_2.png" alt="" class="tptx" />
+          </div>
+        </div>
+      </div>
+      <div class="page page3">
+        <div class="page_box">
+          <div class="foot foot0">
+            <h2 class="tu1_vt">
+              <img src="../../asset/letter/tu2_03.png" alt="" width="70%" />
+            </h2>
+            <p>
+              <img src="../../asset/letter/3-3.png" alt="" width="83%" style="" />
+            </p>
+          </div>
+          <div class="top_img_box top_img_box0">
+            <img src="../../asset/letter/tu3-3.png" alt="" class="tptx" />
+          </div>
+        </div>
+      </div>
+      <div class="page page4">
+        <div class="page_box">
+          <div class="foot foot0">
+            <h2 class="tu1_vt">
+              <img src="../../asset/letter/tu2_03.png" alt="" width="70%" />
+            </h2>
+            <p>
+              <img src="../../asset/letter/3-3.png" alt="" width="83%" style="" />
+            </p>
+          </div>
+          <div class="top_img_box top_img_box0">
+            <img src="../../asset/letter/tu3-4.png" alt="" class="tptx" />
+          </div>
+        </div>
+      </div>
+      <div class="page page5">
+        <div class="page_box">
+          <div class="foot foot0">
+            <h2 class="tu1_vt">
+              <img src="../../asset/letter/tu4.png" alt="" width="70%" />
+            </h2>
+            <p>
+              <img src="../../asset/letter/tu4-1.png" alt="" width="83%" style="" />
+            </p>
+          </div>
+          <div class="top_img_box top_img_box0">
+            <img src="../../asset/letter/tu4-2.png" alt="" class="tptx" />
+          </div>
+        </div>
+      </div>
+      <div class="page page6">
+        <div class="page_box">
+          <div class="foot foot0">
+            <h2 class="tu1_vt">
+              <img src="../../asset/letter/tu5.png" alt="" width="70%" />
+            </h2>
+            <p>
+              <img src="../../asset/letter/tu5-1.png" alt="" width="83%" style="" />
+            </p>
+          </div>
+          <div class="top_img_box top_img_box0">
+            <img src="../../asset/letter/tu5-2.png" alt="" class="tptx" />
           </div>
         </div>
       </div>
@@ -41,6 +131,8 @@
 import $ from 'jquery'
 import 'jquery-touchswipe'
 
+let nowpage = 0
+
 export default {
   name: 'letter',
   created() {},
@@ -48,7 +140,32 @@ export default {
     return {}
   },
   mounted() {
-    console.log($)
+    $(() => {
+      $('.container').swipe({
+        swipe: function(event, direction, distance, duration, fingerCount) {
+          if (direction === 'up') {
+            nowpage = nowpage + 1
+          } else if (direction === 'down') {
+            nowpage = nowpage - 1
+          }
+
+          if (nowpage > 7) {
+            nowpage = 7
+          }
+          if (nowpage < 0) {
+            nowpage = 0
+          }
+
+          $('.container').animate({ top: nowpage * -100 + '%' }, 400)
+
+          $('.page')
+            .eq(nowpage)
+            .addClass('cur')
+            .siblings()
+            .removeClass('cur')
+        }
+      })
+    })
   },
   methods: {
     qifeng() {
@@ -78,6 +195,11 @@ export default {
 html, body, #app {
   height: 100%;
 }
-
+.table {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
 </style>
 

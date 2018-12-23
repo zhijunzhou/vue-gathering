@@ -59,7 +59,7 @@ ul {
 .box_nr1 {
   text-align: center;
   z-index: 9999;
-  padding: 0 20px;
+  /* padding: 20px 20px; */
 }
 .img_bj {
   width: 100%;
@@ -266,7 +266,7 @@ ul {
 }
 .foot p {
   font-size: 0.9rem;
-  opacity: 0;
+  /* opacity: 0; */
   text-align: center;
 }
 .wztx {
@@ -672,7 +672,7 @@ ul {
   }
   .foot p {
     font-size: 0.9rem;
-    opacity: 0;
+    /* opacity: 0; */
   }
   .jiyi {
     position: absolute;
@@ -744,7 +744,6 @@ ul {
   position: relative;
   width: 100%;
   height: 500px;
-  margin-top: 40px;
 }
 .sk_top {
   position: absolute;
