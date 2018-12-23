@@ -16,106 +16,106 @@
       <div class="page page0">
         <div class="page_box">
           <div class="foot foot0">
-            <h2 class="tu1_vt">
+            <h2 :class="{'bttx' : nowpage === 0, 'tu1_vt': true}">
               <img src="../../asset/letter/tu1_03.png" alt="" width="70%" />
             </h2>
-            <p>
-              <img src="../../asset/letter/tu1_07.png" alt="" width="83%" style="" />
+            <p :class="{'wztx' : nowpage === 0}" v-show="nowpage === 0">
+              <img src="../../asset/letter/tu1_07.png" alt="" width="83%" />
             </p>
           </div>
           <div class="top_img_box top_img_box0">
-            <img src="../../asset/letter/tp1_07.png" alt="" class="tptx" />
+            <img src="../../asset/letter/tp1_07.png" alt="" :class="{'tptx' : nowpage === 0}" />
           </div>
         </div>
       </div>
       <div class="page page1">
         <div class="page_box">
           <div class="foot foot0">
-            <h2 class="tu1_vt">
+            <h2 :class="{'bttx' : nowpage === 1, 'tu1_vt': true}">
               <img src="../../asset/letter/tu2_03.png" alt="" width="70%" />
             </h2>
-            <p>
+            <p :class="{'wztx' : nowpage === 1}" v-show="nowpage === 1">
               <img src="../../asset/letter/tu2_06.png" alt="" width="83%" style="" />
             </p>
           </div>
           <div class="top_img_box top_img_box0">
-            <img src="../../asset/letter/tu2_10.png" alt="" class="tptx" />
+            <img src="../../asset/letter/tu2_10.png" alt="" :class="{'tptx' : nowpage === 1}" />
           </div>
         </div>
       </div>
       <div class="page page2">
         <div class="page_box">
           <div class="foot foot0">
-            <h2 class="tu1_vt">
+            <h2 :class="{'bttx' : nowpage === 2, 'tu1_vt': true}">
               <img src="../../asset/letter/tu2_03.png" alt="" width="70%" />
             </h2>
-            <p>
+            <p :class="{'wztx' : nowpage === 2}" v-show="nowpage === 2">
               <img src="../../asset/letter/tu2_07.png" alt="" width="83%" style="" />
             </p>
           </div>
           <div class="top_img_box top_img_box0">
-            <img src="../../asset/letter/tu3_2.png" alt="" class="tptx" />
+            <img src="../../asset/letter/tu3_2.png" alt="" :class="{'tptx' : nowpage === 2}" />
           </div>
         </div>
       </div>
       <div class="page page3">
         <div class="page_box">
           <div class="foot foot0">
-            <h2 class="tu1_vt">
+            <h2 :class="{'bttx' : nowpage === 3, 'tu1_vt': true}">
               <img src="../../asset/letter/tu2_03.png" alt="" width="70%" />
             </h2>
-            <p>
+            <p :class="{'wztx' : nowpage === 3}" v-show="nowpage === 3">
               <img src="../../asset/letter/3-3.png" alt="" width="83%" style="" />
             </p>
           </div>
           <div class="top_img_box top_img_box0">
-            <img src="../../asset/letter/tu3-3.png" alt="" class="tptx" />
+            <img src="../../asset/letter/tu3-3.png" alt="" :class="{'tptx' : nowpage === 3}" />
           </div>
         </div>
       </div>
       <div class="page page4">
         <div class="page_box">
           <div class="foot foot0">
-            <h2 class="tu1_vt">
+            <h2 :class="{'bttx' : nowpage === 4, 'tu1_vt': true}">
               <img src="../../asset/letter/tu2_03.png" alt="" width="70%" />
             </h2>
-            <p>
+            <p :class="{'wztx' : nowpage === 4}" v-show="nowpage === 4">
               <img src="../../asset/letter/3-3.png" alt="" width="83%" style="" />
             </p>
           </div>
           <div class="top_img_box top_img_box0">
-            <img src="../../asset/letter/tu3-4.png" alt="" class="tptx" />
+            <img src="../../asset/letter/tu3-4.png" alt="" :class="{'tptx' : nowpage === 4}" />
           </div>
         </div>
       </div>
       <div class="page page5">
         <div class="page_box">
           <div class="foot foot0">
-            <h2 class="tu1_vt">
+            <h2 :class="{'bttx' : nowpage === 5, 'tu1_vt': true}">
               <img src="../../asset/letter/tu4.png" alt="" width="70%" />
             </h2>
-            <p>
+            <p :class="{'wztx' : nowpage === 5}" v-show="nowpage === 5">
               <img src="../../asset/letter/tu4-1.png" alt="" width="83%" style="" />
             </p>
           </div>
           <div class="top_img_box top_img_box0">
-            <img src="../../asset/letter/tu4-2.png" alt="" class="tptx" />
+            <img src="../../asset/letter/tu4-2.png" alt="" :class="{'tptx' : nowpage === 5}" />
           </div>
         </div>
       </div>
       <div class="page page6">
         <div class="page_box">
           <div class="foot foot0">
-            <h2 class="tu1_vt">
+            <h2 :class="{'bttx' : nowpage === 6, 'tu1_vt': true}">
               <img src="../../asset/letter/tu5.png" alt="" width="70%" />
             </h2>
           </div>
           <div>
-            <div class="last-page-image">
-              <img src="../../asset/letter/tu5-1.png" alt="" width="80%" />
+            <div :class="{'last-page-image': true, 'wztx' : nowpage === 6}" v-show="nowpage === 6">
+              <img src="../../asset/letter/tu5-1.png" alt="" width="80%" :class="{'tptx' : nowpage === 6}" />
             </div>
-            <div class="more-text">
-              <img src="../../asset/letter/tu5-2.png" width="80%" alt="" class="tptx" />
+            <div :class="{'wztx' : nowpage === 6, 'more-text': true}" v-show="nowpage === 6">
+              <img src="../../asset/letter/tu5-2.png" width="80%" alt="" />
             </div>
           </div>
           <div class="top_img_box top_img_box0">

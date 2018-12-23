@@ -270,9 +270,9 @@ ul {
   text-align: center;
 }
 .wztx {
-  -webkit-animation: fadeIn 2s ease-in-out 0.7s alternate forwards;
-  -moz-animation: fadeIn 2s ease-in-out 0.7s alternate forwards;
-  animation: fadeIn 2s ease-in-out 0.7s alternate forwards;
+  -webkit-animation: fadeIn 2s ease-in-out 0s alternate forwards;
+  -moz-animation: fadeIn 2s ease-in-out 0s alternate forwards;
+  animation: fadeIn 2s ease-in-out 0s alternate forwards;
 }
 .bttx {
   -webkit-animation: fadeIn 2s ease-in-out 0s alternate forwards;
@@ -280,7 +280,7 @@ ul {
   animation: fadeIn 2s ease-in-out 0s alternate forwards;
 }
 .tptx {
-  webkit-animation: tu1_top 2s ease-in-out 0s alternate forwards;
+  -webkit-animation: tu1_top 2s ease-in-out 0s alternate forwards;
   -moz-animation: tu1_top 2s ease-in-out 0s alternate forwards;
   animation: tu1_top 2s ease-in-out 0s alternate forwards;
 }
