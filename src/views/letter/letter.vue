@@ -1,16 +1,18 @@
 <template>
   <div class="table">
     <!-- 第一屏 -->
-    <!-- <div class="box_nr1">
-      <div class="sk_box">
-        <img src="../../asset/letter/up.png" alt="" width="100%" class="sk_top">
-        <img src="../../asset/letter/down.png" alt="" width="100%" class="sk_bottom">
+    <div class="screen-zero" v-if="!opened">
+      <div class="sk1_box">
+        <img src="../../asset/letter/up.png" alt="" width="100%" class="sk1_top">
+        <img src="../../asset/letter/down.png" alt="" width="100%" class="sk1_bottom">
+        <div class="open-btn-wrapper">
+          <div class="open-letter" @click="qifeng"><img src="../../asset/letter/qifeng_03.png" alt=""></div>
+        </div>
       </div>
-      <a class="qifeng" @click="qifeng"><img src="../../asset/letter/qifeng_03.png" alt="" width="15%"></a>
-    </div> -->
+    </div>
 
     <!-- 每一屏页面 -->    
-    <div class="container">      
+    <div class="container" v-show="opened">      
       <div class="page page0">
         <div class="page_box">
           <div class="foot foot0">
@@ -162,7 +164,8 @@ export default {
   created() {},
   data() {
     return {
-      nowpage: 0
+      nowpage: 0,
+      opened: false
     }
   },
   mounted() {
@@ -246,6 +249,51 @@ html, body, #app {
   flex-direction: column;
   align-items: center;
   justify-content: center;
+}
+.open-btn-wrapper {
+  display: block;
+  position: absolute;
+  top: 84%;
+  width: 100%;
+  text-align: center;
+}
+.open-letter {
+  cursor: pointer;
+  display: inline-block;
+  animation: kaiqi 2s both 0.5s infinite;
+}
+.open-letter img {
+  height: 40px;
+}
+@keyframes kaiqi {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.3);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+.screen-zero {
+  display: flex;
+  justify-content: center;
+  padding: 20px 20px;
+}
+.screen-zero .sk1_box {
+  text-align: center;
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+}
+.screen-zero .sk1_box img {
+  display: block;
+}
+.screen-zero .sk1_box .sk1_bottom {
+  position: absolute;
+  top: 0;
+  left: 0;
 }
 .foot h2.tu1_vt {
   height: 100px;
