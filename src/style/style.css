@@ -152,3 +152,32 @@ img {
     transform: scale(1.1);
   }
 }
+.sikai {
+  animation: sikai 0.5s ease-in-out 0.1s alternate forwards;
+}
+
+@keyframes sikai {
+  0% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(30%);
+  }
+}
+
+.sikai_top {
+  animation: sikai_top 0.5s ease-in-out 0.1s alternate forwards;
+}
+
+@keyframes sikai_top {
+  0% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-30%);
+  }
+}
