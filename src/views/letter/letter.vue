@@ -9,8 +9,8 @@
       <a class="qifeng" @click="qifeng"><img src="../../asset/letter/qifeng_03.png" alt="" width="15%"></a>
     </div> -->
 
-    <!-- 每一屏页面 -->
-    <div class="container">
+    <!-- 每一屏页面 -->    
+    <div class="container">      
       <div class="page page0">
         <div class="page_box">
           <div class="foot foot0">
@@ -119,11 +119,24 @@
     </div>
 
     <!-- 音符位置 -->
-    <a class="yinyue">
+    <a class="yinyue" @click="swapMusic">
       <img src="../../asset/letter/yinfu.png" alt="" width="70%">
       <img src="../../asset/letter/open.png" alt="" class="open" width="100%">
       <img src="../../asset/letter/close.png" alt="" class="close" width="30%">
     </a>
+    <!-- 音频 -->
+    <audio
+        id="myaudio"
+        controls="controls"
+        height="100"
+        width="100"
+        hidden="hidden"
+        autoplay
+        loop="loop"
+      >
+        <source src="../../asset/letter/2.mp3" type="audio/mp3" />
+        <embed height="100" width="100" src="../../asset/letter/2.mp3" />
+      </audio>
   </div>
 </template>
 
@@ -131,41 +144,43 @@
 import $ from 'jquery'
 import 'jquery-touchswipe'
 
-let nowpage = 0
-
 export default {
   name: 'letter',
   created() {},
   data() {
-    return {}
+    return {
+      nowpage: 0
+    }
   },
   mounted() {
+    const that = this
     $(() => {
       $('.container').swipe({
         swipe: function(event, direction, distance, duration, fingerCount) {
           if (direction === 'up') {
-            nowpage = nowpage + 1
+            that.nowpage = that.nowpage + 1
           } else if (direction === 'down') {
-            nowpage = nowpage - 1
+            that.nowpage = that.nowpage - 1
           }
 
-          if (nowpage > 7) {
-            nowpage = 7
+          if (that.nowpage > 6) {
+            that.nowpage = 6
           }
-          if (nowpage < 0) {
-            nowpage = 0
+          if (that.nowpage < 0) {
+            that.nowpage = 0
           }
 
-          $('.container').animate({ top: nowpage * -100 + '%' }, 400)
+          $('.container').animate({ top: that.nowpage * -100 + '%' }, 400)
 
           $('.page')
-            .eq(nowpage)
+            .eq(that.nowpage)
             .addClass('cur')
             .siblings()
             .removeClass('cur')
         }
       })
     })
+    that.playMusic()
   },
   methods: {
     qifeng() {
@@ -179,6 +194,24 @@ export default {
         $('.box_nr1').css('display', 'none')
         $('.jiantou').css('display', 'block')
       }, 1000)
+    },
+    swapMusic() {
+      var oAudio = document.getElementById('myaudio')
+      if (oAudio.paused) {
+        oAudio.play()
+        $('.open').css('display', 'block')
+        $('.close').css('display', 'none')
+      } else {
+        oAudio.pause()
+        $('.close').css('display', 'block')
+        $('.open').css('display', 'none')
+      }
+    },
+    playMusic() {
+      var audio = $('#myaudio')
+      if (audio && typeof audio.play === 'function') {
+        audio.play()
+      }
     }
   }
 }
