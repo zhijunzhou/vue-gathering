@@ -238,8 +238,9 @@ export default {
 
 <style>
 #app {
-  background: #eee;
-  background: url("../../asset/letter/bj1.png") no-repeat center center;
+  background-repeat: no-repeat;
+  /* background: #eee; */
+  /* background: url("../../asset/letter/bj1.png") no-repeat center center; */
   background-size: 100% 100%;
   position: relative;
   overflow: hidden;

@@ -1,5 +1,5 @@
 <template>
-  <div id="app">
+  <div id="app" :style="{'background-image': 'url(' + require('./asset/letter/bj1.png') +')'}">
     <router-view></router-view>
   </div>
 </template>
