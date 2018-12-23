@@ -107,12 +107,17 @@
             <h2 class="tu1_vt">
               <img src="../../asset/letter/tu5.png" alt="" width="70%" />
             </h2>
-            <p>
-              <img src="../../asset/letter/tu5-1.png" alt="" width="83%" style="" />
-            </p>
+          </div>
+          <div>
+            <div class="last-page-image">
+              <img src="../../asset/letter/tu5-1.png" alt="" width="80%" />
+            </div>
+            <div class="more-text">
+              <img src="../../asset/letter/tu5-2.png" width="80%" alt="" class="tptx" />
+            </div>
           </div>
           <div class="top_img_box top_img_box0">
-            <img src="../../asset/letter/tu5-2.png" alt="" class="tptx" />
+            <a href="./sign.html" class="jiyi wztx"><img src="../../asset/letter/start2019.png" alt="" width="70%" /></a>
           </div>
         </div>
       </div>
@@ -233,6 +238,23 @@ html, body, #app {
   flex-direction: column;
   align-items: center;
   justify-content: center;
+}
+.foot h2.tu1_vt {
+  height: 100px;
+}
+.foot > p {
+  height: 105px;
+}
+.last-page-image {
+  text-align: center;
+  position: relative;
+}
+.last-page-image {
+  height: 100px;
+}
+.more-text {
+  margin-top: 40px;
+  text-align: center;
 }
 </style>
 
