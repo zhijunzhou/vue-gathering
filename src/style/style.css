@@ -183,3 +183,7 @@ img {
     transform: translateY(-30%);
   }
 }
+
+.no-padding {
+  padding: 0 !important;
+}
