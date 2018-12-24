@@ -6,11 +6,17 @@
       <img src="../../asset/letter/zhid.png" @click="hideYahei" alt="" class="zhidao" />
     </div>
     <img
-      src="../../asset/letter/7.png"
+      :src="imgUrl"
       alt=""
       class="img_bj"
       id="2411"
     />
+    <!-- <img
+      src="../../asset/letter/7.png"
+      alt=""
+      class="img_bj"
+      id="2411"
+    /> -->
     <!-- <div class="changan">
       <img src="../../asset/letter/can_03.png" alt="" width="50%" />
     </div> -->
@@ -37,15 +43,42 @@
 </template>
 
 <script>
+import { getPhoto } from '@/api'
+// import defaultPhoto from '../../asset/letter/7.png'
+
 export default {
   data() {
     return {
-      showYahei: true
+      showYahei: true,
+      id: undefined,
+      imgUrl: undefined
+    }
+  },
+  watch: {
+    $route(to, from) {
+      if (this.$route.query.id) {
+        this.id = this.$route.query.id
+        this.getSignPhoto()
+      }
+    }
+  },
+  created() {
+    if (this.$route.query.id) {
+      this.id = this.$route.query.id
+      this.getSignPhoto()
     }
   },
   methods: {
     hideYahei() {
       this.showYahei = false
+    },
+    getSignPhoto() {
+      const that = this
+      getPhoto(this.id).then(res => {
+        if (res && res.code === 200) {
+          that.imgUrl = process.env.BASE_API + res.data.compose_img
+        }
+      })
     }
   }
 }

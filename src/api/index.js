@@ -102,3 +102,17 @@ export const saveSign = (autograph, image) => {
     data: formData
   })
 }
+
+export const getPhoto = (id) => {
+  const formData = new FormData()
+  formData.append('id', id)
+
+  return service({
+    url: '/holidays/newyear/frontend/index/get-autograph',
+    method: 'post',
+    headers: {
+      'Content-Type': 'multipart/form-data'
+    },
+    data: formData
+  })
+}
