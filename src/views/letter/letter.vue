@@ -23,9 +23,10 @@
               <img src="../../asset/letter/tu1_07.png" alt="" width="83%" />
             </p>
           </div>
-          <div class="top_img_box top_img_box0">
-            <img src="../../asset/letter/shenzhen.png" width="50%" alt="" />
-            <img src="../../asset/letter/zongbu.png" width="80%" alt="" :class="{'wztx' : nowpage === 0}" />
+          <div class="top_img_box top_img_box0 big_box">
+            <img src="../../asset/letter/shenzhen.png" width="60%" alt="" :class="{'fangda' : nowpage === 0, 'shenzhen': true}" />
+            <img src="../../asset/letter/zongbu.png" width="100%" alt="" :class="{'wztx' : nowpage === 0, 'zongbu': true}" />
+            <img src="../../asset/letter/beijing.png" class="beijing" />
           </div>
         </div>
       </div>
@@ -327,6 +328,37 @@ html, body, #app {
   display: block;
   z-index: 65535;
   opacity: 0.6;
+}
+.top_img_box .shenzhen {
+  animation: topFadeIn 1s ease-out 2s alternate forwards;
+}
+
+@keyframes topFadeIn {
+  0% {
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-10%);
+  }
+}
+
+.top_img_box .zongbu {
+  margin-top: -10px;
+  animation: bottomFadeIn 1s ease-out 2s alternate forwards;
+}
+
+@keyframes bottomFadeIn {
+  0% {
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(10%);
+  }
+}
+.big_box {
+  margin-top: -40px;
 }
 </style>
 
