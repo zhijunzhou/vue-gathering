@@ -24,7 +24,8 @@
             </p>
           </div>
           <div class="top_img_box top_img_box0">
-            <img src="../../asset/letter/tp1_07.png" alt="" :class="{'fangda' : nowpage === 0}" />
+            <img src="../../asset/letter/shenzhen.png" width="50%" alt="" />
+            <img src="../../asset/letter/zongbu.png" width="80%" alt="" :class="{'wztx' : nowpage === 0}" />
           </div>
         </div>
       </div>
