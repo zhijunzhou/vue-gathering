@@ -21,7 +21,7 @@
       <img src="../../asset/letter/can_03.png" alt="" width="50%" />
     </div> -->
     <!-- </div> -->
-    <!-- <a onclick="swap_music()" class="yinyue">
+    <a onclick="swap_music()" class="yinyue">
       <img src="../../asset/letter/yinfu.png" alt="" width="70%" />
       <img src="../../asset/letter/open.png" alt="" class="open" width="100%" />
       <img src="../../asset/letter/close.png" alt="" class="close" width="30%" />
@@ -38,7 +38,7 @@
       <source src="../../asset/letter/2.mp3" type="audio/mp3" />
       <source src="../../asset/letter/2.mp3" type="audio/ogg" />
       <embed height="100" width="100" src="../../asset/letter/2.mp3" />
-    </audio> -->
+    </audio>
   </div>
 </template>
 

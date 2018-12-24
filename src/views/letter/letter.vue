@@ -118,15 +118,15 @@
           </div>
           <div>
             <div :class="{'last-page-image': true, 'wztx' : nowpage === 6}" v-show="nowpage === 6">
-              <img src="../../asset/letter/tu5-1.png" alt="" width="80%" :class="{'fangda' : nowpage === 6}" />
+              <img src="../../asset/letter/tu5-1.png" alt="" width="70%" :class="{'fangda' : nowpage === 6}" />
             </div>
             <div :class="{'wztx' : nowpage === 6, 'more-text': true}" v-show="nowpage === 6">
-              <img src="../../asset/letter/tu5-2.png" width="80%" alt="" />
+              <img src="../../asset/letter/tu5-2.png" width="70%" alt="" />
             </div>
           </div>
           <div class="top_img_box top_img_box0">
             <router-link :to="{path: '/sign'}">
-              <div class="jiyi wztx"><img src="../../asset/letter/start2019.png" alt="" width="70%" /></div>            
+              <div class="jiyi wztx"><img src="../../asset/letter/start2019.png" alt="" width="65%" /></div>            
             </router-link>         
           </div>
         </div>

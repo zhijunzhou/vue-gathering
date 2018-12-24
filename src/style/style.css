@@ -101,7 +101,7 @@ img {
 .top_img_box {
   position: relative;
   height: 43%;
-  overflow: hidden;
+  /* overflow: hidden; */
   width: 100%;
   font-size: 12px;
 }
@@ -132,10 +132,12 @@ img {
 }
 
 .jiyi {
-  position: absolute;
-  bottom: 18%;
-  left: 50%;
-  margin-left: -53px;
+  /* position: absolute; */
+  /* bottom: 18%; */
+  /* left: 50%; */
+  /* margin-left: -53px; */
+  margin-top: 15px;
+  text-align: center;
   opacity: 0;
 }
 
