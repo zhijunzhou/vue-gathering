@@ -23,10 +23,14 @@
               <img src="../../asset/letter/tu1_07.png" alt="" width="83%" />
             </p>
           </div>
-          <div class="top_img_box top_img_box0 big_box">
+          <div class="top_img_box top_img_box0 big_box" v-if="nowpage === 0">
             <img src="../../asset/letter/shenzhen.png" width="60%" alt="" :class="{'fangda' : nowpage === 0, 'shenzhen': true}" />
             <img src="../../asset/letter/zongbu.png" width="100%" alt="" :class="{'wztx' : nowpage === 0, 'zongbu': true}" />
             <img src="../../asset/letter/beijing.png" class="beijing" />
+            <img src="../../asset/letter/guangzhou.png" class="guangzhou" />
+            <img src="../../asset/letter/wuhan.png" class="wuhan" />
+            <img src="../../asset/letter/donggang.png" class="donggang" />
+            <img src="../../asset/letter/zhongduan.png" class="zhongduan" />
           </div>
         </div>
       </div>
