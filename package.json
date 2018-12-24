@@ -23,6 +23,7 @@
     "moment": "^2.22.2",
     "normalize.css": "7.0.0",
     "nprogress": "0.2.0",
+    "photoclip": "^3.4.5",
     "vue": "2.5.10",
     "vue-router": "3.0.1",
     "vuex": "3.0.1"

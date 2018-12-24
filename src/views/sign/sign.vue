@@ -10,15 +10,35 @@
         </div>
         <section class="logo-license">
           <div class="half">
-            <div class="logo_box">
+            <div class="logo_box" @click="triggerSelectFile">
               <img
                 src="../../asset/letter/double7_07.png"
               />
             </div>
-            <a><img class="red-btn upload-avatar" height="40" src="../../asset/letter/upload-avatar.png" alt="" /></a>
+            <a @click="triggerSelectFile"><img class="red-btn upload-avatar" height="40" src="../../asset/letter/upload-avatar.png" alt="" /></a>
+            <div style="height:0; overflow:hidden; position:absolute;">
+              <input type="file" id="file" @click="chooseFile" accept="image/*" />
+            </div>
           </div>
           <div class="clear"></div>
         </section>
+        <article class="htmleaf-container" style="display: none;">
+          <div id="clipArea" style="user-select: none; overflow: hidden; position: relative;"><div class="photo-clip-view" style="position: absolute; left: 50%; top: 50%; width: 350px; height: 350px; margin-left: -175px; margin-top: -175px;"><div class="photo-clip-moveLayer" style="transform-origin: 0px 0px 0px; transition-timing-function: cubic-bezier(0.1, 0.57, 0.1, 1); transition-duration: 0ms; transform: translate(0px, 0px) scale(1) translateZ(0px); touch-action: none; user-select: none; -webkit-user-drag: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0);"><div class="photo-clip-rotateLayer"></div></div></div><div class="photo-clip-mask" style="position: absolute; left: 0px; top: 0px; width: 100%; height: 100%; pointer-events: none;"><div class="photo-clip-mask-left" style="position: absolute; left: 0px; right: 50%; top: 50%; bottom: 50%; width: auto; height: 350px; margin-right: 175px; margin-top: -175px; margin-bottom: -175px; background-color: rgba(0, 0, 0, 0.5);"></div><div class="photo-clip-mask-right" style="position: absolute; left: 50%; right: 0px; top: 50%; bottom: 50%; margin-left: 175px; margin-top: -175px; margin-bottom: -175px; background-color: rgba(0, 0, 0, 0.5);"></div><div class="photo-clip-mask-top" style="position: absolute; left: 0px; right: 0px; top: 0px; bottom: 50%; margin-bottom: 175px; background-color: rgba(0, 0, 0, 0.5);"></div><div class="photo-clip-mask-bottom" style="position: absolute; left: 0px; right: 0px; top: 50%; bottom: 0px; margin-top: 175px; background-color: rgba(0, 0, 0, 0.5);"></div><div class="photo-clip-area" style="border: 1px dashed rgb(221, 221, 221); position: absolute; left: 50%; top: 50%; width: 350px; height: 350px; margin-left: -176px; margin-top: -176px;"></div></div></div>
+          <div class="foot-use">
+            <div class="foot-user-wrapper">
+              <div class="quxiao-wrapper">
+                <div id="quxiao" @click="quxiao">取消</div>
+                <!-- <input type="button" class="button" id="quxiao" @click="quxiao" value="取消" /> -->
+                <!-- <input id="file" type="file" onChange="javascript:setImagePreview();" accept="image/*" multiple  /> -->
+              </div>
+              <div class="clip-btn-wrapper">
+                <div id="clipBtn">截取</div>
+                <!-- <button id="clipBtn">截取</button> -->
+              </div>
+            </div>
+          </div>
+          <div id="view" style="background-color: rgb(102, 102, 102); background-repeat: no-repeat; background-position: center center; background-size: contain;"></div>
+        </article>
       </div>
       <div class="canvasDiv">
         <div class="qianm_bt">
@@ -63,19 +83,87 @@
 <script>
 import $ from 'jquery'
 import '@/utils/esign'
-import '@/utils/hammer'
-import '@/utils/iscroll-zoom'
-import '@/utils/do-in'
+import PhotoClip from 'photoclip'
 
 export default {
   data() {
-    return {}
+    return {
+      cp: undefined
+    }
   },
   mounted() {
-    // const that = this
+    const that = this
     $(function() {
       $().esign('canvasEdit', 'sign_show', 'sign_clear', 'sign_ok')
+      that.initClipArea()
     })
+  },
+  methods: {
+    triggerSelectFile() {
+      $('#file').click()
+    },
+    quxiao() {
+      $('.htmleaf-container').hide()
+      $('.photo-clip-rotateLayer').empty()
+    },
+    completeClip(dataURL) {
+      $('.htmleaf-container').hide()
+      $('.logo_box').empty()
+      // console.log(this.cp.clip())
+      $('.logo_box').append(
+        '<img src="' +
+          dataURL +
+          '" align="absmiddle" id="jietu" style=" width: 5.5rem;height: 5.5rem;">'
+      )
+      $('.htmleaf-container').hide()
+      $('#bgl').hide()
+    },
+    initClipArea() {
+      const that = this
+      that.cp = new PhotoClip('#clipArea', {
+        lrzOption: {
+          width: 350,
+          height: 350
+        },
+        file: '#file',
+        view: '#view',
+        ok: '#clipBtn',
+        loadStart() {
+          console.log('照片读取中')
+        },
+        loadComplete() {
+          console.log('照片读取完成')
+          $('.htmleaf-container').show()
+          // $('#sign_ok').attr('onclick', 'baocun()')
+        },
+        done(dataURL) {
+          that.completeClip(dataURL)
+          // console.log(dataURL)
+        }
+      })
+    },
+    chooseFile(e) {
+      if (e && e.target) {
+        if (e.target.files && e.target.files.length > 0) {
+          // const files = e.target.files
+          // console.log(this.getObjectURL(files[0]))
+        }
+      }
+    },
+    getObjectURL(file) {
+      var url = null
+      if (window.createObjectURL !== undefined) {
+        // basic
+        url = window.createObjectURL(file)
+      } else if (window.URL !== undefined) {
+        // mozilla(firefox)
+        url = window.URL.createObjectURL(file)
+      } else if (window.webkitURL !== undefined) {
+        // webkit or chrome
+        url = window.webkitURL.createObjectURL(file)
+      }
+      return url
+    }
   }
 }
 </script>
@@ -107,8 +195,8 @@ html, body, #app {
   margin: 8px;
 }
 .logo_box img {
-  height: 68px;
-  width: 68px;
+  height: 68px !important;
+  width: 68px !important;
   text-align: center;
 }
 .qianm_bt {
@@ -155,6 +243,28 @@ html, body, #app {
 .sr_top {
   text-align: center;
   padding-bottom: 20px;
+}
+.button {
+  font-size: 12px;
+}
+#clipBtn {
+  font-size: 12px;
+}
+.foot-user-wrapper {
+  display: flex;
+  flex-direction: row;
+}
+#quxiao {
+  width: 100%;
+}
+.clip-btn-wrapper {
+  width: 50%;
+}
+.quxiao-wrapper {
+  width: 50%;
+}
+#clipBtn {
+  width: 100%;
 }
 </style>
 

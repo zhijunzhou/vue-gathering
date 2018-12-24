@@ -3,7 +3,8 @@ import { Toast } from 'mint-ui'
 import moment from 'moment'
 
 const service = axios.create({
-  baseURL: 'http://fenxiao.cronus.manager.sunlands/wifi/v1'
+  // baseURL: 'http://fenxiao.cronus.manager.sunlands/wifi/v1'
+  baseURL: process.env.BASE_API
 })
 
 service.interceptors.request.use(config => {
@@ -85,4 +86,20 @@ export const isEvaluated = () => {
     return true
   }
   return false
+}
+
+export const saveSign = (autograph, file) => {
+  const formData = new FormData()
+  
+  formData.append('autograph', autograph)
+  formData.append('file', file)
+
+  return service({
+    url: '/holidays/newyear/frontend/index/save-autograph',
+    method: 'post',
+    headers: {
+      'Content-Type': 'multipart/form-data'
+    },
+    data: formData
+  })
 }
