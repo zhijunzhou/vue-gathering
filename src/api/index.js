@@ -88,11 +88,10 @@ export const isEvaluated = () => {
   return false
 }
 
-export const saveSign = (autograph, file) => {
+export const saveSign = (autograph, image) => {
   const formData = new FormData()
-  
   formData.append('autograph', autograph)
-  formData.append('file', file)
+  formData.append('image', image)
 
   return service({
     url: '/holidays/newyear/frontend/index/save-autograph',

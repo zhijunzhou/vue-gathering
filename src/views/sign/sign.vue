@@ -52,10 +52,10 @@
       <div class="imgDiv"><span id="sign_show"></span></div>
 
       <div class="btnDiv">
-        <div id="sign_clear" class="qingchu">
+        <div id="sign_clear" @click="clearSign" class="qingchu">
           <img src="../../asset/letter/tu7_18.png" alt="" width="60%" />
         </div>
-        <div id="sign_ok" class="tijiao">
+        <div id="sign_ok" class="tijiao" @click="signOK">
           <img class="red-btn" src="../../asset/letter/complete-upload.png" height="40" alt="" />
         </div>
       </div>
@@ -84,11 +84,14 @@
 import $ from 'jquery'
 import '@/utils/esign'
 import PhotoClip from 'photoclip'
+import { saveSign } from '@/api'
 
 export default {
   data() {
     return {
-      cp: undefined
+      cp: undefined,
+      avatar: undefined,
+      id: undefined
     }
   },
   mounted() {
@@ -106,10 +109,24 @@ export default {
       $('.htmleaf-container').hide()
       $('.photo-clip-rotateLayer').empty()
     },
+    clearSign() {
+      console.log('清除签名')
+    },
+    signOK() {
+      const canvasEdit = document.getElementById('canvasEdit')
+      const avatar = this.avatar
+      const signData = canvasEdit.toDataURL('i/png')
+      const that = this
+      saveSign(signData, avatar).then(res => {
+        if (res && res.code === 200) {
+          that.id = res.data.id
+          that.$router.push('/share?id=' + that.id)
+        }
+      })
+    },
     completeClip(dataURL) {
       $('.htmleaf-container').hide()
       $('.logo_box').empty()
-      // console.log(this.cp.clip())
       $('.logo_box').append(
         '<img src="' +
           dataURL +
@@ -120,7 +137,7 @@ export default {
     },
     initClipArea() {
       const that = this
-      that.cp = new PhotoClip('#clipArea', {
+      new PhotoClip('#clipArea', {
         lrzOption: {
           width: 350,
           height: 350
@@ -137,8 +154,8 @@ export default {
           // $('#sign_ok').attr('onclick', 'baocun()')
         },
         done(dataURL) {
+          that.avatar = dataURL
           that.completeClip(dataURL)
-          // console.log(dataURL)
         }
       })
     },
