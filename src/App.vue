@@ -6,7 +6,7 @@
 
 <script>
 import bj1 from './asset/letter/bj1.png'
-// import bj2 from './asset/letter/bj2.png'
+import bj2 from './asset/letter/bj2.png'
 
 export default {
   name: 'app',
@@ -18,7 +18,7 @@ export default {
   },
   created() {
     if (typeof this.$route.path === 'string' && this.$route.path.indexOf('share') !== -1) {
-      this.backgroundImage = ''
+      this.backgroundImage = bj2
       this.nopadding = true
     }
   }
