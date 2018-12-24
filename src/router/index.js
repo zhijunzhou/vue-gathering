@@ -8,6 +8,7 @@ import Layout from '../views/layout/Layout'
 // import Opinion from '../views/opinion/opinion'
 import Letter from '../views/letter/letter'
 import Sign from '../views/sign/sign'
+import Share from '../views/share/share'
 
 export const constantRouterMap = [{
   path: '/',
@@ -24,6 +25,11 @@ export const constantRouterMap = [{
       path: '/sign',
       name: 'Sign',
       component: Sign
+    },
+    {
+      path: '/share',
+      name: 'Share',
+      component: Share
     }
   ]
 }]
