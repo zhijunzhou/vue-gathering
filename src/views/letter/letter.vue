@@ -24,7 +24,7 @@
             </p>
           </div>
           <div class="top_img_box top_img_box0">
-            <img src="../../asset/letter/tp1_07.png" alt="" :class="{'tptx' : nowpage === 0}" />
+            <img src="../../asset/letter/tp1_07.png" alt="" :class="{'fangda' : nowpage === 0}" />
           </div>
         </div>
       </div>
@@ -39,7 +39,7 @@
             </p>
           </div>
           <div class="top_img_box top_img_box0">
-            <img src="../../asset/letter/tu2_10.png" alt="" :class="{'tptx' : nowpage === 1}" />
+            <img src="../../asset/letter/tu2_10.png" alt="" :class="{'fangda' : nowpage === 1}" />
           </div>
         </div>
       </div>
@@ -54,7 +54,7 @@
             </p>
           </div>
           <div class="top_img_box top_img_box0">
-            <img src="../../asset/letter/tu3_2.png" alt="" :class="{'tptx' : nowpage === 2}" />
+            <img src="../../asset/letter/tu3_2.png" alt="" :class="{'fangda' : nowpage === 2}" />
           </div>
         </div>
       </div>
@@ -69,7 +69,7 @@
             </p>
           </div>
           <div class="top_img_box top_img_box0">
-            <img src="../../asset/letter/tu3-3.png" alt="" :class="{'tptx' : nowpage === 3}" />
+            <img src="../../asset/letter/tu3-3.png" alt="" :class="{'fangda' : nowpage === 3}" />
           </div>
         </div>
       </div>
@@ -84,7 +84,7 @@
             </p>
           </div>
           <div class="top_img_box top_img_box0">
-            <img src="../../asset/letter/tu3-4.png" alt="" :class="{'tptx' : nowpage === 4}" />
+            <img src="../../asset/letter/tu3-4.png" alt="" :class="{'fangda' : nowpage === 4}" />
           </div>
         </div>
       </div>
@@ -99,7 +99,7 @@
             </p>
           </div>
           <div class="top_img_box top_img_box0">
-            <img src="../../asset/letter/tu4-2.png" alt="" :class="{'tptx' : nowpage === 5}" />
+            <img src="../../asset/letter/tu4-2.png" alt="" :class="{'fangda' : nowpage === 5}" />
           </div>
         </div>
       </div>
@@ -112,7 +112,7 @@
           </div>
           <div>
             <div :class="{'last-page-image': true, 'wztx' : nowpage === 6}" v-show="nowpage === 6">
-              <img src="../../asset/letter/tu5-1.png" alt="" width="80%" :class="{'tptx' : nowpage === 6}" />
+              <img src="../../asset/letter/tu5-1.png" alt="" width="80%" :class="{'fangda' : nowpage === 6}" />
             </div>
             <div :class="{'wztx' : nowpage === 6, 'more-text': true}" v-show="nowpage === 6">
               <img src="../../asset/letter/tu5-2.png" width="80%" alt="" />
