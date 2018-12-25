@@ -70,6 +70,9 @@ export default {
   mounted() {
     const that = this
     that.playMusic()
+    $(function() {
+      $('#app').css('background', 'none')
+    })
   },
   methods: {
     hideYahei() {
