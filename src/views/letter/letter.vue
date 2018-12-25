@@ -214,14 +214,6 @@ export default {
         this.opened = true
       }, 400)
     },
-    toSign() {
-      const des = location.origin + '/#/sign'
-      if (location.href) {
-        window.location.href = des
-      } else {
-        window.location = des
-      }
-    },
     swapMusic() {
       var oAudio = document.getElementById('myaudio')
       if (oAudio.paused) {
@@ -237,8 +229,17 @@ export default {
     playMusic() {
       var audio = $('#myaudio')
       if (audio && typeof audio.play === 'function') {
+        audio.load()
         audio.play()
       }
+      document.addEventListener(
+        'WeixinJSBridgeReady',
+        function() {
+          audio.load()
+          audio.play()
+        },
+        false
+      )
     }
   }
 }
