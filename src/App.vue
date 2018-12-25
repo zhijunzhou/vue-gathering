@@ -42,7 +42,7 @@ export default {
       typeof this.$route.path === "string" &&
       this.$route.path.indexOf("share") !== -1
     ) {
-      this.backgroundImage = bj2;
+      this.backgroundImage = '';
       this.nopadding = true;
     }
     $(function() {
@@ -109,7 +109,7 @@ export default {
   top: 0;
   bottom: 0;
   background: rgba(0, 0, 0, 1);
-  z-index: 2;
+  z-index: 10000;
 }
 
 .percentage {

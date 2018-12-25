@@ -107,7 +107,14 @@ export default {
   margin-top: 60%;
 }
 .zhidao {
-    margin-top: 20%;
+  margin-top: 20%;
+}
+.img_bj {
+  height: 550px;
+  width: 100%;
+}
+#app {
+  background: rgb(246, 246, 246);
 }
 </style>
 
