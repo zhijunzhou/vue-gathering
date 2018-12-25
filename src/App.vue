@@ -32,7 +32,7 @@ export default {
         typeof this.$route.path === "string" &&
         this.$route.path.indexOf("share") !== -1
       ) {
-        this.backgroundImage = bj2;
+        // this.backgroundImage = bj2;
         this.nopadding = true;
       }
     }
@@ -42,7 +42,7 @@ export default {
       typeof this.$route.path === "string" &&
       this.$route.path.indexOf("share") !== -1
     ) {
-      this.backgroundImage = '';
+      // this.backgroundImage = '';
       this.nopadding = true;
     }
     $(function() {

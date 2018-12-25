@@ -121,6 +121,8 @@ export default {
 .share-container {
   position: relative;
   height: 100%;
+  background-image: url("../../asset/letter/bj2.png"); 
+  background-size: 100% 100%;
 }
 .yahei {
   height: 100%;
