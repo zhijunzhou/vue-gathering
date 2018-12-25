@@ -123,12 +123,14 @@ export default {
   height: 100%;
   width: 100%;
   overflow: auto;
+  background: rgb(246, 246, 246);
 }
 .share-container {
   position: relative;
   height: 100%;
   background-image: url("../../asset/letter/bj2.png"); 
   background-size: 100% 100%;
+  background: rgb(246, 246, 246);
 }
 .yahei {
   height: 100%;
