@@ -86,6 +86,7 @@ import '@/utils/esign'
 import PhotoClip from 'photoclip'
 import { saveSign } from '@/api'
 import { getOS } from '@/utils/weixin'
+import bj1 from '../../asset/letter/bj1.png'
 
 export default {
   data() {
@@ -99,6 +100,8 @@ export default {
     const that = this
     $(function() {
       $().esign('canvasEdit', 'sign_show', 'sign_clear', 'sign_ok')
+      $('#app').css('background', 'url(' + bj1 + ')')
+      $('#app').css('background-size', '100% 100%')
       that.initClipArea()
     })
     that.playMusic()

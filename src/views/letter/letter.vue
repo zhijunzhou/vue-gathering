@@ -167,6 +167,7 @@
 import $ from 'jquery'
 import 'jquery-touchswipe'
 import { getOS } from '@/utils/weixin'
+import bj1 from '../../asset/letter/bj1.png'
 
 export default {
   name: 'letter',
@@ -204,6 +205,8 @@ export default {
             .removeClass('cur')
         }
       })
+      $('#app').css('background', 'url(' + bj1 + ')')
+      $('#app').css('background-size', '100% 100%')
     })
     that.playMusic()
   },
