@@ -27,7 +27,7 @@ export const constantRouterMap = [{
       component: Sign
     },
     {
-      path: '/share',
+      path: '/share/:id',
       name: 'Share',
       component: Share
     }

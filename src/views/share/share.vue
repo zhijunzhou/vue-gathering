@@ -56,15 +56,15 @@ export default {
   },
   watch: {
     $route(to, from) {
-      if (this.$route.query.id) {
-        this.id = this.$route.query.id
+      if (this.$route.params.id) {
+        this.id = this.$route.params.id
         this.getSignPhoto()
       }
     }
   },
   created() {
-    if (this.$route.query.id) {
-      this.id = this.$route.query.id
+    if (this.$route.params.id) {
+      this.id = this.$route.params.id
       this.getSignPhoto()
     }
   },
