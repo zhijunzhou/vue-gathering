@@ -230,7 +230,7 @@ html, body, #app {
   height: 100%;
 }
 .box {
-  padding: 40px 30px;
+  padding: 40px 30px !important;
 }
 .sbct_bt {
   text-align: center;

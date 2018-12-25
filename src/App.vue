@@ -1,5 +1,5 @@
 <template>
-  <div id="app" :style="{'background-image': 'url(' + backgroundImage +')', 'background-size': '100% 100%'}" :class="{'no-padding': nopadding}">
+  <div id="app" :style="{'background-image': 'url(' + backgroundImage +')', 'background-size': '100% 100%'}">
     <div class="preloader-wrap">
       <div class="percentage" id="precent"></div>
       <div class="loader">
@@ -26,25 +26,7 @@ export default {
       nopadding: false
     };
   },
-  watch: {
-    $route(to, from) {
-      if (
-        typeof this.$route.path === "string" &&
-        this.$route.path.indexOf("share") !== -1
-      ) {
-        // this.backgroundImage = bj2;
-        this.nopadding = true;
-      }
-    }
-  },
   created() {
-    if (
-      typeof this.$route.path === "string" &&
-      this.$route.path.indexOf("share") !== -1
-    ) {
-      // this.backgroundImage = '';
-      this.nopadding = true;
-    }
     $(function() {
       var width = 100,
         perfData = window.performance.timing, // The PerformanceTiming interface represents timing-related performance information for the given page.
