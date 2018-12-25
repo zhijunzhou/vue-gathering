@@ -143,6 +143,7 @@ export default {
           width: 350,
           height: 350
         },
+        size: [200, 200],
         file: '#file',
         view: '#view',
         ok: '#clipBtn',
