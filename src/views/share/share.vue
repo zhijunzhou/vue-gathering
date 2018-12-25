@@ -18,6 +18,7 @@
         class="img_bj"
         id="2411"
       /> -->
+      <div class="blank"></div>
       <a class="yinyue" @click="swapMusic">
         <img src="../../asset/letter/yinfu.png" alt="" width="70%" />
         <img src="../../asset/letter/open.png" alt="" class="open" width="100%" />
@@ -116,11 +117,12 @@ export default {
 
 <style scoped>
 .share-wrapper {
-  position: fixed;
+  position: absolute;
   top: 0;
   left: 0;
   height: 100%;
   width: 100%;
+  overflow: auto;
 }
 .share-container {
   position: relative;
@@ -149,8 +151,12 @@ export default {
   margin-top: 20%;
 }
 .img_bj {
-  height: 550px;
+  /* height: 550px; */
   width: 100%;
+}
+.blank {
+  height: 0;
+  background: transparent;
 }
 </style>
 
