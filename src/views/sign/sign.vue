@@ -122,7 +122,8 @@ export default {
         if (res && res.code === 200) {
           that.id = res.data.id
           // that.$router.push('/share?id=' + that.id)
-          that.$router.push({ name: 'Share', params: { id: that.id }})
+          // that.$router.push({ name: 'Share', params: { id: that.id }})
+          window.location.href = window.location.origin + '/#/share/' + that.id
         }
       })
     },
