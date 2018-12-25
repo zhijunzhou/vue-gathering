@@ -86,6 +86,7 @@ export default {
           $(obj).text(current + "%");
           //obj.innerHTML = current;
           if (current == end) {
+            $('.preloader-wrap').css('z-index', '0');
             clearInterval(timer);
           }
         }, stepTime);

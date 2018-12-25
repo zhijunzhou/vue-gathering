@@ -43,6 +43,7 @@
 </template>
 
 <script>
+import $ from 'jquery'
 import { getPhoto } from '@/api'
 // import defaultPhoto from '../../asset/letter/7.png'
 
