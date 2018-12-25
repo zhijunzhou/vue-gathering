@@ -124,7 +124,7 @@ export default {
           that.id = res.data.id
           // that.$router.push('/share?id=' + that.id)
           // that.$router.push({ name: 'Share', params: { id: that.id }})
-          const url = window.location.origin + '/#/share/' + that.id
+          const url = (process.env.ORIGIN || window.location.origin) + '/#/share/' + that.id
           if (getOS() === 'iOS') {
             window.location = url
           } else {

@@ -216,7 +216,7 @@ export default {
       }, 400)
     },
     toSign() {
-      const url = window.location.origin + '/#/sign'
+      const url = (process.env.ORIGIN || window.location.origin) + '/#/sign'
       if (getOS() === 'iOS') {
         window.location = url
       } else {
