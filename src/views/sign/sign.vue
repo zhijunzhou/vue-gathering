@@ -60,7 +60,7 @@
         </div>
       </div>
     </div>
-    <a onclick="swap_music()" class="yinyue">
+    <a class="yinyue" @click="swapMusic">
       <img src="../../asset/letter/yinfu.png" alt="" width="70%" />
       <img src="../../asset/letter/open.png" alt="" class="open" width="100%" />
       <img src="../../asset/letter/close.png" alt="" class="close" width="30%" />
@@ -100,6 +100,7 @@ export default {
       $().esign('canvasEdit', 'sign_show', 'sign_clear', 'sign_ok')
       that.initClipArea()
     })
+    that.playMusic()
   },
   methods: {
     triggerSelectFile() {
@@ -168,6 +169,34 @@ export default {
           // console.log(this.getObjectURL(files[0]))
         }
       }
+    },
+    swapMusic() {
+      var oAudio = document.getElementById('myaudio')
+      if (oAudio.paused) {
+        oAudio.load()
+        oAudio.play()
+        $('.open').css('display', 'block')
+        $('.close').css('display', 'none')
+      } else {
+        oAudio.pause()
+        $('.close').css('display', 'block')
+        $('.open').css('display', 'none')
+      }
+    },
+    playMusic() {
+      var audio = $('#myaudio')
+      if (audio && typeof audio.play === 'function') {
+        audio.load()
+        audio.play()
+      }
+      document.addEventListener(
+        'WeixinJSBridgeReady',
+        function() {
+          audio.load()
+          audio.play()
+        },
+        false
+      )
     },
     getObjectURL(file) {
       var url = null

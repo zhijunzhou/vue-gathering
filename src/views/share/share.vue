@@ -21,7 +21,7 @@
       <img src="../../asset/letter/can_03.png" alt="" width="50%" />
     </div> -->
     <!-- </div> -->
-    <a onclick="swap_music()" class="yinyue">
+    <a class="yinyue" @click="swapMusic">
       <img src="../../asset/letter/yinfu.png" alt="" width="70%" />
       <img src="../../asset/letter/open.png" alt="" class="open" width="100%" />
       <img src="../../asset/letter/close.png" alt="" class="close" width="30%" />
@@ -68,6 +68,10 @@ export default {
       this.getSignPhoto()
     }
   },
+  mounted() {
+    const that = this
+    that.playMusic()
+  },
   methods: {
     hideYahei() {
       this.showYahei = false
@@ -79,6 +83,34 @@ export default {
           that.imgUrl = process.env.BASE_API + res.data.compose_img
         }
       })
+    },
+    swapMusic() {
+      var oAudio = document.getElementById('myaudio')
+      if (oAudio.paused) {
+        oAudio.load()
+        oAudio.play()
+        $('.open').css('display', 'block')
+        $('.close').css('display', 'none')
+      } else {
+        oAudio.pause()
+        $('.close').css('display', 'block')
+        $('.open').css('display', 'none')
+      }
+    },
+    playMusic() {
+      var audio = $('#myaudio')
+      if (audio && typeof audio.play === 'function') {
+        audio.load()
+        audio.play()
+      }
+      document.addEventListener(
+        'WeixinJSBridgeReady',
+        function() {
+          audio.load()
+          audio.play()
+        },
+        false
+      )
     }
   }
 }

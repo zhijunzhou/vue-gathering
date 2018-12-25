@@ -217,6 +217,7 @@ export default {
     swapMusic() {
       var oAudio = document.getElementById('myaudio')
       if (oAudio.paused) {
+        oAudio.load()
         oAudio.play()
         $('.open').css('display', 'block')
         $('.close').css('display', 'none')
