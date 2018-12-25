@@ -85,6 +85,7 @@ import $ from 'jquery'
 import '@/utils/esign'
 import PhotoClip from 'photoclip'
 import { saveSign } from '@/api'
+import { getOS } from '@/utils/weixin'
 
 export default {
   data() {
@@ -123,7 +124,12 @@ export default {
           that.id = res.data.id
           // that.$router.push('/share?id=' + that.id)
           // that.$router.push({ name: 'Share', params: { id: that.id }})
-          window.location.href = window.location.origin + '/#/share/' + that.id
+          const url = window.location.origin + '/#/share/' + that.id
+          if (getOS() === 'iOS') {
+            window.location = url
+          } else {
+            window.location.href = url
+          }
         }
       })
     },

@@ -125,9 +125,9 @@
             </div>
           </div>
           <div class="top_img_box top_img_box0">
-            <router-link :to="{path: '/sign'}">
+            <a @click="toSign">
               <div class="jiyi wztx"><img src="../../asset/letter/start2019.png" alt="" width="65%" /></div>            
-            </router-link>         
+            </a>         
           </div>
         </div>
       </div>
@@ -166,6 +166,7 @@
 <script>
 import $ from 'jquery'
 import 'jquery-touchswipe'
+import { getOS } from '@/utils/weixin'
 
 export default {
   name: 'letter',
@@ -213,6 +214,14 @@ export default {
       setTimeout(() => {
         this.opened = true
       }, 400)
+    },
+    toSign() {
+      const url = window.location.origin + '/#/sign'
+      if (getOS() === 'iOS') {
+        window.location = url
+      } else {
+        window.location.href = url
+      }
     },
     swapMusic() {
       var oAudio = document.getElementById('myaudio')
