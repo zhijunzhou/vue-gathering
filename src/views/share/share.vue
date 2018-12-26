@@ -10,7 +10,7 @@
         :src="imgUrl"
         alt=""
         class="img_bj"
-        id="2411"
+        id="shareImg1992"
       />
       <!-- <img
         src="../../asset/letter/7.png"
