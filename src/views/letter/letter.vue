@@ -134,7 +134,7 @@
     </div>
     <!-- 底部箭头 -->
     <img
-      v-show="nowpage > 0 && nowpage < 6"
+      v-show="opened && nowpage >= 0 && nowpage < 6"
       src="../../asset/letter/jiantou_03.png"
       alt=""
       class="jiantou"
