@@ -306,6 +306,8 @@ html, body, #app {
   display: flex;
   justify-content: center;
   /* padding: 20px 20px; */
+  padding-top: 20px;
+  padding-bottom: 50px;
 }
 .screen-zero .sk1_box {
   text-align: center;
