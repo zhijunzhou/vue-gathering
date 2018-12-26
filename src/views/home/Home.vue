@@ -95,7 +95,7 @@ export default {
 <style>
 #app {
   background: #eee;
-  padding: 20px 16px;
+  /* padding: 20px 16px; */
 }
 .table {
   height: 100%;

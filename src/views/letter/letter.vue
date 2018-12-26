@@ -305,7 +305,7 @@ html, body, #app {
 .screen-zero {
   display: flex;
   justify-content: center;
-  padding: 20px 20px;
+  /* padding: 20px 20px; */
 }
 .screen-zero .sk1_box {
   text-align: center;
