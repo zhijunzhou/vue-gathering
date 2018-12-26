@@ -65,6 +65,10 @@ table {
   font-size: 30px;
 }
 
+.first-page {
+  padding-top: 20px !important;
+}
+
 .tg {
   width: 32%;
   position: absolute;
@@ -85,11 +89,6 @@ table {
 .center-logo {
   margin-top: 160px;
   font-size: 16px;
-}
-
-.center-logo img {
-  width: 93px;
-  height: 45px;
 }
 
 .center-logo p {
@@ -237,6 +236,7 @@ table {
 }
 
 .top_img_box .shenzhen {
+  margin-left: -60px;
   animation: topFadeIn 1s ease-out 2s alternate forwards;
 }
 
@@ -268,42 +268,14 @@ table {
 .beijing {
   opacity: 0;
   position: absolute;
-  top: 10px;
+  top: 0px;
   left: 50px;
   animation: beijing 2s ease-in-out 3s alternate forwards;
 }
 
 @keyframes beijing {
   0% {
-    opacity: 1;
-    transform: translateY(-10%)
-  }
-  50% {
-    opacity: 0.5;
-    transform: translateY(0)
-  }
-  100% {
-    opacity: 0;
-    transform: translateY(10%);
-  }
-}
-
-.guangzhou {
-  opacity: 0;
-  position: absolute;
-  top: 100px;
-  left: 50px;
-  animation: guangzhou 2s ease-in-out 3s alternate forwards;
-}
-
-@keyframes guangzhou {
-  0% {
-    opacity: 1;
-    transform: translateY(10%);
-  }
-  50% {
-    opacity: 0.5;
-    transform: 0;
+    opacity: 0.8;
   }
   100% {
     opacity: 0;
@@ -311,11 +283,29 @@ table {
   }
 }
 
+.guangzhou {
+  opacity: 0;
+  position: absolute;
+  top: 60px;
+  left: 50px;
+  animation: guangzhou 2s ease-in-out 3s alternate forwards;
+}
+
+@keyframes guangzhou {
+  0% {
+    opacity: 0.8;
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(10%);
+  }
+}
+
 .wuhan {
   opacity: 0;
   position: absolute;
-  top: 30px;
-  left: 0;
+  top: 20px;
+  left: 20px;
   animation: wuhan 2s ease-in-out 5s alternate forwards;
 }
 
@@ -325,14 +315,11 @@ table {
     transform: scale(0.5);
   }
   75% {
-    opacity: 0.5;
-    transform: scale(1.2);
-  }
-  76% {
-    transform: rotate(10deg);
+    opacity: 1;
+    transform: scale(1);
   }
   100% {
-    opacity: 0;
+    opacity: 1;
     transform: translateX(10%);
   }
 }
@@ -340,9 +327,9 @@ table {
 .donggang {
   opacity: 0;
   position: absolute;
-  top: 30px;
-  left: 0;
-  animation: donggang 2s ease-in-out 7s alternate forwards;
+  top: 20px;
+  left: 160px;
+  animation: donggang 2s ease-in-out 5s alternate forwards;
 }
 
 @keyframes donggang {
@@ -351,14 +338,11 @@ table {
     transform: scale(0.5);
   }
   75% {
-    opacity: 0.5;
-    transform: scale(1.2);
-  }
-  76% {
-    transform: rotate(-10deg);
+    opacity: 1;
+    transform: scale(1);
   }
   100% {
-    opacity: 0;
+    opacity: 1;
     transform: translateX(-10%);
   }
 }
@@ -366,9 +350,9 @@ table {
 .zhongduan {
   opacity: 0;
   position: absolute;
-  top: 30px;
-  left: 30px;
-  animation: zhongduan 2s linear 9s alternate forwards;
+  top: 110px;
+  left: 70px;
+  animation: zhongduan 2s linear 5s alternate forwards;
 }
 
 @keyframes zhongduan {
@@ -378,6 +362,6 @@ table {
   }
   100% {
     opacity: 1;
-    transform: scale(1.2);
+    transform: scale(1.5);
   }
 }

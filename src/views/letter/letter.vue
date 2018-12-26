@@ -15,7 +15,7 @@
     <div class="container" v-show="opened">      
       <div class="page page0">
         <div class="page_box">
-          <div class="foot foot0">
+          <div class="foot foot0 first-page">
             <h2 :class="{'bttx' : nowpage === 0, 'tu1_vt': true}">
               <img src="../../asset/letter/tu1_03.png" alt="" width="70%" />
             </h2>
@@ -26,11 +26,11 @@
           <div class="top_img_box top_img_box0 big_box" v-if="nowpage === 0">
             <img src="../../asset/letter/shenzhen.png" width="60%" alt="" :class="{'fangda' : nowpage === 0, 'shenzhen': true}" />
             <img src="../../asset/letter/zongbu.png" width="85%" alt="" :class="{'wztx' : nowpage === 0, 'zongbu': true}" />
-            <img src="../../asset/letter/beijing.png" class="beijing" width="60%" />
-            <img src="../../asset/letter/guangzhou.png" class="guangzhou" width="55%" />
-            <img src="../../asset/letter/wuhan.png" class="wuhan" />
-            <img src="../../asset/letter/donggang.png" class="donggang" />
-            <img src="../../asset/letter/zhongduan.png" class="zhongduan" width="80%" />
+            <img src="../../asset/letter/zhongduan.png" class="beijing" width="40%" />
+            <img src="../../asset/letter/guangzhou.png" class="guangzhou" width="75%" />
+            <img src="../../asset/letter/wuhan.png" class="wuhan" width="35%" />
+            <img src="../../asset/letter/donggang.png" class="donggang" width="30%" />
+            <img src="../../asset/letter/beijing.png" class="zhongduan" width="50%" />
           </div>
         </div>
       </div>

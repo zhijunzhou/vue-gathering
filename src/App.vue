@@ -2,7 +2,7 @@
   <div id="app" :style="{'background-image': 'url(' + backgroundImage +')', 'background-size': '100% 100%'}">
     <div class="preloader-wrap">
       <div class="center-logo">
-        <img src="./asset/letter/logo.png" width="80%" />
+        <img src="./asset/letter/logo.png" width="20%" />
         <p>加载中<i>...</i></p>
       </div>
       <div class="percentage" id="precent" style="display: none;"></div>
