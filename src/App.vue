@@ -3,7 +3,14 @@
     <div class="preloader-wrap">
       <div class="center-logo">
         <img src="./asset/letter/logo.png" width="20%" />
-        <p>加载中<i>...</i></p>
+        <div class="loading">
+          <span>加</span>
+          <span>载</span>
+          <span>中</span>
+          <span class="dot">.</span>
+          <span class="dot">.</span>
+          <span class="dot">.</span>
+        </div>
       </div>
       <div class="percentage" id="precent" style="display: none;"></div>
       <div class="loader" style="display: none;">
