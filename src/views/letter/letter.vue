@@ -116,9 +116,9 @@
               <img src="../../asset/letter/tu5.png" alt="" width="70%" />
             </h2>
           </div>
-          <div>
+          <div style="position:relative;">
             <div :class="{'last-page-image': true, 'wztx' : nowpage === 6}" v-show="nowpage === 6">
-              <img src="../../asset/letter/tu5-1.png" alt="" width="70%" :class="{'fangda' : nowpage === 6}" />
+              <img src="../../asset/letter/tu5-1.png" alt="" width="80%" :class="{'fangda' : nowpage === 6}" />
             </div>
             <div :class="{'wztx' : nowpage === 6, 'more-text': true}" v-show="nowpage === 6">
               <img src="../../asset/letter/tu5-2.png" width="70%" alt="" />
@@ -126,7 +126,7 @@
           </div>
           <div class="top_img_box top_img_box0">
             <a @click="toSign">
-              <div class="jiyi wztx"><img src="../../asset/letter/start2019.png" alt="" width="65%" /></div>            
+              <div class="jiyi wztx"><img src="../../asset/letter/start2019.png" alt="" width="50%" /></div>            
             </a>         
           </div>
         </div>
@@ -332,10 +332,12 @@ html, body, #app {
 .last-page-image {
   text-align: center;
   position: relative;
-}
-.last-page-image {
   height: 100px;
 }
+.last-page-image img {
+  margin-top: -38px;
+}
+
 .more-text {
   margin-top: 40px;
   text-align: center;
