@@ -345,9 +345,24 @@ html, body, #app {
   height: 10px;
   display: block;
   z-index: 65535;
-  transform: translateX(10px);
+  transform: translate(10px, -5px);
   opacity: 0.6;
+  animation: jiantou 2s ease-in-out 2s infinite;
 }
+
+@keyframes jiantou {
+  0% {
+    /* transform: translateY(-5px); */
+    /* transform: translateX(10px); */
+    transform: translate(10px, -5px);
+  }
+  100% {
+    /* transform: translateY(0px); */
+    /* transform: translateX(10px); */
+    transform: translate(10px, 0);
+  }
+}
+
 .top_img_box .shenzhen {
   animation: topFadeIn 1s ease-out 2s alternate forwards;
 }
