@@ -345,6 +345,7 @@ html, body, #app {
   height: 10px;
   display: block;
   z-index: 65535;
+  transform: translateX(10px);
   opacity: 0.6;
 }
 .top_img_box .shenzhen {
