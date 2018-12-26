@@ -44,17 +44,18 @@
       //would result in an overflow.  Since we don't want that, we preventDefault.
       var disY = evt.touches[0].screenY - a;
       var img = document.getElementById('shareImg1992');
-      console.log(disY, img.y)
       if (!evt._isScroller || evt.srcElement.className === 'img_bj') {
         if (evt.srcElement.className === 'img_bj') {
           if (disY < 0) {
             return true;
           }
-          if (img.y < -1) {
-            return true;
-          }
-          if (img.y === 0) {
-            evt.preventDefault();
+          if (img) {
+            if (img.y < -1) {
+              return true;
+            }
+            if (img.y === 0) {
+              evt.preventDefault();
+            }
           }
         }
         evt.preventDefault();

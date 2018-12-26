@@ -16,11 +16,11 @@ img {
   height: 100%;
   position: relative;
   color: #333333;
-  overflow: hidden;
+  /* overflow: hidden; */
 }
 
 .page_box {
-  overflow: hidden;
+  /* overflow: hidden; */
 }
 .container .page0 {
   top: 7%;
