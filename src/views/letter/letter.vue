@@ -367,34 +367,6 @@ html, body, #app {
   }
 }
 
-.top_img_box .shenzhen {
-  animation: topFadeIn 1s ease-out 2s alternate forwards;
-}
-
-@keyframes topFadeIn {
-  0% {
-    opacity: 0.5;
-  }
-  100% {
-    opacity: 0;
-    transform: translateY(-10%);
-  }
-}
-
-.top_img_box .zongbu {
-  margin-top: -10px;
-  animation: bottomFadeIn 1s ease-out 2s alternate forwards;
-}
-
-@keyframes bottomFadeIn {
-  0% {
-    opacity: 0.5;
-  }
-  100% {
-    opacity: 0;
-    transform: translateY(10%);
-  }
-}
 .big_box {
   margin-top: -40px;
   text-align: center;
