@@ -5,8 +5,8 @@
         <img src="../../asset/letter/your2019.png" alt="" width="65%" />
       </div>
       <div class="sctx">
-        <div class="sbct_bt">
-          <img src="../../asset/letter/tu7_07.png" alt="" width="30%" />
+        <div class="sbct_bt force-pull-left">
+          <img src="../../asset/letter/tu7_07.png" alt="" width="38%" />
         </div>
         <section class="logo-license">
           <div class="half">
@@ -15,7 +15,7 @@
                 src="../../asset/letter/double7_07.png"
               />
             </div>
-            <a @click="triggerSelectFile"><img class="red-btn upload-avatar" height="40" src="../../asset/letter/upload-avatar.png" alt="" /></a>
+            <a @click="triggerSelectFile"><img class="red-btn upload-avatar" height="30" src="../../asset/letter/upload-avatar.png" alt="" /></a>
             <div style="height:0; overflow:hidden; position:absolute;">
               <input type="file" id="file" @click="chooseFile" accept="image/*" />
             </div>
@@ -41,7 +41,7 @@
         </article>
       </div>
       <div class="canvasDiv">
-        <div class="qianm_bt">
+        <div class="qianm_bt force-pull-left">
           <img src="../../asset/letter/tu7_14.png" alt="" width="60%" />
         </div>
         <div id="editing_area">
@@ -53,10 +53,10 @@
 
       <div class="btnDiv">
         <div id="sign_clear" @click="clearSign" class="qingchu">
-          <img src="../../asset/letter/tu7_18.png" alt="" width="60%" />
+          <img src="../../asset/letter/tu7_18.png" alt="" width="55%" />
         </div>
         <div id="sign_ok" class="tijiao" @click="signOK">
-          <img class="red-btn" src="../../asset/letter/complete-upload.png" height="40" alt="" />
+          <img class="red-btn" src="../../asset/letter/complete-upload.png" height="30" alt="" />
         </div>
       </div>
     </div>
@@ -258,20 +258,22 @@ html, body, #app {
   text-align: center;
 }
 .qianm_bt {
-  display: flex;
+  /* display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: center; */
   height: auto;
 }
 #editing_area {
-  width: 100%;
+  /* width: 100%; */
+  width: 200px;
   overflow: hidden;
-  border: solid 1px #dcdcdc;
+  border: solid 1px #999;
   border-radius: 8px;
   margin: 10px auto;
 }
 #canvasEdit {
-  width: 350px;
+  /* width: 350px; */
+  width: 100%;
   height: 80px;
 }
 .red-button {
@@ -323,6 +325,10 @@ html, body, #app {
 }
 #clipBtn {
   width: 100%;
+}
+.force-pull-left {
+  text-align: left !important;
+  padding-left: 30px;
 }
 </style>
 
