@@ -3,6 +3,7 @@
     <div class="preloader-wrap">
       <div class="center-logo">
         <img src="./asset/letter/logo.png" width="80%" />
+        <p>加载中<i>...</i></p>
       </div>
       <div class="percentage" id="precent" style="display: none;"></div>
       <div class="loader" style="display: none;">
@@ -94,7 +95,7 @@ export default {
   position: fixed;
   top: 0;
   bottom: 0;
-  background: rgba(0, 0, 0, 1);
+  background: rgba(255, 255, 255, 1);
   z-index: 10000;
   text-align: center;
 }
