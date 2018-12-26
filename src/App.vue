@@ -1,8 +1,11 @@
 <template>
   <div id="app" :style="{'background-image': 'url(' + backgroundImage +')', 'background-size': '100% 100%'}">
     <div class="preloader-wrap">
-      <div class="percentage" id="precent"></div>
-      <div class="loader">
+      <div class="center-logo">
+        <img src="./asset/letter/logo.png" width="80%" />
+      </div>
+      <div class="percentage" id="precent" style="display: none;"></div>
+      <div class="loader" style="display: none;">
         <div class="trackbar">
           <div class="loadbar"></div>
         </div>
@@ -93,6 +96,7 @@ export default {
   bottom: 0;
   background: rgba(0, 0, 0, 1);
   z-index: 10000;
+  text-align: center;
 }
 
 .percentage {
