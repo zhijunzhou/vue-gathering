@@ -15,6 +15,7 @@
                 src="../../asset/letter/double7_07.png"
               />
             </div>
+            <div v-if="!isAvatarValid" class="avatar-error">请上传照片</div>
             <a @click="triggerSelectFile"><img class="red-btn upload-avatar" height="30" src="../../asset/letter/upload-avatar.png" alt="" /></a>
             <div style="height:0; overflow:hidden; position:absolute;">
               <input type="file" id="file" @click="chooseFile" accept="image/*" />
@@ -93,7 +94,8 @@ export default {
     return {
       cp: undefined,
       avatar: undefined,
-      id: undefined
+      id: undefined,
+      isAvatarValid: true
     }
   },
   mounted() {
@@ -122,6 +124,12 @@ export default {
       const avatar = this.avatar
       const signData = canvasEdit.toDataURL('i/png')
       const that = this
+      if (!avatar) {
+        that.isAvatarValid = false
+        return
+      } else {
+        that.isAvatarValid = true
+      }
       saveSign(signData, avatar).then(res => {
         if (res && res.code === 200) {
           that.id = res.data.id
@@ -167,6 +175,10 @@ export default {
           // $('#sign_ok').attr('onclick', 'baocun()')
         },
         done(dataURL) {
+          console.log(dataURL)
+          if (typeof dataURL === 'string') {
+            that.isAvatarValid = true
+          }
           that.avatar = dataURL
           that.completeClip(dataURL)
         }
@@ -329,6 +341,10 @@ html, body, #app {
 .force-pull-left {
   text-align: left !important;
   padding-left: 30px;
+}
+.avatar-error {
+  font-size: 12px;
+  color: #f00;
 }
 </style>
 
