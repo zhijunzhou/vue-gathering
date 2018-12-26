@@ -126,35 +126,6 @@ table {
   }
 }
 
-.top_img_box .shenzhen {
-  animation: topFadeIn 1s ease-out 2s alternate forwards;
-}
-
-@keyframes topFadeIn {
-  0% {
-    opacity: 0.5;
-  }
-  100% {
-    opacity: 0;
-    transform: translateY(-10%);
-  }
-}
-
-.top_img_box .zongbu {
-  margin-top: -10px;
-  animation: bottomFadeIn 1s ease-out 2s alternate forwards;
-}
-
-@keyframes bottomFadeIn {
-  0% {
-    opacity: 0.5;
-  }
-  100% {
-    opacity: 0;
-    transform: translateY(10%);
-  }
-}
-
 .wztx {
   animation: fadeIn 2s ease-in-out 0s alternate forwards;
 }
@@ -264,63 +235,79 @@ table {
 .no-padding {
   padding: 0 !important;
 }
-.beijing {
-  opacity: 0;
-  position: absolute;
-  top: 30px;
-  left: 0;
-  animation: beijing 5s ease-in-out 3s alternate forwards;
+
+.top_img_box .shenzhen {
+  animation: topFadeIn 1s ease-out 2s alternate forwards;
 }
 
-@keyframes beijing {
+@keyframes topFadeIn {
   0% {
-    opacity: 0.5;
-    transform: scale(0.8);
-  }
-  25% {
-    opacity: 1;
-    transform: scale(1);
-  }
-  50% {
-    opacity: 1;
-    transform: scale(1);
-  }
-  75% {
-    transform: scale(1.5);
     opacity: 0.5;
   }
   100% {
     opacity: 0;
+    transform: translateY(-10%);
+  }
+}
+
+.top_img_box .zongbu {
+  margin-top: -10px;
+  animation: bottomFadeIn 1s ease-out 2s alternate forwards;
+}
+
+@keyframes bottomFadeIn {
+  0% {
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(10%);
+  }
+}
+
+.beijing {
+  opacity: 0;
+  position: absolute;
+  top: 10px;
+  left: 50px;
+  animation: beijing 2s ease-in-out 3s alternate forwards;
+}
+
+@keyframes beijing {
+  0% {
+    opacity: 1;
+    transform: translateY(-10%)
+  }
+  50% {
+    opacity: 0.5;
+    transform: translateY(0)
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(10%);
   }
 }
 
 .guangzhou {
   opacity: 0;
   position: absolute;
-  top: 30px;
-  left: 0;
-  animation: guangzhou 3s ease-in-out 8s alternate forwards;
+  top: 100px;
+  left: 50px;
+  animation: guangzhou 2s ease-in-out 3s alternate forwards;
 }
 
 @keyframes guangzhou {
   0% {
-    opacity: 0.5;
-    transform: scale(0.8);
-  }
-  25% {
     opacity: 1;
-    transform: scale(1);
+    transform: translateY(10%);
   }
   50% {
-    opacity: 1;
-    transform: scale(1);
-  }
-  75% {
-    transform: scale(1.5);
     opacity: 0.5;
+    transform: 0;
   }
   100% {
     opacity: 0;
+    transform: translateY(-10%);
   }
 }
 
@@ -329,29 +316,24 @@ table {
   position: absolute;
   top: 30px;
   left: 0;
-  transform: scale(1.5);
-  animation: wuhan 3s ease-in-out 11s alternate forwards;
+  animation: wuhan 2s ease-in-out 5s alternate forwards;
 }
 
 @keyframes wuhan {
   0% {
-    opacity: 0.5;
-    transform: scale(1.1);
-  }
-  25% {
     opacity: 1;
-    transform: scale(1);
-  }
-  50% {
-    opacity: 1;
-    transform: scale(1);
+    transform: scale(0.5);
   }
   75% {
-    transform: scale(1.5);
     opacity: 0.5;
+    transform: scale(1.2);
+  }
+  76% {
+    transform: rotate(10deg);
   }
   100% {
     opacity: 0;
+    transform: translateX(10%);
   }
 }
 
@@ -360,29 +342,24 @@ table {
   position: absolute;
   top: 30px;
   left: 0;
-  transform: scale(1.5);
-  animation: donggang 3s ease-in-out 14s alternate forwards;
+  animation: donggang 2s ease-in-out 7s alternate forwards;
 }
 
 @keyframes donggang {
   0% {
-    opacity: 0.5;
-    transform: scale(1.1);
-  }
-  25% {
     opacity: 1;
-    transform: scale(0.8);
-  }
-  50% {
-    opacity: 1;
-    transform: scale(0.8);
+    transform: scale(0.5);
   }
   75% {
-    transform: scale(0.4);
     opacity: 0.5;
+    transform: scale(1.2);
+  }
+  76% {
+    transform: rotate(-10deg);
   }
   100% {
     opacity: 0;
+    transform: translateX(-10%);
   }
 }
 
@@ -390,26 +367,17 @@ table {
   opacity: 0;
   position: absolute;
   top: 30px;
-  left: 0;
-  transform: scale(1.5);
-  animation: zhongduan 3s linear 17s alternate forwards;
+  left: 30px;
+  animation: zhongduan 2s linear 9s alternate forwards;
 }
 
 @keyframes zhongduan {
   0% {
-    opacity: 1;
-  }
-  10% {
-    transform: rotate(0);
-  }
-  20% {
-    transform: rotate(360deg);
-  }
-  30% {
-    transform: rotate(360deg);
+    opacity: 0.5;
+    transform: scale(0.5);
   }
   100% {
     opacity: 1;
-    transform: scale(1.1);
+    transform: scale(1.2);
   }
 }
