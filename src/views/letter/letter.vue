@@ -30,7 +30,7 @@
             <img src="../../asset/letter/guangzhou.png" class="guangzhou" />
             <img src="../../asset/letter/wuhan.png" class="wuhan" />
             <img src="../../asset/letter/donggang.png" class="donggang" />
-            <img src="../../asset/letter/zhongduan.png" class="zhongduan" />
+            <img src="../../asset/letter/zhongduan.png" class="zhongduan" width="80%" />
           </div>
         </div>
       </div>
@@ -45,7 +45,7 @@
             </p>
           </div>
           <div class="top_img_box top_img_box0">
-            <img src="../../asset/letter/tu2_10.png" alt="" :class="{'fangda' : nowpage === 1}" />
+            <img src="../../asset/letter/tu2_10.png" alt="" width="90%" :class="{'fangda' : nowpage === 1}" />
           </div>
         </div>
       </div>
@@ -60,7 +60,7 @@
             </p>
           </div>
           <div class="top_img_box top_img_box0">
-            <img src="../../asset/letter/tu3_2.png" alt="" :class="{'fangda' : nowpage === 2}" />
+            <img src="../../asset/letter/tu3_2.png" alt="" width="90%" :class="{'fangda' : nowpage === 2}" />
           </div>
         </div>
       </div>
@@ -90,7 +90,7 @@
             </p>
           </div>
           <div class="top_img_box top_img_box0">
-            <img src="../../asset/letter/tu3-4.png" alt="" :class="{'fangda' : nowpage === 4}" />
+            <img src="../../asset/letter/tu3-4.png" alt="" width="85%" :class="{'fangda' : nowpage === 4}" />
           </div>
         </div>
       </div>
@@ -105,7 +105,7 @@
             </p>
           </div>
           <div class="top_img_box top_img_box0">
-            <img src="../../asset/letter/tu4-2.png" alt="" :class="{'fangda' : nowpage === 5}" />
+            <img src="../../asset/letter/tu4-2.png" alt="" width="90%" :class="{'fangda' : nowpage === 5}" />
           </div>
         </div>
       </div>
@@ -356,7 +356,7 @@ html, body, #app {
   0% {
     /* transform: translateY(-5px); */
     /* transform: translateX(10px); */
-    transform: translate(10px, -5px);
+    transform: translate(10px, -3px);
   }
   100% {
     /* transform: translateY(0px); */
@@ -395,6 +395,7 @@ html, body, #app {
 }
 .big_box {
   margin-top: -40px;
+  text-align: center;
 }
 </style>
 
