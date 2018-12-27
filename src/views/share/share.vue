@@ -6,19 +6,19 @@
         <img src="../../asset/letter/fx.png" alt="" width="60%" class="fx_wz" />
         <img src="../../asset/letter/zhid.png" @click="hideYahei" width="30%" alt="" class="zhidao" />
       </div>
-      <img
+      <!-- <img
         :src="imgUrl"
         alt=""
         class="img_bj"
         id="shareImg1992"
-      />
-      <!-- <img
-        src="../../asset/letter/7.png"
+      /> -->
+      <img
+        src="../../asset/letter/8.png"
         alt=""
         class="img_bj"
-        id="2411"
-      /> -->
-      <div class="blank"></div>
+        id="shareImg1992"
+      />      
+      <img src="../../asset/letter/qrcode.png" class="qrcode-bottom" width="50%" />
       <a class="yinyue" @click="swapMusic">
         <img src="../../asset/letter/yinfu.png" alt="" width="70%" />
         <img src="../../asset/letter/open.png" alt="" class="open" width="100%" />
@@ -131,9 +131,13 @@ export default {
 .share-container {
   position: relative;
   height: 100%;
-  /* background: url("../../asset/letter/7b.png") repeat 0px 100px;  */
-  /* background-size: 100% 100%; */
-  background: #cecece;
+  background: url("../../asset/letter/bj2.png"); 
+  background-size: 100% 100%;
+  justify-content: center;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  /* background: #cecece; */
 }
 .yahei {
   height: 100%;
@@ -147,6 +151,9 @@ export default {
   flex-direction: column;
   align-items: center;
   /* justify-content: center; */
+}
+.qrcode-bottom {
+  margin-top: -70px;
 }
 .yahei img {
   display: block;
@@ -165,6 +172,7 @@ export default {
 .img_bj {
   /* height: 550px; */
   width: 100%;
+  /* box-shadow: 10px 10px 5px rgba(0, 0, 0, 0.8); */
 }
 .blank {
   height: 0;
