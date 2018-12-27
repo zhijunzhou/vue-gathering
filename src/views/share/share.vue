@@ -174,6 +174,7 @@ export default {
 }
 .img_bj {
   /* height: 550px; */
+  margin-top: 50px;
   width: 100%;
   /* box-shadow: 10px 10px 5px rgba(0, 0, 0, 0.8); */
 }
