@@ -2,9 +2,9 @@
   <div class="share-wrapper">
     <div class="share-container">
       <div class="yahei" v-show="showYahei">
-        <img src="../../asset/letter/line.png" alt="" width="35%" class="fx_zx" />
-        <img src="../../asset/letter/fx.png" alt="" width="70%" class="fx_wz" />
-        <img src="../../asset/letter/zhid.png" @click="hideYahei" alt="" class="zhidao" />
+        <img src="../../asset/letter/line.png" alt="" width="25%" class="fx_zx" />
+        <img src="../../asset/letter/fx.png" alt="" width="60%" class="fx_wz" />
+        <img src="../../asset/letter/zhid.png" @click="hideYahei" width="30%" alt="" class="zhidao" />
       </div>
       <img
         :src="imgUrl"
@@ -131,9 +131,9 @@ export default {
 .share-container {
   position: relative;
   height: 100%;
-  background-image: url("../../asset/letter/bj2.png"); 
-  background-size: 100% 100%;
-  background: rgb(246, 246, 246);
+  /* background: url("../../asset/letter/7b.png") repeat 0px 100px;  */
+  /* background-size: 100% 100%; */
+  background: #cecece;
 }
 .yahei {
   height: 100%;
@@ -143,6 +143,13 @@ export default {
   position: fixed;
   top: 0;
   z-index: 9999;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* justify-content: center; */
+}
+.yahei img {
+  display: block;
 }
 .fx_zx {
   position: absolute;
@@ -150,10 +157,10 @@ export default {
   right: 5%;
 }
 .fx_wz {
-  margin-top: 60%;
+  margin-top: 160px;
 }
 .zhidao {
-  margin-top: 20%;
+  margin-top: 50px;
 }
 .img_bj {
   /* height: 550px; */
