@@ -48,7 +48,7 @@ import { getPhoto } from '@/api'
 export default {
   data() {
     return {
-      showYahei: true,
+      showYahei: false,
       id: undefined,
       imgUrl: undefined
     }
@@ -83,6 +83,9 @@ export default {
       getPhoto(this.id).then(res => {
         if (res && res.code === 200) {
           that.imgUrl = process.env.BASE_API + res.data.compose_img
+          setTimeout(() => {
+            that.showYahei = true
+          }, 5000)
         }
       })
     },
