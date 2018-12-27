@@ -86,7 +86,7 @@
               <img src="../../asset/letter/tu2_03.png" alt="" width="70%" />
             </h2>
             <p :class="{'wztx' : nowpage === 4}" v-show="nowpage === 4">
-              <img src="../../asset/letter/3-3.png" alt="" width="83%" style="" />
+              <img src="../../asset/letter/3-4.png" alt="" width="83%" style="" />
             </p>
           </div>
           <div class="top_img_box top_img_box0">
