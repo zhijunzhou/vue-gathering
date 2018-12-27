@@ -1,5 +1,8 @@
 <template>
   <div class="table">
+    <div class="white-screen" v-if="!opened">
+      <div class="white-area"></div>
+    </div>
     <!-- 第一屏 -->
     <div class="screen-zero" v-if="!opened">
       <div class="sk1_box">
