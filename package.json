@@ -2,8 +2,8 @@
   "name": "vue-admin",
   "version": "3.0.0",
   "license": "MIT",
-  "description": "A vue admin template with Element UI & axios & iconfont & permission control & lint",
-  "author": "Donny <1021001390@qq.com>",
+  "description": "A vue project",
+  "author": "",
   "scripts": {
     "dev": "webpack-dev-server --inline --progress --config build/webpack.dev.conf.js",
     "start": "npm run dev",
