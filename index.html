@@ -1,27 +1,39 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css">
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
+    />
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.0.13/css/all.css"
+    />
     <title>致尚德兄弟告白信</title>
     <script>
       var _mtac = {};
       (function() {
-          var mta = document.createElement("script");
-          mta.src = "//pingjs.qq.com/h5/stats.js?v2.0.4";
-          mta.setAttribute("name", "MTAH5");
-          mta.setAttribute("sid", "500664514");
-          var s = document.getElementsByTagName("script")[0];
-          s.parentNode.insertBefore(mta, s);
+        var mta = document.createElement("script");
+        mta.src = "//pingjs.qq.com/h5/stats.js?v2.0.4";
+        mta.setAttribute("name", "MTAH5");
+        mta.setAttribute("sid", "500664514");
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(mta, s);
       })();
-      </script>
+    </script>
+    <script src="https://cdn.bootcss.com/vConsole/3.3.0/vconsole.min.js"></script>
+    <script>
+      // 初始化
+      var vConsole = new VConsole();
+      console.log('Hello world');
+    </script>
   </head>
-  
+
   <body onmousewheel="return false;">
-    <div class="scroll">
-        <div id="app"></div>
-    </div>
+    <!-- <div class="scroll"> -->
+    <div id="app"></div>
+    <!-- </div> -->
   </body>
   <script type="text/javascript">
     //禁止下拉
@@ -50,27 +62,31 @@
       });
     };
     overscroll(document.querySelector(".scroll"));
-    document.body.addEventListener("touchmove", function(evt) {
-      //In this case, the default behavior is scrolling the body, which
-      //would result in an overflow.  Since we don't want that, we preventDefault.
-      var disY = evt.touches[0].screenY - a;
-      var img = document.getElementById('shareImg1992');
-      if (!evt._isScroller || evt.srcElement.className === 'img_bj') {
-        if (evt.srcElement.className === 'img_bj') {
-          if (disY < 0) {
-            return true;
-          }
-          if (img) {
-            if (img.y < -1) {
+    document.body.addEventListener(
+      "touchmove",
+      function(evt) {
+        //In this case, the default behavior is scrolling the body, which
+        //would result in an overflow.  Since we don't want that, we preventDefault.
+        var disY = evt.touches[0].screenY - a;
+        var img = document.getElementById("shareImg1992");
+        if (!evt._isScroller || evt.srcElement.className === "img_bj") {
+          if (evt.srcElement.className === "img_bj") {
+            if (disY < 0) {
               return true;
             }
-            if (img.y === 0) {
-              evt.preventDefault();
+            if (img) {
+              if (img.y < -1) {
+                return true;
+              }
+              if (img.y === 0) {
+                evt.preventDefault();
+              }
             }
           }
+          evt.preventDefault();
         }
-        evt.preventDefault();
-      }
-    }, { passive: false });
+      },
+      { passive: false }
+    );
   </script>
 </html>

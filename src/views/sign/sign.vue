@@ -106,6 +106,10 @@ export default {
       $('#app').css('background-size', '100% 100%')
       that.initClipArea()
     })
+    const HEIGHT = $('body').height()
+    $(window).resize(function() {
+      $('#app').height(HEIGHT)
+    })
     that.playMusic()
   },
   methods: {
